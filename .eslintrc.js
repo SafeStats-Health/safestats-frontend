@@ -17,5 +17,6 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     camelcase: 'error',
     eqeqeq: 'error',
+    'import/no-anonymous-default-export': 'off',
   },
 };
