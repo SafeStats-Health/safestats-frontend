@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import './App.css';
-
-import { I18nProvider, LOCALES } from './i18n';
-
 import { BrowserRouter } from 'react-router-dom';
+import './App.css';
+import { I18nProvider, LOCALES } from './i18n';
 import Router from './router';
 
 function App() {

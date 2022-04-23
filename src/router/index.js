@@ -1,11 +1,11 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-
+import { Route, Routes } from 'react-router-dom';
+import EmailConfirm from '../pages/email_confirm';
 import Home from '../pages/home';
 import Login from '../pages/login';
-import Register from '../pages/register';
 import NotFound from '../pages/not_found';
-import EmailConfirm from '../pages/email_confirm';
+import Register from '../pages/register';
+
 
 const Router = () => {
   return (
