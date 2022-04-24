@@ -1,0 +1,49 @@
+.error {
+    position: absolute;
+    width: 398px;
+    height: 155px;
+    left: 521px;
+    top: 50px;
+
+    font-family: 'Inter Black', serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 128px;
+    line-height: 155px;
+    /* identical to box height */
+    color: #2B3F6C;
+}
+
+.text {
+    position: absolute;
+    width: 47.3rem;
+    height: 5.5rem;
+    left: 342px;
+    top: 260px;
+
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+    text-align: center;
+
+    color: #565555;
+}
+
+.doctor {
+    position: absolute;
+    width: 45.6rem;
+    height: 45.6rem;
+    left: 355px;
+    top: 130px;
+}
+
+.ellipse {
+    position: absolute;
+    width: 15.8rem;
+    height: 5.3rem;
+    left: 581px;
+    top: 785px;
+    z-index: -1;
+}
