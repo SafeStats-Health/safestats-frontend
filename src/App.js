@@ -11,7 +11,9 @@ function App() {
   const [locale, setLocale] = useState(LOCALES.PORTUGUESE);
   return (
     <I18nProvider locale={locale}>
-      <Router />
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
     </I18nProvider>
   );
 }

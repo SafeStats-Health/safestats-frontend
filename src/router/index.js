@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
-import Home from '../features/home';
-import Login from '../features/login';
-import Register from '../components/features/register';
-import NotFound from '../features/not_found';
+import Home from '../pages/home';
+import Login from '../pages/login';
+import Register from '../pages/register';
+import NotFound from '../pages/not_found';
 
 const Router = () => {
   return (
