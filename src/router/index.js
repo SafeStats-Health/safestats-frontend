@@ -1,11 +1,11 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import Home from '../features/home';
-import Login from '../features/login';
-import Register from '../features/register';
-import NotFound from '../components/features/not_found';
-import EmailConfirm from '../components/features/email_confirm';
+import Home from '../pages/home';
+import Login from '../pages/login';
+import Register from '../pages/register';
+import NotFound from '../pages/not_found';
+import EmailConfirm from '../pages/email_confirm';
 
 const Router = () => {
   return (

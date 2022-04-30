@@ -1,11 +1,11 @@
 import './style.css';
-import pose6 from '../../assets/images/pose_6.svg';
+import pose6 from '../../assets/images/pose_6.png';
 import safeStats from '../../assets/images/safe_stats.svg';
-import { CreateUser } from '../../utils/api-request/user';
+import t from '../../i18n/translate';
+import { Link } from 'react-router-dom';
+import CInput from '../../components/core/c_input'
 
-async function createUser() {
-  await new CreateUser({ requestBody: { name: 'bruno' } }).request();
-}
+function createUser() {}
 
 function Register() {
   return (
@@ -18,47 +18,38 @@ function Register() {
         <div className='register-form-div'>
           <div className='register-header'>
             <h3>
-              não tem uma conta ainda?
+              {t('DONT_HAVE_AN_ACCOUNT')}
               <br />
-              cadastre-se agora mesmo
+              {t('REGISTER_RIGHT_NOW')}
             </h3>
           </div>
           <form className='register-form'>
             <div className='register-input--div'>
-              <label className='register-input--label' for='name'>
-                nome
-              </label>
-              <input
-                className='register-input'
+              <CInput
                 id='name'
+                label={t('NAME')}
                 placeholder='ex.: joão silva'
               />
             </div>
             <div className='register-input--div'>
-              <label className='register-input--label' for='email'>
-                email
-              </label>
-              <input
-                className='register-input'
+              <CInput
                 id='email'
-                placeholder='ex.: joão@gmail.com'
+                label={t('EMAIL')}
+                placeholder='ex.: joão.silva@email.coim'
               />
             </div>
             <div className='register-input--div'>
-              <label className='register-input--label' for='email'>
-                senha
-              </label>
-              <input
-                className='register-input'
-                id='senha'
+              <CInput
+                id='password'
+                label={t('PASSWORD')}
                 placeholder='••••••••••••'
               />
             </div>
             <button className='register-button' onClick={createUser}>
-              cadastrar
+              {t('REGISTER')}
             </button>
             <p className='account-text'>
-              já possui uma conta? <a>clique aqui</a>
+              {t('ALREADY_HAVE_AN_ACCOUNT')} <Link to='/login'>{t('CLICK_HERE')}</Link>
             </p>
           </form>
         </div>
