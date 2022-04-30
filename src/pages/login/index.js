@@ -33,13 +33,14 @@ function Login() {
               />
             </div>
             <button className='auth-button'>{t('ENTER')}</button>
-            div
-            <p className='account-text'>
-              {t('FORGOT_YOUR_PASSWORD')}
-            </p>
-            <p className='account-text'>
-              {t('DONT_HAVE_AN_ACCOUNT')} <Link to='/register'>{t('CLICK_HERE')}</Link>
-            </p>
+            <div className={styles.info}>
+              <p className='account-text'>
+                {t('FORGOT_YOUR_PASSWORD')}
+              </p>
+              <p className='account-text'>
+                {t('DONT_HAVE_AN_ACCOUNT')} <Link to='/register'>{t('CLICK_HERE')}</Link>
+              </p>
+            </div>
           </form>
         </div>
       </div>
