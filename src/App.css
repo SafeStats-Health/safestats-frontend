@@ -1,13 +1,13 @@
 * {
   box-sizing: border-box;
 }
-.Register {
+.Auth {
   display: flex;
   flex-direction: row;
   height: 100vh;
 }
 
-.register-container {
+.auth-container {
   width: 50%;
   height: 100%;
   display: flex;
@@ -25,10 +25,10 @@
   .doctor-image--container {
       display: none;
   }
-  .register-container {
+  .auth-container {
       width: 100%;
   }
-  .Register {
+  .Auth {
       justify-content: center;
   }
 }
@@ -46,11 +46,11 @@
   height: 563px;
 }
 
-.register-header {
+.auth-header {
   margin-bottom: 50px;
 }
 
-.register-header h3 {
+.auth-header h3 {
   color: #565555;
   font-family: 'Inter';
   font-style: normal;
@@ -60,15 +60,15 @@
   text-align: center;
 }
 
-.register-form {
+.auth-form {
   width: 100%;
 }
 
-.register-form-div {
+.auth-form-div {
   width: 100%;
 }
 
-.register-button {
+.auth-button {
   width: 100%;
   height: 55px;
   background-color: #546E9A;

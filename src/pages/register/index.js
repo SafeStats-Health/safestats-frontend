@@ -1,4 +1,4 @@
-import './style.css';
+import styles from './styles.module.css';
 import pose6 from '../../assets/images/pose_6.png';
 import safeStats from '../../assets/images/safe_stats.svg';
 import t from '../../i18n/translate';
@@ -7,45 +7,45 @@ import CInput from '../../components/core/c_input'
 
 function createUser() {}
 
-function Register() {
+function auth() {
   return (
-    <div className='Register'>
-      <div className='register-container doctor-image--container'>
+    <div className='Auth'>
+      <div className='auth-container doctor-image--container'>
         <img className='safe-stats-logo' src={safeStats} />
         <img className='doctor-image' src={pose6} />
       </div>
-      <div className='register-container'>
-        <div className='register-form-div'>
-          <div className='register-header'>
+      <div className='auth-container'>
+        <div className='auth-form-div'>
+          <div className='auth-header'>
             <h3>
               {t('DONT_HAVE_AN_ACCOUNT')}
               <br />
               {t('REGISTER_RIGHT_NOW')}
             </h3>
           </div>
-          <form className='register-form'>
-            <div className='register-input--div'>
+          <form className='auth-form'>
+            <div className='auth-input--div'>
               <CInput
                 id='name'
                 label={t('NAME')}
                 placeholder='ex.: joão silva'
               />
             </div>
-            <div className='register-input--div'>
+            <div className='auth-input--div'>
               <CInput
                 id='email'
                 label={t('EMAIL')}
                 placeholder='ex.: joão.silva@email.coim'
               />
             </div>
-            <div className='register-input--div'>
+            <div className='auth-input--div'>
               <CInput
                 id='password'
                 label={t('PASSWORD')}
                 placeholder='••••••••••••'
               />
             </div>
-            <button className='register-button' onClick={createUser}>
+            <button className='auth-button' onClick={createUser}>
               {t('REGISTER')}
             </button>
             <p className='account-text'>
@@ -58,4 +58,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default auth;

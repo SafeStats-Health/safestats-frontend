@@ -1,7 +1,7 @@
+import styles from './styles.module.css';
 import doctor from '../../assets/images/not_found_doctor.svg';
 import ellipse from '../../assets/images/ellipse.svg';
 import t from '../../i18n/translate';
-import './style.css';
 
 export default function NotFound() {
   return (
