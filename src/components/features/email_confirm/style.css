@@ -1,0 +1,11 @@
+.text > span {
+    display: flex;
+    justify-content: center;
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+    text-align: center;
+    color: #565555;
+}
