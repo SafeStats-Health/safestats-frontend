@@ -1,7 +1,11 @@
 import './style.css';
 import pose6 from '../../assets/images/pose_6.svg';
 import safeStats from '../../assets/images/safe_stats.svg';
-import CreateUser from '../../utils/api-request/index'
+import { CreateUser } from '../../utils/api-request/user';
+
+async function createUser() {
+  await new CreateUser({ requestBody: { name: 'bruno' } }).request();
+}
 
 function Register() {
   return (
@@ -50,7 +54,9 @@ function Register() {
                 placeholder='••••••••••••'
               />
             </div>
-            <button className='register-button'>cadastrar</button>
+            <button className='register-button' onClick={createUser}>
+              cadastrar
+            </button>
             <p className='account-text'>
               já possui uma conta? <a>clique aqui</a>
             </p>

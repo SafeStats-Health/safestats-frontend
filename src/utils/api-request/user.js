@@ -1,8 +1,11 @@
-import Request from './request'
+import Request from './request';
 
 export class CreateUser {
-    path = 'post_user'
-    constructor (obj) {
-        new Request({ ...obj, path })
-    }
+  path = 'post_user';
+  constructor(obj) {
+    this.requestObj = new Request({ ...obj, path: this.path });
+  }
+  async request() {
+    await this.requestObj.request();
+  }
 }
