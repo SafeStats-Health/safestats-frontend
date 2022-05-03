@@ -1,5 +1,5 @@
-import styles from './styles.module.css';
-import doctor from '../../assets/images/not_found_doctor.svg';
+import styles from './styles.css';
+import doctor from '../../assets/images/not_found_doctor.png';
 import ellipse from '../../assets/images/ellipse.svg';
 import t from '../../i18n/translate';
 
