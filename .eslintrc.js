@@ -12,7 +12,7 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    quotes: [0, 'double'],
+    quotes: [0, 'single'],
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     camelcase: 'error',

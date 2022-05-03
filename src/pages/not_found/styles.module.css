@@ -1,0 +1,45 @@
+.error {
+    display: flex;
+    justify-content: center;
+    font-family: 'Inter Black', serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 8rem;
+    line-height: 9.6875rem;
+    color: #2B3F6C;
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 2.25rem;
+    margin: auto;
+    width: 45rem;
+    text-align: center;
+    color: #565555;
+}
+
+.img-pos-row {
+    display: flex;
+    justify-content: center;
+}
+
+.img-pos-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.doctor {
+    width: 22.0625rem;
+}
+
+.ellipse {
+    width: 15.875rem;
+    transform: translate(0, -4.9rem);
+    z-index: -1;
+}
