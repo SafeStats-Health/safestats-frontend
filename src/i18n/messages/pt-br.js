@@ -24,5 +24,6 @@ export default {
     HOSPITAL: 'hospital',
     DISTRICT: 'bairro',
     GO: 'vamos!',
+    BACK_TO_LOGIN: 'voltar ao login',
   },
 };

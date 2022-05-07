@@ -13,5 +13,6 @@ export default {
     HOSPITAL: 'hospital',
     DISTRICT: 'district',
     GO: 'go!',
+    BACK_TO_LOGIN: 'back to login',
   },
 };
