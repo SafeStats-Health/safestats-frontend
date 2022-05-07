@@ -18,5 +18,6 @@ export default {
     ERROR_MESSAGE: 'ah, não! parece que o doutor não conseguiu resolver seu problema!',
     HELLO: 'olá! tudo bem?',
     EMAIL_MESSAGE: 'enviamos um e-mail de confirmação para você!',
+    BACK_TO_LOGIN: 'voltar ao login'
   },
 };
