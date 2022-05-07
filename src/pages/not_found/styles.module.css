@@ -7,7 +7,7 @@
     font-size: 8rem;
     line-height: 9.6875rem;
     color: #2B3F6C;
-    margin-top: 4rem;
+    margin: 10.875rem 0 1rem 0;
 }
 
 .text {
@@ -36,7 +36,9 @@
 }
 
 .doctor {
+    margin-top: 3.5rem;
     width: 22.0625rem;
+    height: 28.9375rem;
 }
 
 .ellipse {
