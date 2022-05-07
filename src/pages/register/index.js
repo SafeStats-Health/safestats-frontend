@@ -3,9 +3,10 @@ import pose6 from '../../assets/images/pose_6.png';
 import safeStats from '../../assets/images/safe_stats.svg';
 import t from '../../i18n/translate';
 import { Link } from 'react-router-dom';
-import CInput from '../../components/core/c_input'
+import CInput from '../../components/core/c_input';
+// import { CreateUser } from '../../utils/api-requester/modules/user';
 
-function createUser() {}
+async function createUser() {}
 
 function auth() {
   return (
@@ -45,11 +46,12 @@ function auth() {
                 placeholder='••••••••••••'
               />
             </div>
-            <button className='auth-button' onClick={createUser}>
+            <button className='auth-button' onClick={createUser} type='button'>
               {t('REGISTER')}
             </button>
             <p className='account-text'>
-              {t('ALREADY_HAVE_AN_ACCOUNT')} <Link to='/login'>{t('CLICK_HERE')}</Link>
+              {t('ALREADY_HAVE_AN_ACCOUNT')}{' '}
+              <Link to='/login'>{t('CLICK_HERE')}</Link>
             </p>
           </form>
         </div>
