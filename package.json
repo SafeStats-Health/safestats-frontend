@@ -1,5 +1,5 @@
 {
-  "name": "safestats-app",
+  "name": "safestats-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,9 +11,11 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "d3": "^7.4.4",
+    "leaflet": "^1.8.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-intl": "^5.25.0",
+    "react-leaflet": "^4.0.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "validator": "^13.7.0",

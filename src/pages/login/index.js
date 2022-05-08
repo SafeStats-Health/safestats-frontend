@@ -57,9 +57,7 @@ function Login() {
                 onInput={setPassword}
               />
             </div>
-            <button className='auth-button' onClick={loginUser} type='button'>
-              {t('ENTER')}
-            </button>
+            <CButton label={t('ENTER')} onClick={loginUser} type='button' />
             <div className={styles.info}>
               <p className='account-text'>{t('FORGOT_YOUR_PASSWORD')}</p>
               <p className='account-text'>
