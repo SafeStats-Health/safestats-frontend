@@ -1,11 +1,66 @@
-.text > span {
-    display: flex;
-    justify-content: center;
+* {
     font-family: 'Inter', serif;
     font-style: normal;
+}
+
+.itemsPos {
+    display: flex;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+.safeStats {
+    margin: 9.3125rem 0 0 1.75rem;
+}
+
+.textPos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 21.625rem 0 0 0;
+}
+
+.hello {
     font-weight: 400;
-    font-size: 36px;
-    line-height: 44px;
+    font-size: 2.8125rem;
     text-align: center;
     color: #565555;
+    margin: 0 0 2.0625rem 7.625rem;
+}
+
+.email {
+    width: 29.125rem;
+    font-weight: 400;
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    text-align: center;
+    color: #565555;
+    margin-left: 7.625rem;
+}
+
+.doctorPos {
+    display: flex;
+    width: 100%;
+    align-content: flex-end;
+    justify-content: flex-end;
+    align-self: flex-end;
+}
+
+.doctor {
+    width: 46.25rem;
+    height: 46.6875rem;
+}
+
+.button {
+    height: 3.4375rem !important;
+    background-color: #546E9A !important;
+    border: none;
+    border-radius: 1.25rem !important;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.25rem !important;
+    color: #FBFBFB;
+    width: 29.125rem;
+    margin: 8.125rem 0 0 7.625rem !important;
+    text-transform: lowercase !important;
 }

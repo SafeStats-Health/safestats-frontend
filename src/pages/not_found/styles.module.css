@@ -7,6 +7,7 @@
     font-size: 8rem;
     line-height: 9.6875rem;
     color: #2B3F6C;
+    margin: 10.875rem 0 1rem 0;
 }
 
 .text {
@@ -23,19 +24,21 @@
     color: #565555;
 }
 
-.img-pos-row {
+.imgPosRow {
     display: flex;
     justify-content: center;
 }
 
-.img-pos-col {
+.imgPosCol {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .doctor {
+    margin-top: 3.5rem;
     width: 22.0625rem;
+    height: 28.9375rem;
 }
 
 .ellipse {
