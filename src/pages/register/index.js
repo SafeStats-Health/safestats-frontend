@@ -4,18 +4,8 @@ import safeStats from '../../assets/images/safe_stats.svg';
 import CButton from '../../components/core/c_button';
 import CInput from '../../components/core/c_input';
 import t from '../../i18n/translate';
-import { CreateUser } from '../../utils/api-requester/modules/user';
 
-async function createUser() {
-  await new CreateUser().call({
-    body: {
-      name: 'José Pereira da Silva',
-      email: 'david@gmail.com',
-      password: '123456',
-      confirmPassword: '123456',
-    },
-  });
-}
+async function createUser() {}
 
 function auth() {
   return (
