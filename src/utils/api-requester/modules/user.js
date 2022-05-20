@@ -12,3 +12,16 @@ export class CreateUser {
       }))();
   }
 }
+export class LoginUser {
+  method = 'post';
+  url = 'users/login/';
+  async call(request) {
+    return (async () =>
+      api({
+        method: 'post',
+        url: this.url,
+        data: request.body,
+        params: request.params,
+      }))();
+  }
+}

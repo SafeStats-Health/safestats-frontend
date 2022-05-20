@@ -1,12 +1,20 @@
-import styles from './styles.module.css';
+import { Link } from 'react-router-dom';
 import pose6 from '../../assets/images/pose_6.png';
 import safeStats from '../../assets/images/safe_stats.svg';
-import t from '../../i18n/translate';
-import { Link } from 'react-router-dom';
 import CInput from '../../components/core/c_input';
-// import { CreateUser } from '../../utils/api-requester/modules/user';
+import t from '../../i18n/translate';
+import { CreateUser } from '../../utils/api-requester/modules/user';
 
-async function createUser() {}
+async function createUser() {
+  await new CreateUser().call({
+    body: {
+      name: 'José Pereira da Silva',
+      email: 'david@gmail.com',
+      password: '123456',
+      confirmPassword: '123456',
+    },
+  });
+}
 
 function auth() {
   return (
