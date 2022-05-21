@@ -15,6 +15,7 @@ function CInput(props) {
         className={styles.input}
         id={props.id}
         placeholder={props.placeholder}
+        type={props.type}
         onInput={handleOnChange}
       />
     </div>
