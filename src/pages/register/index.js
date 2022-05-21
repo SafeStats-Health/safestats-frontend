@@ -43,6 +43,7 @@ function auth() {
                 id='password'
                 label={t('PASSWORD')}
                 placeholder='••••••••••••'
+                type='password'
               />
             </div>
             <CButton label={t('REGISTER')} onClick={createUser} type='button' />

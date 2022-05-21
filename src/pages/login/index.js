@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import pose5 from '../../assets/images/pose_5.png';
 import safeStats from '../../assets/images/safe_stats.svg';
+import CButton from '../../components/core/c_button';
 import CInput from '../../components/core/c_input';
 import t from '../../i18n/translate';
 import { LoginUser } from '../../utils/api-requester/modules/user';

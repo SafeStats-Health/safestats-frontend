@@ -7,6 +7,8 @@ function CButton(props) {
         className={
           props.inverse ? styles['black-button'] : styles['white-button']
         }
+        onClick={props.onClick}
+        type={props.type}
       >
         {props.label}
       </button>
