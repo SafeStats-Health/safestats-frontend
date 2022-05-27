@@ -1,20 +1,11 @@
 import { Link } from 'react-router-dom';
 import pose6 from '../../assets/images/pose_6.png';
 import safeStats from '../../assets/images/safe_stats.svg';
+import CButton from '../../components/core/c_button';
 import CInput from '../../components/core/c_input';
 import t from '../../i18n/translate';
-import { CreateUser } from '../../utils/api-requester/modules/user';
 
-async function createUser() {
-  await new CreateUser().call({
-    body: {
-      name: 'José Pereira da Silva',
-      email: 'david@gmail.com',
-      password: '123456',
-      confirmPassword: '123456',
-    },
-  });
-}
+async function createUser() {}
 
 function auth() {
   return (
@@ -52,11 +43,10 @@ function auth() {
                 id='password'
                 label={t('PASSWORD')}
                 placeholder='••••••••••••'
+                type='password'
               />
             </div>
-            <button className='auth-button' onClick={createUser} type='button'>
-              {t('REGISTER')}
-            </button>
+            <CButton label={t('REGISTER')} onClick={createUser} type='button' />
             <p className='account-text'>
               {t('ALREADY_HAVE_AN_ACCOUNT')}{' '}
               <Link to='/login'>{t('CLICK_HERE')}</Link>

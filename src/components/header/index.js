@@ -1,8 +1,5 @@
 import React from 'react';
-import './style.css';
-
-import { Link } from 'react-router-dom'
-
+import { Link } from 'react-router-dom';
 import t from '../../i18n/translate';
 
 export default function Header() {
