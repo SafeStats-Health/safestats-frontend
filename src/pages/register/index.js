@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import pose6 from '../../assets/images/pose_6.png';
 import safeStats from '../../assets/images/safe_stats.svg';
+import CButton from '../../components/core/c_button';
 import CInput from '../../components/core/c_input';
 import t from '../../i18n/translate';
-import { CreateUser } from '../../utils/api-requester/modules/user';
+
+async function createUser() {}
 
 function auth() {
   const [name, setName] = useState();

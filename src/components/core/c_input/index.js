@@ -17,10 +17,9 @@ function CInput(props) {
         {props.label}
       </label>
       <input
-        className={`
-          ${styles.input}
-          ${props.shouldShowWarning ? styles['input-error'] : styles.input}
-        `}
+        className={
+          props.inverse ? styles['white-input'] : styles['black-input']
+        }
         id={props.id}
         placeholder={props.placeholder}
         type={props.type}

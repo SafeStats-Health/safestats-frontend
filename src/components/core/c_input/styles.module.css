@@ -2,12 +2,20 @@
   margin-bottom: 15px;
 }
 
-.label {
+.black-label {
   color: #565555;
   margin-left: 10px;
 }
 
-.input {
+.white-label {
+  color: #FBFBFB;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+
+
+.black-input {
   margin-top: 5px;
   width: 100%;
   height: 55px;
@@ -31,4 +39,26 @@
 .warning-text {
   margin: 10px 0 0 10px;
   color: red;
+}
+.white-input {
+  margin-top: 5px;
+  width: 100%;
+  height: 55px;
+  border: 1px solid #FBFBFB;
+  box-sizing: border-box;
+  border-radius: 20px;
+  outline: none;
+  padding: 20px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #D7D7D7;
+  background-color: transparent;
+}
+
+.white-input::-webkit-input-placeholder {
+  color: #D7D7D7;
+  font-weight: 300;
 }

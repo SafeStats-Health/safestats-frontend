@@ -1,7 +1,7 @@
-import styles from './styles.module.css';
-import doctor from '../../assets/images/not_found_doctor.png';
 import ellipse from '../../assets/images/ellipse.svg';
+import doctor from '../../assets/images/not_found_doctor.png';
 import t from '../../i18n/translate';
+import styles from './styles.module.css';
 
 export default function NotFound() {
   return (
@@ -12,8 +12,8 @@ export default function NotFound() {
       </div>
       <div className={styles.imgPosRow}>
         <div className={styles.imgPosCol}>
-          <img className={styles.doctor} src={doctor} alt='Doctor'/>
-          <img className={styles.ellipse} src={ellipse} alt='Ellipse'/>
+          <img className={styles.doctor} src={doctor} alt='' />
+          <img className={styles.ellipse} src={ellipse} alt='' />
         </div>
       </div>
     </div>
