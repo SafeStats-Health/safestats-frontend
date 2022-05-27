@@ -8,7 +8,12 @@ function CInput(props) {
 
   return (
     <div className={styles.div}>
-      <label className={styles.label} htmlFor={props.id}>
+      <label
+        className={
+          props.inverse ? styles['white-label'] : styles['black-label']
+        }
+        htmlFor={props.id}
+      >
         {props.label}
       </label>
       <input

@@ -1,4 +1,5 @@
 import { LOCALES } from '../locales';
+
 export default {
   [LOCALES.PORTUGUESE]: {
     WELCOME_TO_SAFESTATS: 'Bem-vindo(a) ao SafeStats!',
@@ -15,9 +16,14 @@ export default {
     CLICK_HERE: 'clique aqui',
     ENTER: 'entrar',
     ERROR: 'ERRO!',
-    ERROR_MESSAGE: 'ah, não! parece que o doutor não conseguiu resolver seu problema!',
+    ERROR_MESSAGE:
+      'ah, não! parece que o doutor não conseguiu resolver seu problema!',
     HELLO: 'olá! tudo bem?',
     EMAIL_MESSAGE: 'enviamos um e-mail de confirmação para você!',
-    BACK_TO_LOGIN: 'voltar ao login'
+    BACK_TO_LOGIN: 'voltar ao login',
+    HOSPITAL: 'hospital',
+    DISTRICT: 'bairro',
+    GO: 'vamos!',
+    BACK_TO_LOGIN: 'voltar ao login',
   },
 };

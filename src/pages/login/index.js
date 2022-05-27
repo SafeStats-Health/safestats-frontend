@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import pose5 from '../../assets/images/pose_5.png';
 import safeStats from '../../assets/images/safe_stats.svg';
+import CButton from '../../components/core/c_button';
 import CInput from '../../components/core/c_input';
 import t from '../../i18n/translate';
 import { LoginUser } from '../../utils/api-requester/modules/user';
@@ -49,9 +50,7 @@ function Login() {
                 onInput={setPassword}
               />
             </div>
-            <button className='auth-button' onClick={loginUser} type='button'>
-              {t('ENTER')}
-            </button>
+            <CButton label={t('ENTER')} onClick={loginUser} type='button' />
             <div className={styles.info}>
               <p className='account-text'>{t('FORGOT_YOUR_PASSWORD')}</p>
               <p className='account-text'>
