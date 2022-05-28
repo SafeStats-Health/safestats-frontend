@@ -3,6 +3,7 @@ import styles from './styles.module.css';
 import t from '../../i18n/translate';
 import door from '../../assets/images/door.svg';
 import hamburger from '../../assets/images/hamburger.svg';
+import {Link} from "react-router-dom";
 
 export default function Drawer() {
   const [isActive, setIsActive] = useState(false);
@@ -21,19 +22,19 @@ export default function Drawer() {
           </button>
         </div>
         <div className={styles.optionsPos}>
-          <a href="">{t('PROFILE')}</a>
-          <a href="">{t('PERSONAL_DATA')}</a>
-          <a href="">{t('TRUSTWORTHY_CONTACT')}</a>
-          <a href="">{t('HEALTH_PLAN')}</a>
-          <a href="">{t('BLOOD_DONATION')}</a>
-          <a href="">{t('CHANGE_PASSWORD')}</a>
-          <a href="">{t('DELETE_ACCOUNT')}</a>
+          <Link to="">{t('PROFILE')}</Link>
+          <Link to="">{t('PERSONAL_DATA')}</Link>
+          <Link to="">{t('TRUSTWORTHY_CONTACT')}</Link>
+          <Link to="">{t('HEALTH_PLAN')}</Link>
+          <Link to="">{t('BLOOD_DONATION')}</Link>
+          <Link to="">{t('CHANGE_PASSWORD')}</Link>
+          <Link to="">{t('DELETE_ACCOUNT')}</Link>
         </div>
         <div className={styles.exit}>
-          <a href="" className={styles.exitAnchor}>
+          <Link to="" className={styles.exitAnchor}>
             <img src={door} alt="Door"/>
             <span>{t('EXIT')}</span>
-          </a>
+          </Link>
         </div>
       </div>
       <div className={isActive ? styles.hamburgerMenu : styles.none} onClick={handleClick}>
