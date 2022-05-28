@@ -21,21 +21,23 @@ export default function Drawer() {
           </button>
         </div>
         <div className={styles.optionsPos}>
-          <span>{t('PROFILE')}</span>
-          <span>{t('PERSONAL_DATA')}</span>
-          <span>{t('TRUSTWORTHY_CONTACT')}</span>
-          <span>{t('HEALTH_PLAN')}</span>
-          <span>{t('BLOOD_DONATION')}</span>
-          <span>{t('CHANGE_PASSWORD')}</span>
-          <span>{t('DELETE_ACCOUNT')}</span>
+          <a href="">{t('PROFILE')}</a>
+          <a href="">{t('PERSONAL_DATA')}</a>
+          <a href="">{t('TRUSTWORTHY_CONTACT')}</a>
+          <a href="">{t('HEALTH_PLAN')}</a>
+          <a href="">{t('BLOOD_DONATION')}</a>
+          <a href="">{t('CHANGE_PASSWORD')}</a>
+          <a href="">{t('DELETE_ACCOUNT')}</a>
         </div>
         <div className={styles.exit}>
-          <img src={door} alt="door"/>
-          <span>{t('EXIT')}</span>
+          <a href="" className={styles.exitAnchor}>
+            <img src={door} alt="Door"/>
+            <span>{t('EXIT')}</span>
+          </a>
         </div>
       </div>
       <div className={isActive ? styles.hamburgerMenu : styles.none} onClick={handleClick}>
-        <img src={hamburger} alt="hamburger"/>
+        <img src={hamburger} alt="Hamburger"/>
         <span className={styles.menu}>{t('MENU')}</span>
       </div>
     </div>
