@@ -3,22 +3,38 @@
     flex-direction: column;
     background-color: #2B3F6C;
     color: #ffffff;
-    max-width: 20rem;
+    max-width: 21.9375rem;
     height: 100vh;
 }
 
-.x {
+.none {
+    display: none;
+}
+
+.xPos {
     display: flex;
     justify-content: end;
     margin: 2.3125rem 1.8125rem 0 0;
+
+}
+
+.xButton {
+    font-size: 1.25rem;
     font-weight: 700;
+    color: white;
+    background-color: transparent;
+    border: transparent;
+}
+
+.xButton:hover {
+    cursor: pointer;
 }
 
 .optionsPos {
     display: flex;
     flex-direction: column;
+    font-size: 1.5625rem;
     margin: 5.125rem 0 0 3.4375rem;
-    align-items: space-between;
 }
 
 .optionsPos > span {
@@ -27,12 +43,53 @@
 
 .exit {
     display: flex;
+    font-size: 1.5625rem;
+    height: 100%;
     align-items: center;
-    margin: 0rem 0 0 3.4375rem;
+    margin: 15rem 0 0 3.4375rem;
 }
 
 .exit > img {
     margin-right: 1.125rem;
 }
 
-/*margin: 21.9375rem 0 0 3.4375rem;*/
+.hamburgerMenu {
+    display: flex;
+    align-content: center;
+    width: 7rem;
+    margin: 4.5rem 0 0 3.416rem;
+}
+
+.hamburgerMenu:hover {
+    cursor: pointer;
+}
+
+.menu {
+    font-size: 1.5625rem;
+    color: #2B3F6C;
+    margin-left: 1rem;
+}
+
+@media screen and (max-height: 864px) {
+    .optionsPos {
+        font-size: 1.5625rem;
+        margin: 2rem 0 0 3.4375rem;
+    }
+
+    .exit {
+        font-size: 1.5625rem;
+        margin: 8rem 0 0 3.4375rem;
+    }
+}
+
+@media screen and (max-height: 720px) {
+    .optionsPos {
+        font-size: 1.2rem;
+        margin: 2rem 0 0 3.4375rem;
+    }
+
+    .exit {
+        font-size: 1.2rem;
+        margin: 2rem 0 0 3.4375rem;
+    }
+}

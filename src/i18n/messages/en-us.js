@@ -20,6 +20,7 @@ export default {
     BLOOD_DONATION: 'blood donation',
     CHANGE_PASSWORD: 'change password',
     DELETE_ACCOUNT: 'delete account',
-    EXIT: 'exit'
+    EXIT: 'exit',
+    MENU: 'menu'
   },
 };

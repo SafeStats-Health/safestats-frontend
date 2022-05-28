@@ -31,6 +31,7 @@ export default {
     BLOOD_DONATION: 'doação de sangue',
     CHANGE_PASSWORD: 'alterar senha',
     DELETE_ACCOUNT: 'deletar conta',
-    EXIT: 'sair'
+    EXIT: 'sair',
+    MENU: 'menu'
   },
 };
