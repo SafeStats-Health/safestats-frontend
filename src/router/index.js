@@ -6,6 +6,7 @@ import Login from '../pages/login';
 import Map from '../pages/map';
 import NotFound from '../pages/not_found';
 import Register from '../pages/register';
+import UserProfile from '../pages/user_profile';
 
 const Router = () => {
   return (
@@ -15,6 +16,7 @@ const Router = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/email_confirm' element={<EmailConfirm />} />
+        <Route path='/user_profile' element={<UserProfile />} />
         <Route path='/map' element={<Map />} />
         <Route path='*' element={<NotFound />} />
       </Routes>

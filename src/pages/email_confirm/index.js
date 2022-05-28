@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Button from '@mui/material/Button';
 import styles from './styles.module.css';
 import t from '../../i18n/translate';

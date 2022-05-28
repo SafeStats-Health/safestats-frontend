@@ -1,0 +1,38 @@
+.drawerPos {
+    display: flex;
+    flex-direction: column;
+    background-color: #2B3F6C;
+    color: #ffffff;
+    max-width: 20rem;
+    height: 100vh;
+}
+
+.x {
+    display: flex;
+    justify-content: end;
+    margin: 2.3125rem 1.8125rem 0 0;
+    font-weight: 700;
+}
+
+.optionsPos {
+    display: flex;
+    flex-direction: column;
+    margin: 5.125rem 0 0 3.4375rem;
+    align-items: space-between;
+}
+
+.optionsPos > span {
+    margin-bottom: 2.5rem;
+}
+
+.exit {
+    display: flex;
+    align-items: center;
+    margin: 0rem 0 0 3.4375rem;
+}
+
+.exit > img {
+    margin-right: 1.125rem;
+}
+
+/*margin: 21.9375rem 0 0 3.4375rem;*/
