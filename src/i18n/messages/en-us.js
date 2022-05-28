@@ -21,6 +21,7 @@ export default {
     CHANGE_PASSWORD: 'change password',
     DELETE_ACCOUNT: 'delete account',
     EXIT: 'exit',
-    MENU: 'menu'
+    MENU: 'menu',
+    SUMMARY_TITLE: 'summary about this user',
   },
 };

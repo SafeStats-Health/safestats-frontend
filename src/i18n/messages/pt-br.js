@@ -32,6 +32,7 @@ export default {
     CHANGE_PASSWORD: 'alterar senha',
     DELETE_ACCOUNT: 'deletar conta',
     EXIT: 'sair',
-    MENU: 'menu'
+    MENU: 'menu',
+    SUMMARY_TITLE: 'resumo sobre este usuário',
   },
 };
