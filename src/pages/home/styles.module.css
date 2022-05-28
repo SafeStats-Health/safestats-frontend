@@ -1,3 +1,36 @@
+.home {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.home-container {
+  width: calc(100% - 180px)
+}
+
+.top-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #a7bedf;
+}
+
+.ellipse {
+  width: 120vw;
+  height: 30vh;
+  border-radius: 50%;
+  background-color: tomato;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bottom-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: white;
+}
+
 .header {
   width: 100%;
   height: 100px;
@@ -6,16 +39,10 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px 0 20px;
-}
-
-.main {
-  background-color: #a7bedf;
 }
 
 .img-safe-stats {
   height: 30%;
-  padding-left: 50px;
 }
 
 .links {
@@ -36,17 +63,80 @@
 .img-user {
   height: 20px;
 }
+
+.main-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+.main-text {
+  color: white;
+  height: 400px;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 64px;
+  font-weight: 800;
+}
+
+.paragraph {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.main-image {
+  position: relative;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
 .img-ome {
+  width: 80%;
 }
 .img-hologram {
+  width: 100%;
+  margin-top: -30%;
 }
+
+.section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-card-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-card {
+  width: 200px;
+  height: 350px;
+}
+
 .img-microscope-closeup {
+  width: 20vw;
 }
 .img-doctor-stethoscope {
+  width: 20vw;
 }
 .img-microscope {
+  width: 150px;
 }
 .img-case {
+  width: 150px;
 }
 .img-stethoscope {
+  width: 150px;
 }
