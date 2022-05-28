@@ -1,12 +1,11 @@
-import { LOCALES } from '../locales';
+import {LOCALES} from '../locales';
 
 export default {
   [LOCALES.ENGLISH]: {
     WELCOME_TO_SAFESTATS: 'Welcome to SafeStats!',
     CHANGE_LANGUAGE: 'Change language',
     ERROR: 'ERROR!',
-    ERROR_MESSAGE:
-      "oh, no! it looks like the doctor couldn't handle the problem!",
+    ERROR_MESSAGE: 'oh, no! it looks like the doctor couldn\'t handle the problem!',
     HELLO: 'hello! how are you?',
     EMAIL_MESSAGE: 'we have sent a confirmation email to you!',
     BACK_TO_LOGIN: 'back to login',
@@ -29,5 +28,14 @@ export default {
     MATH_DESC:
       "Actions aimed at caring for health conditions at all stages of life. That's MATH: specific programs to promote the comfort, safety and well-being of SafeStats customers.",
     REGISTER_YOURSELF: 'register',
+    X: 'X',
+    PROFILE: 'profile',
+    PERSONAL_DATA: 'personal data',
+    TRUSTWORTHY_CONTACT: 'trustworthy contact',
+    HEALTH_PLAN: 'health plan',
+    BLOOD_DONATION: 'blood donation',
+    CHANGE_PASSWORD: 'change password',
+    DELETE_ACCOUNT: 'delete account',
+    EXIT: 'exit'
   },
 };

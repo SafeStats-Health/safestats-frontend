@@ -64,3 +64,17 @@
     margin: 8.125rem 0 0 7.625rem !important;
     text-transform: lowercase !important;
 }
+
+@media screen and (max-height: 720px) {
+    .textPos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 15.1375rem 0 0 0;
+    }
+
+    .doctor {
+        width: 32.375rem;
+        height: 32.375rem;
+    }
+}
