@@ -1,5 +1,5 @@
 .div {
-  margin-bottom: 40px;
+  margin-bottom: 15px;
 }
 
 .label {
@@ -22,4 +22,13 @@
   font-size: 16px;
   line-height: 19px;
   color: #5e5e5e;
+}
+
+.input-error {
+  border: 1px solid red;
+}
+
+.warning-text {
+  margin: 10px 0 0 10px;
+  color: red;
 }

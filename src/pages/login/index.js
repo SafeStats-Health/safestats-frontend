@@ -1,4 +1,3 @@
-import bcrypt from 'bcryptjs';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import pose5 from '../../assets/images/pose_5.png';
@@ -13,19 +12,12 @@ function Login() {
   const [password, setPassword] = useState();
 
   async function loginUser() {
-    const hashedPassword = await bcrypt.hash(password, 10);
-    console.log(email, hashedPassword);
-    try {
-      const user = await new LoginUser().call({
-        body: {
-          email: email,
-          password: hashedPassword,
-        },
-      });
-      console.log(user);
-    } catch (e) {
-      console.log(e);
-    }
+    return await new LoginUser().call({
+      body: {
+        email: email,
+        password: password,
+      },
+    });
   }
 
   return (

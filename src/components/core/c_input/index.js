@@ -12,12 +12,20 @@ function CInput(props) {
         {props.label}
       </label>
       <input
-        className={styles.input}
+        className={`
+          ${styles.input}
+          ${props.shouldShowWarning ? styles['input-error'] : styles.input}
+        `}
         id={props.id}
         placeholder={props.placeholder}
         type={props.type}
         onInput={handleOnChange}
       />
+      {props.shouldShowWarning && (
+        <p className={styles['warning-text']} htmlFor={props.id}>
+          {props.warningText}
+        </p>
+      )}
     </div>
   );
 }

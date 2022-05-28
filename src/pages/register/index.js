@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import pose6 from '../../assets/images/pose_6.png';
 import safeStats from '../../assets/images/safe_stats.svg';
@@ -5,18 +6,58 @@ import CInput from '../../components/core/c_input';
 import t from '../../i18n/translate';
 import { CreateUser } from '../../utils/api-requester/modules/user';
 
-async function createUser() {
-  await new CreateUser().call({
-    body: {
-      name: 'José Pereira da Silva',
-      email: 'david@gmail.com',
-      password: '123456',
-      confirmPassword: '123456',
-    },
-  });
-}
-
 function auth() {
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [confirmPassword, setConfirmPassword] = useState();
+  const [allFieldsAreValid, setAllFieldsAreValid] = useState(false);
+  const [
+    shouldShowPasswordsDontMatchWarning,
+    setShouldShowPasswordsDontMatchWarning,
+  ] = useState();
+
+  useEffect(checkIfAllFieldsAreValid, [
+    name,
+    email,
+    password,
+    confirmPassword,
+    shouldShowPasswordsDontMatchWarning,
+  ]);
+  useEffect(checkIfPasswordsMatch, [password, confirmPassword]);
+
+  function checkIfAllFieldsAreValid() {
+    const validations = [shouldShowPasswordsDontMatchWarning];
+    const fields = [name, email, password, confirmPassword];
+    const allFieldsAreFilled = fields.every((field) => field && field !== '');
+    const allFieldsAreValidF = validations.every((field) => !field);
+    console.log(validations);
+    setAllFieldsAreValid(allFieldsAreFilled && allFieldsAreValidF);
+  }
+
+  function checkIfPasswordsMatch() {
+    if (
+      password &&
+      password !== '' &&
+      confirmPassword &&
+      confirmPassword !== ''
+    ) {
+      setShouldShowPasswordsDontMatchWarning(password !== confirmPassword);
+    } else {
+      setShouldShowPasswordsDontMatchWarning(false);
+    }
+  }
+
+  async function createUser() {
+    await new CreateUser().call({
+      body: {
+        name,
+        email,
+        password,
+        confirmPassword,
+      },
+    });
+  }
   return (
     <div className='Auth'>
       <div className='auth-container doctor-image--container'>
@@ -38,13 +79,15 @@ function auth() {
                 id='name'
                 label={t('NAME')}
                 placeholder='ex.: joão silva'
+                onInput={setName}
               />
             </div>
             <div className='auth-input--div'>
               <CInput
                 id='email'
                 label={t('EMAIL')}
-                placeholder='ex.: joão.silva@email.coim'
+                placeholder='ex.: joão.silva@email.com'
+                onInput={setEmail}
               />
             </div>
             <div className='auth-input--div'>
@@ -52,9 +95,28 @@ function auth() {
                 id='password'
                 label={t('PASSWORD')}
                 placeholder='••••••••••••'
+                shouldShowWarning={shouldShowPasswordsDontMatchWarning}
+                onInput={setPassword}
               />
             </div>
-            <button className='auth-button' onClick={createUser} type='button'>
+            <div className='auth-input--div'>
+              <CInput
+                id='confirm-password'
+                label={t('CONFIRM_PASSWORD')}
+                placeholder='••••••••••••'
+                shouldShowWarning={shouldShowPasswordsDontMatchWarning}
+                warningText={t('PASSWORDS_DONT_MATCH')}
+                onInput={setConfirmPassword}
+              />
+            </div>
+            <button
+              className={`
+              auth-button
+              ${!allFieldsAreValid ? 'disabled-button' : 'auth-button'}
+            `}
+              onClick={createUser}
+              type='button'
+            >
               {t('REGISTER')}
             </button>
             <p className='account-text'>
