@@ -1,48 +1,82 @@
 .error {
-  display: flex;
-  justify-content: center;
-  font-family: 'Inter Black', serif;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 8rem;
-  line-height: 9.6875rem;
-  color: #2b3f6c;
-  margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    font-family: 'Inter Black', serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 8rem;
+    line-height: 9.6875rem;
+    color: #2B3F6C;
+    margin: 4rem 0 1rem 0;
 }
 
 .text {
-  display: flex;
-  justify-content: center;
-  font-family: 'Inter', serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 2rem;
-  line-height: 2.25rem;
-  margin: auto;
-  width: 45rem;
-  text-align: center;
-  color: #565555;
+    display: flex;
+    justify-content: center;
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 2.25rem;
+    margin: auto;
+    width: 45rem;
+    text-align: center;
+    color: #565555;
 }
 
 .imgPosRow {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .imgPosCol {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .doctor {
-  margin-top: 3.5rem;
-  width: 22.0625rem;
-  height: 28.9375rem;
+    margin-top: 3.5rem;
+    width: 22.0625rem;
+    height: 28.9375rem;
 }
 
 .ellipse {
-  width: 15.875rem;
-  transform: translate(0, -4.9rem);
-  z-index: -1;
+    width: 15.875rem;
+    transform: translate(0, -4.9rem);
+    z-index: -1;
+}
+
+
+@media screen and (max-height: 864px) {
+    .error {
+        font-size: 8rem;
+        margin: 1rem 0 1rem 0;
+    }
+
+
+}
+
+@media screen and (max-height: 720px) {
+    .error {
+        font-size: 6rem;
+        margin: 1rem 0 1rem 0;
+    }
+
+    .text {
+        font-size: 1.50rem;
+        width: 35rem;
+    }
+
+    .doctor {
+        margin-top: 3.5rem;
+        width: 17rem;
+        height: 20.57rem;
+    }
+
+    .ellipse {
+        width: 11.232rem;
+        transform: translate(0, -3.4rem);
+        z-index: -1;
+    }
 }
