@@ -5,7 +5,7 @@ import Hologram from '../../assets/images/home/hologram.png';
 import Microscope from '../../assets/images/home/microscope.png';
 import MicroscopeCloseup from '../../assets/images/home/microscope_closeup.png';
 import Ome from '../../assets/images/home/ome.png';
-import SafeStats from '../../assets/images/home/safe_stats.png';
+import SafeStats from '../../assets/images/home/safe_stats_alt.png';
 import Stethoscope from '../../assets/images/home/stethoscope.png';
 import User from '../../assets/images/home/user.png';
 import t from '../../i18n/translate';
@@ -15,8 +15,8 @@ import CButton from '../../components/core/c_button'
 function Home() {
   return (
     <div className={styles.home}>
-      <div className={styles.ellipse} />
       <div className={styles['top-section']}>
+        <div className={styles.ellipse} />
         <div className={styles['home-container']}>
           <div className={styles.header}>
             <img className={styles['img-safe-stats']} src={SafeStats} />
@@ -35,12 +35,14 @@ function Home() {
           </div>
           <div className={styles['main-info']}>
             <div className={styles['main-text']}>
-              <span className={styles.title}>{t('TECH_FOR_THE_HEALTH')}</span>
+              <span className={styles['main-title']}>{t('TECH_FOR_THE_HEALTH')}</span>
               <div>
-                <span className={styles.paragraph}>{t('DO_YOU_WANT_SAFESTATS')}</span>
-                <span className={styles.paragraph}>{t('REGISTER_ITS_FREE')}</span>
+                <span className={styles['main-paragraph']}>{t('DO_YOU_WANT_SAFESTATS')}</span>
+                <span className={styles['main-paragraph']}>{t('REGISTER_ITS_FREE')}</span>
               </div>
-              <CButton label={t('REGISTER_YOURSELF')} />
+              <div className={styles['button']} style={{minWidth: '50%'}}>
+                <CButton label={t('REGISTER_YOURSELF')} backgroundColor="#003A95" />
+              </div>
             </div>
             <div className={styles['main-image']}>
               <img className={styles['img-ome']} src={Ome} />
@@ -53,42 +55,40 @@ function Home() {
         <div className={styles['home-container']}>
           <div className={styles.section}>
             <img
-              className={styles['img-microscope-closeup']}
+              className={styles['section-image']}
               src={MicroscopeCloseup}
             />
-            <div>
-              <span>{t('SAFESTATS_CLUB')}</span>
-              <span>{t('ONLINE_DISCOUNTS')}</span>
-              <span>{t('SAFESTATS_CLUB_DESC')}</span>
+            <div className={styles['section-text']}>
+              <span className={styles['section-title']}>{t('SAFESTATS_CLUB')} • {t('ONLINE_DISCOUNTS')}</span>
+              <span className={styles['section-paragraph']}>{t('SAFESTATS_CLUB_DESC')}</span>
             </div>
           </div>
           <div className={styles.section}>
-            <div>
-              <span>{t('MATH')}</span>
-              <span>{t('MORE_ATTENTION_TO_HEALTH')}</span>
-              <span>{t('MATH_DESC')}</span>
+            <div className={styles['section-text']}>
+              <span className={styles['section-title']}>{t('MATH')} • {t('MORE_ATTENTION_TO_HEALTH')}</span>
+              <span className={styles['section-paragraph']}>{t('MATH_DESC')}</span>
             </div>
             <img
-              className={styles['img-doctor-stethoscope']}
+              className={styles['section-image']}
               src={DoctorStethoscope}
             />
           </div>
-          <CButton label={t('REGISTER_YOURSELF')} />
-          <div className={styles['info-card-group']}>
-            <div className={styles['info-card']}>
-              <img className={styles['img-microscope']} src={Microscope} />
-              <span>{t('TEXT_MICROSCOPE')}</span>
+          <div className={styles['button']}><CButton label={t('REGISTER_YOURSELF')} backgroundColor="#003A95" /></div>
+          <div className={styles['card-group']}>
+            <div className={`${styles['card']} ${styles['card-blue']}`}>
+              <img className={styles['card-image']} src={Microscope} />
+              <span className={styles['card-text']}>{t('TEXT_MICROSCOPE')}</span>
             </div>
-            <div className={styles['info-card']}>
-              <img className={styles['img-case']} src={Case} />
-              <span>{t('TEXT_CASE')}</span>
+            <div className={`${styles['card']} ${styles['card-white']}`}>
+              <img className={styles['card-image']} src={Case} />
+              <span className={styles['card-text']}>{t('TEXT_CASE')}</span>
             </div>
-            <div className={styles['info-card']}>
-              <img className={styles['img-stethoscope']} src={Stethoscope} />
-              <span>{t('TEXT_STETHOSCOPE')}</span>
+            <div className={`${styles['card']} ${styles['card-blue']}`}>
+              <img className={styles['card-image']} src={Stethoscope} />
+              <span className={styles['card-text']}>{t('TEXT_STETHOSCOPE')}</span>
             </div>
           </div>
-          <CButton label={t('REGISTER_YOURSELF')} />
+          <div className={styles['button']}><CButton label={t('REGISTER_YOURSELF')} backgroundColor="#003A95" /></div>
         </div>
       </div>
     </div>
