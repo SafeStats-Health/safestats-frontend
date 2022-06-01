@@ -66,5 +66,9 @@ export default {
     NEW_PASSWORD: 'nova senha',
     REPEAT_YOUR_PASSWORD: 'repita a sua senha',
     CHANGE_PASSWORD: 'alterar senha',
+    TEXT_MICROSCOPE: 'exames, consultas e tudo que você precisa em um só lugar! faça seu cadastro agora mesmo! o melhor atendimento. fácil e rápido!',
+    TEXT_CASE: 'a medicina nunca esteve tão tecnológica. os melhores médicos e melhores hospitais na palma da sua mão. cuidar da sua saúde nunca esteve tão fácil!',
+    TEXT_STETHOSCOPE: 'encontre o hospital certo para você com apenas um clique. você sendo atendido pelos melhores médicos da região com extrema facilidade.',
+    REGISTER_YOURSELF: 'cadastre-se',
   },
 };
