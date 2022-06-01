@@ -1,0 +1,9 @@
+.home {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.home-container {
+  width: calc(100% - 20vw);
+  margin: auto;
+}

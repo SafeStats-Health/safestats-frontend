@@ -13,12 +13,17 @@ function Login() {
   const [password, setPassword] = useState();
 
   async function loginUser() {
-    return await new LoginUser().call({
-      body: {
-        email: email,
-        password: password,
-      },
-    });
+    try {
+      const user = await new LoginUser().call({
+        body: {
+          email: email,
+          password: password,
+        },
+      });
+      console.log(user);
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   return (
