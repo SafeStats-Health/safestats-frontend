@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import AboutUs from '../pages/about_us';
+import Contact from '../pages/contact';
 import EmailConfirm from '../pages/email_confirm';
 import Home from '../pages/home';
 import Login from '../pages/login';
 import Map from '../pages/map';
 import NotFound from '../pages/not_found';
 import Register from '../pages/register';
-import AboutUs from '../pages/about_us';
-import Contact from '../pages/contact';
 import UserProfile from '../pages/user_profile';
 
 const Router = () => {
