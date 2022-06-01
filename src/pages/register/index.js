@@ -5,7 +5,9 @@ import CButton from '../../components/core/c_button';
 import CInput from '../../components/core/c_input';
 import t from '../../i18n/translate';
 
-async function createUser() {}
+async function createUser() {
+  
+}
 
 function auth() {
   return (
