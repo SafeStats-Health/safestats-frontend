@@ -14,12 +14,12 @@ export default function UserProfile() {
       <div className={styles.userProfilePos}>
         <div className={styles.userProfile}>
           <img className={styles.dummyImg} src={dummyImg} alt="Dummy Img"/>
-          <span className={styles.userName}>Lorem Ipsum is simply dummy text</span>
+          <span className={styles.userName}>Lorem Ipsum</span>
           <span className={styles.summaryTitle}>{t('SUMMARY_TITLE')}</span>
           <span className={styles.summary}>Lorem Ipsum is simply dummy text</span>
         </div>
         <div className={styles.safeStats}>
-          <img src={safeStats} alt="Safe Stats"/>
+          <img className={styles.safeStatsImg} src={safeStats} alt="Safe Stats"/>
         </div>
       </div>
 

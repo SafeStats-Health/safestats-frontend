@@ -48,14 +48,7 @@
 }
 
 
-@media screen and (max-width: 1536px) and (max-height: 864px) {
-    .error {
-        font-size: 8rem;
-        margin: 1rem 0 1rem 0;
-    }
-}
-
-@media screen and (max-width: 1366px) and (max-height: 768px) {
+@media screen and (max-width: 1400px) {
     .error {
         font-size: 6rem;
         margin: 1rem 0 1rem 0;
@@ -68,8 +61,32 @@
 
     .doctor {
         margin-top: 3.5rem;
-        width: 17rem;
-        height: 20.57rem;
+        width: 15rem;
+        height: 18.57rem;
+    }
+
+    .ellipse {
+        width: 11.232rem;
+        transform: translate(0, -3.4rem);
+        z-index: -1;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .error {
+        font-size: 6rem;
+        margin: 1rem 0 1rem 0;
+    }
+
+    .text {
+        font-size: 1.50rem;
+        width: 35rem;
+    }
+
+    .doctor {
+        margin-top: 3.5rem;
+        width: 15rem;
+        height: 18.57rem;
     }
 
     .ellipse {
