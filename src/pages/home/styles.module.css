@@ -1,16 +1,17 @@
 .home {
-  width: 100vw;
   overflow-x: hidden;
+  position: relative;
 }
 
 .home-container {
-  width: calc(100% - 20vw)
+  width: 80vw;
 }
 
 .top-section {
   display: flex;
   justify-content: center;
   height: 40vw;
+  width: 100%;
   flex-wrap: wrap;
   background-color: #a7bedf;
   position: relative;
@@ -139,13 +140,13 @@
 .section-title {
   font-size: 36px;
   font-weight: 700;
-  color: #2B3F6C;
+  color: #2b3f6c;
 }
 
 .section-paragraph {
   font-size: 26px;
   font-weight: 500;
-  color:#565555;
+  color: #565555;
 }
 
 .section-image {
@@ -195,13 +196,13 @@
 }
 
 .card-blue {
-  background-color: #2B3F6C;
-  color: #F6F6F6;
+  background-color: #2b3f6c;
+  color: #f6f6f6;
 }
 
 .card-white {
-  background-color: #F6F6F6;
-  color: #2B3F6C;
+  background-color: #f6f6f6;
+  color: #2b3f6c;
 }
 
 .card-text {
@@ -214,7 +215,6 @@
 }
 
 @media only screen and (max-width: 1250px) {
-
   .card-group {
     height: auto;
     display: flex;
@@ -243,13 +243,12 @@
 }
 
 @media only screen and (max-width: 900px) {
-  
   .section:nth-child(1) {
     flex-direction: column;
   }
 
   .section:nth-child(2) {
-    flex-direction: column-reverse
+    flex-direction: column-reverse;
   }
 
   .section-image {
@@ -258,14 +257,11 @@
 
   .section-text {
     text-align: center;
-    width: 80%
+    width: 80%;
   }
-
 }
 
-
 @media only screen and (max-width: 500px) {
-
   .links {
     flex-direction: column;
     align-items: flex-end;
@@ -276,20 +272,20 @@
   }
 
   .top-section {
-    height: 60vw;
+    height: 75vw;
   }
-  
+
   .main-text {
     width: 90%;
     height: auto;
     text-align: center;
-    margin-top: 120px;
+    margin-top: 50px;
   }
 
   .main-text * {
     margin-bottom: 20px;
   }
-  
+
   .button {
     margin: 0;
   }
@@ -297,7 +293,7 @@
   .main-title {
     font-size: 30px;
   }
-  
+
   .main-paragraph {
     font-size: 20px;
   }
@@ -307,12 +303,11 @@
   }
 
   .home-container {
-    width: calc(100% - 20px)
+    width: calc(100% - 20px);
   }
 
   .card {
     width: 90%;
     height: auto;
   }
-
 }
