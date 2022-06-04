@@ -1,132 +1,74 @@
-* {
-    font-family: 'Inter', serif;
-    font-style: normal;
+.email-confirm {
+  height: 100vh;
 }
 
-.itemsPos {
-    display: flex;
-    align-items: flex-start;
-    height: 100vh;
+.logo {
+  position: absolute;
+  width: 35px;
+  margin: 25px 0 0 25px;
 }
 
-.safeStats {
-    margin: 9.3125rem 0 0 1.75rem;
+.text {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #565555;
+  position: relative;
+  font-weight: 400;
+  text-align: center;
 }
 
-.textPos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 21.625rem 0 0 0;
+.text-container {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.hello {
-    font-weight: 400;
-    font-size: 2.8125rem;
-    text-align: center;
-    color: #565555;
-    margin: 0 0 2.0625rem 7.625rem;
+.title {
+  font-size: 40px;
+  margin-bottom: 10px;
 }
 
-.email {
-    width: 29.125rem;
-    font-weight: 400;
-    font-size: 2.25rem;
-    line-height: 2.75rem;
-    text-align: center;
-    color: #565555;
-    margin-left: 7.625rem;
+.subtitle {
+  font-size: 30px;
+  margin-bottom: 10px;
 }
 
-.doctorPos {
-    display: flex;
-    width: 100%;
-    align-content: flex-end;
-    justify-content: flex-end;
-    align-self: flex-end;
+.button-container {
+  width: 100%;
 }
 
 .doctor {
-    width: 46.25rem;
-    height: 46.6875rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  max-width: 750px;
 }
 
-.button {
-    height: 3.4375rem !important;
-    background-color: #546E9A !important;
-    border: none;
-    border-radius: 1.25rem !important;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.25rem !important;
-    color: #FBFBFB;
-    width: 29.125rem;
-    margin: 8.125rem 0 0 7.625rem !important;
-    text-transform: lowercase !important;
-}
+@media only screen and (max-width: 768px) {
+  .text-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 0 10px 0 10px;
+  }
 
-@media screen and (max-width: 1400px) {
-    .safeStats {
-        width: 1.8rem;
-    }
+  .text {
+    width: 100%;
+  }
 
-    .textPos {
-        margin: 15.1375rem 0 0 0;
-    }
+  .doctor {
+    width: 300px;
+  }
 
-    .hello {
-        font-size: 2rem;
-        margin: 0 0 2.0625rem 3rem;
-    }
-
-    .email {
-        width: 29.125rem;
-        font-size: 1.75rem;
-        margin-left: 3rem;
-    }
-
-    .doctor {
-        width: 32.375rem;
-        height: 32.375rem;
-    }
-
-    .button {
-        height: 3.4375rem !important;
-        font-size: 1.25rem !important;
-        width: 23.125rem;
-        margin: 6.125rem 0 0 3rem !important;
-    }
-}
-
-@media screen and (max-width: 992px) {
-    .safeStats {
-        width: 1.6rem;
-    }
-
-    .textPos {
-        margin: 13.1375rem 0 0 0;
-    }
-
-    .hello {
-        font-size: 2rem;
-        margin: 0 0 2.0625rem 3rem;
-    }
-
-    .email {
-        width: 29.125rem;
-        font-size: 1.75rem;
-        margin-left: 3rem;
-    }
-
-    .doctor {
-        width: 25.375rem;
-        height: 25.375rem;
-    }
-
-    .button {
-        height: 3.4375rem !important;
-        font-size: 1.25rem !important;
-        width: 23.125rem;
-        margin: 5.125rem 0 0 3rem !important;
-    }
+  .logo {
+    position: absolute;
+    width: 25px;
+    margin: 15px 0 0 15px;
+  }
 }
