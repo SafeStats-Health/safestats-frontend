@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import EmailConfirm from '../pages/email_confirm';
 import Home from '../pages/home';
 import Login from '../pages/login';
@@ -13,14 +13,15 @@ const Router = () => {
   return (
     <div>
       <Routes>
-        <Route index element={<Home />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/email_confirm' element={<EmailConfirm />} />
-        <Route path='/map' element={<Map />} />
-        <Route path='/about_us' element={<AboutUs />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='*' element={<NotFound />} />
+        <Route index element={<Home/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/register' element={<Register/>}/>
+        <Route path='/email_confirm' element={<EmailConfirm/>}/>
+        <Route path='/map' element={<Map/>}/>
+        {/* <ProtectedRoute path={"/example"} element={<Home/>}/> */}
+        <Route path='/about_us' element={<AboutUs/>}/>
+        <Route path='/contact' element={<Contact/>}/>
+        <Route path='*' element={<NotFound/>}/>
       </Routes>
     </div>
   );
