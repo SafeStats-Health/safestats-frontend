@@ -21,6 +21,11 @@
   cursor: pointer;
 }
 
+.selected {
+  font-weight: 700;
+  opacity: 1;
+}
+
 .icon {
   width: 30px;
 }
