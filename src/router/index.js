@@ -14,15 +14,42 @@ const Router = () => {
   return (
     <div>
       <Routes>
-        <Route index element={<Home />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/email_confirm' element={<EmailConfirm />} />
-        <Route path='/user_profile' element={<UserProfile />} />
-        <Route path='/map' element={<Map />} />
-        <Route path='/about_us' element={<AboutUs />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='*' element={<NotFound />} />
+        <Route
+          index
+          element={<Home/>}
+        />
+        <Route
+          path='/login'
+          element={<Login/>}
+        />
+        <Route
+          path='/register'
+          element={<Register/>}
+        />
+        <Route
+          path='/email_confirm'
+          element={<EmailConfirm/>}
+        />
+        <Route
+          path='/user_profile'
+          element={<UserProfile/>}
+        />
+        <Route
+          path='/map'
+          element={<Map/>}
+        />
+        <Route
+          path='/about_us'
+          element={<AboutUs/>}
+        />
+        <Route
+          path='/contact'
+          element={<Contact/>}
+        />
+        <Route
+          path='*'
+          element={<NotFound/>}
+        />
       </Routes>
     </div>
   );

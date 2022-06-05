@@ -31,6 +31,7 @@ export default {
     REGISTER_YOURSELF: 'register',
     X: 'X',
     PROFILE: 'profile',
+    GENERAL: 'general',
     PERSONAL_DATA: 'personal data',
     TRUSTWORTHY_CONTACT: 'trustworthy contact',
     HEALTH_PLAN: 'health plan',

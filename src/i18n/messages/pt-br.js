@@ -49,6 +49,7 @@ export default {
     REGISTER_YOURSELF: 'cadastre-se',
     X: 'X',
     PROFILE: 'perfil',
+    GENERAL: 'geral',
     PERSONAL_DATA: 'dados pessoais',
     TRUSTWORTHY_CONTACT: 'contato de confiança',
     HEALTH_PLAN: 'plano de saúde',
