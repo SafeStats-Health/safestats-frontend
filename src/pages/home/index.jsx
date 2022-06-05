@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Case from '../../assets/images/home/case.png';
 import DoctorStethoscope from '../../assets/images/home/doctor_stethoscope.png';
 import Hologram from '../../assets/images/home/hologram.png';
@@ -5,11 +6,10 @@ import Microscope from '../../assets/images/home/microscope.png';
 import MicroscopeCloseup from '../../assets/images/home/microscope_closeup.png';
 import Ome from '../../assets/images/home/ome.png';
 import Stethoscope from '../../assets/images/home/stethoscope.png';
-import t from '../../i18n/translate';
-import styles from './styles.module.css';
 import CButton from '../../components/core/c_button';
 import Header from '../../components/header';
-import { Link } from 'react-router-dom';
+import t from '../../i18n/translate';
+import styles from './styles.module.css';
 
 function Home() {
 
@@ -20,7 +20,7 @@ function Home() {
   return (
     <div className={styles.home}>
       <Link to='/register' id='registerLink' />
-      <div className={styles['top-section']}>
+      <div className={styles['top-section']} >
         <div className={styles.ellipse} />
         <div className={styles['home-container']}>
           <Header alt />
@@ -42,7 +42,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className={styles['bottom-section']}>
+      <div className={styles['bottom-section']} >
         <div className={styles['home-container']}>
           <div className={styles.section}>
             <img

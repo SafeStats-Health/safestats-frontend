@@ -1,0 +1,81 @@
+.drawer {
+  height: 100%;
+  width: 380px;
+  background-color: #2B3F6C;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 30px;
+  color: #FBFBFB;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  z-index: 10;
+}
+
+.clickable {
+  opacity: 0.8;
+}
+
+.clickable:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.selected {
+  font-weight: 700;
+  opacity: 1;
+}
+
+.icon {
+  width: 30px;
+}
+
+.close {
+  margin-right: 10px;
+}
+
+.top-section {
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;
+}
+
+.middle-section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  margin: 50px 0 50px;
+}
+
+.profile-page-link {
+  margin-bottom: 30px;
+}
+
+.bottom-section {
+  display: flex;
+  justify-content: flex-start; 
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+}
+
+.hamburger {
+  margin-right: 10px;
+}
+
+.open-drawer-button {
+  font-weight: 300;
+  font-size: 25px;
+  line-height: 30px;
+  color: #2B3F6C;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 10;
+}
