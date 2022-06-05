@@ -29,5 +29,17 @@ export default {
     MATH_DESC:
       "Actions aimed at caring for health conditions at all stages of life. That's MATH: specific programs to promote the comfort, safety and well-being of SafeStats customers.",
     REGISTER_YOURSELF: 'register',
+    X: 'X',
+    PROFILE: 'profile',
+    GENERAL: 'general',
+    PERSONAL_DATA: 'personal data',
+    TRUSTWORTHY_CONTACT: 'trustworthy contact',
+    HEALTH_PLAN: 'health plan',
+    BLOOD_DONATION: 'blood donation',
+    CHANGE_PASSWORD: 'change password',
+    DELETE_ACCOUNT: 'delete account',
+    EXIT: 'exit',
+    MENU: 'menu',
+    SUMMARY_TITLE: 'summary about this user',
   },
 };
