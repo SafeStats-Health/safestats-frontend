@@ -41,5 +41,10 @@ export default {
     EXIT: 'exit',
     MENU: 'menu',
     SUMMARY_TITLE: 'summary about this user',
+    IT_SEEMS_THAT_YOU_FORGOT_YOUR_PASSWORD:
+      'it seems that you forgot you password!',
+    NEW_PASSWORD: 'new password',
+    REPEAT_YOUR_PASSWORD: 'repeat your password',
+    CHANGE_PASSWORD: 'change password',
   },
 };
