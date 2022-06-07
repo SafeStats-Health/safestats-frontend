@@ -8,6 +8,7 @@ import Login from '../pages/login';
 import Map from '../pages/map';
 import NotFound from '../pages/not_found';
 import Register from '../pages/register';
+import ResetPassword from '../pages/reset_password';
 import UserProfile from '../pages/user_profile';
 
 const Router = () => {
@@ -45,6 +46,10 @@ const Router = () => {
         <Route
           path='/contact'
           element={<Contact/>}
+        />
+        <Route
+          path='/reset_password'
+          element={<ResetPassword />}
         />
         <Route
           path='*'
