@@ -1,4 +1,4 @@
-import styles from './styles.module.css';
+import styles from './styles.css';
 import React, {useEffect, useRef} from "react";
 import * as d3 from 'd3';
 
