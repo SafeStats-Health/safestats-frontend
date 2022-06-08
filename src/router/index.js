@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Routes} from 'react-router-dom';
+import {Route, Routes, BrowserRouter} from 'react-router-dom';
 import EmailConfirm from '../pages/email_confirm';
 import Home from '../pages/home';
 import Login from '../pages/login';
@@ -11,7 +11,7 @@ import Contact from '../pages/contact';
 
 const Router = () => {
   return (
-    <div>
+    <BrowserRouter>
       <Routes>
         <Route index element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
@@ -23,7 +23,7 @@ const Router = () => {
         <Route path='/contact' element={<Contact/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
-    </div>
+    </BrowserRouter>
   );
 };
 
