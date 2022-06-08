@@ -1,4 +1,4 @@
-import { LOCALES } from '../locales';
+import {LOCALES} from '../locales';
 
 export default {
   [LOCALES.ENGLISH]: {
@@ -13,7 +13,6 @@ export default {
     HOSPITAL: 'hospital',
     DISTRICT: 'district',
     GO: 'go!',
-    BACK_TO_LOGIN: 'back to login',
     ABOUT_US: 'about us',
     CONTACT: 'contact',
     REGISTRATION: 'registration',
@@ -36,6 +35,7 @@ export default {
     TRUSTWORTHY_CONTACT: 'trustworthy contact',
     HEALTH_PLAN: 'health plan',
     BLOOD_DONATION: 'blood donation',
+    STATISTICS: 'statistics',
     CHANGE_PASSWORD: 'change password',
     DELETE_ACCOUNT: 'delete account',
     EXIT: 'exit',
