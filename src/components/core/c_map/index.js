@@ -7,6 +7,7 @@ import {
   Marker,
   useMapEvents,
 } from 'react-leaflet';
+import CMapPopup from './c_map_popup'
 import 'leaflet/dist/leaflet.css';
 
 const position = [-25.4, -49.3];
@@ -34,7 +35,9 @@ function LocationMarker() {
 
   return position === null ? null : (
     <Marker position={position}>
-      <Popup>You are here</Popup>
+      <Popup>
+        <CMapPopup/>
+      </Popup>
     </Marker>
   );
 }

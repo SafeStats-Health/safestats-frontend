@@ -12,16 +12,34 @@
   top: 0;
   right: 0;
   background-image: linear-gradient(#2b3f6c, #546e9a);
-  border-radius: 5px 50px;
+  height: 50px;
+  min-width: 150px;
+  border-radius: 5px 45px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px;
+  padding: 10px 20px;
+}
+
+.icon-container {
+  height: 100%;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px;
-  padding: 10px;
 }
 
-.icon {
-  margin: 10px;
+.map-icon {
+  height: 100%;
+}
+
+.user-icon {
+  height: 100%;
+}
+
+.leave-icon {
+  height: 85%;
 }
 
 .search-box {
@@ -47,4 +65,13 @@
 
 .search-button {
   margin-top: 60px;
+}
+
+.clickable {
+  opacity: 0.9;
+}
+
+.clickable:hover {
+  opacity: 1;
+  cursor: pointer;
 }

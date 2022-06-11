@@ -7,15 +7,24 @@ import CButton from '../../components/core/c_button';
 import logo from '../../assets/images/safe_stats_alt.svg';
 import leaveIcon from '../../assets/icons/leave.svg';
 import userIcon from '../../assets/icons/user.svg';
+import mapIcon from '../../assets/icons/map.svg';
 
 class Map extends Component {
+
   render() {
     return (
       <div className={styles['map-container']}>
         <CMap />
         <div className={styles['options-box']}>
-          <img className={styles.icon} src={userIcon} />
-          <img className={styles.icon} src={leaveIcon} />
+          <div className={`${styles['icon-container']} ${styles.clickable}`}>
+            <img className={styles['map-icon']} src={mapIcon} />
+          </div>
+          <div className={`${styles['icon-container']} ${styles.clickable}`}>
+            <img className={styles['user-icon']} src={userIcon} />
+          </div>
+          <div className={`${styles['icon-container']} ${styles.clickable}`}>
+            <img className={styles['leave-icon']} src={leaveIcon} />
+          </div>
         </div>
         <div className={styles['search-box']}>
           <div className={styles['logo-box']}>
