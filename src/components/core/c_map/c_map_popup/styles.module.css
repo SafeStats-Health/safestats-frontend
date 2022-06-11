@@ -1,0 +1,35 @@
+.options-box {
+  z-index: 400;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: linear-gradient(#2b3f6c, #546e9a);
+  height: 50px;
+  min-width: 150px;
+  border-radius: 5px 45px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px;
+  padding: 10px 20px;
+}
+
+.icon-container {
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-icon {
+  height: 100%;
+}
+
+.user-icon {
+  height: 100%;
+}
+
+.leave-icon {
+  height: 85%;
+}
