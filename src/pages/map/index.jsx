@@ -8,7 +8,6 @@ import logo from '../../assets/images/safe_stats_alt.svg';
 import leaveIcon from '../../assets/icons/leave.svg';
 import userIcon from '../../assets/icons/user.svg';
 import mapIcon from '../../assets/icons/map.svg';
-
 class Map extends Component {
 
   render() {
@@ -26,7 +25,7 @@ class Map extends Component {
             <img className={styles['leave-icon']} src={leaveIcon} />
           </div>
         </div>
-        <div className={styles['search-box']}>
+        {/* <div className={styles['search-box']}>
           <div className={styles['logo-box']}>
             <img className={styles.logo} src={logo} />
           </div>
@@ -47,7 +46,7 @@ class Map extends Component {
               <CButton inverse label={t('GO')} />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }
