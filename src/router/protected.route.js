@@ -1,25 +1,8 @@
-import React from "react";
-import {Route, Redirect} from "react-router-dom";
-import auth from './services/auth.service';
+import {Navigate, Outlet} from "react-router-dom";
 
-export const ProtectedRoute = ({component: Component, ...rest}) => {
-
-  return (
-    <Route {...rest} render={
-      props => {
-        if (auth.protectedAuth()) {
-          return <Component {...props} />;
-        } else {
-          return <Redirect to={
-            {
-              pathname: "/login",
-              state: {
-                from: props.location
-              }
-            }
-          }/>
-        }
-      }
-    }/>
-  );
+export const ProtectedRoute = () => {
+  const user = JSON.parse(localStorage.getItem('session'));
+  // localStorage.clear();
+  console.log(user);
+  return user ? <Outlet/> : <Navigate to="/login"/>;
 };
