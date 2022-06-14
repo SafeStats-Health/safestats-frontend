@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import pose5 from '../../assets/images/pose_5.png';
 import safeStats from '../../assets/images/safe_stats.svg';

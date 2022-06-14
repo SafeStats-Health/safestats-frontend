@@ -13,6 +13,7 @@ export class CreateUser {
       }))();
   }
 }
+
 export class LoginUser {
   method = 'post';
   url = 'users/login';

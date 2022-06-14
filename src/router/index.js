@@ -19,11 +19,11 @@ const Router = () => {
       <Routes>
         <Route index element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route exact path='/register' element={<ProtectedRoute/>}>
-          <Route exact path='/register' element={<Register/>}/>
+        <Route exact path='/register' element={<Register/>}/>
+        <Route exact path='/user_profile' element={<ProtectedRoute/>}>
+          <Route path='/user_profile' element={<UserProfile/>}/>
         </Route>
         <Route path='/email_confirm' element={<EmailConfirm/>}/>
-        <Route path='/user_profile' element={<UserProfile/>}/>
         <Route path='/map' element={<Map/>}/>
         <Route path='/about_us' element={<AboutUs/>}/>
         <Route path='/contact' element={<Contact/>}/>

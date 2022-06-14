@@ -1,6 +1,21 @@
-import {LoginUser} from "../utils/api-requester/modules/user";
+import {CreateUser, LoginUser} from "../utils/api-requester/modules/user";
 
 export default new class Auth {
+
+  async createUser(name, email, password, confirmPassword) {
+    try {
+      return await new CreateUser().call({
+        body: {
+          name: name,
+          email: email,
+          password: password,
+          confirmPassword: confirmPassword
+        }
+      })
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
   async loginUser(email, password) {
     try {
@@ -14,6 +29,4 @@ export default new class Auth {
       console.log(e);
     }
   }
-
-
 }
