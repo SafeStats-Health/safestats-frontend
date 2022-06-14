@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import {Route, Routes} from 'react-router-dom';
 import EmailConfirm from '../pages/email_confirm';
 import Home from '../pages/home';
@@ -14,19 +14,16 @@ const Router = () => {
   return (
     <div>
       <Routes>
-        <Fragment>
-          <Route index element={<Home/>}/>
-          <Route path='/login' element={<Login/>}/>
-          {/*<Route exact path='/register' element={<Register/>}/>*/}
-          <Route exact path='/register' element={<ProtectedRoute/>}>
-            <Route exact path='/register' element={<Register/>}/>
-          </Route>
-          <Route path='/email_confirm' element={<EmailConfirm/>}/>
-          <Route path='/map' element={<Map/>}/>
-          <Route path='/about_us' element={<AboutUs/>}/>
-          <Route path='/contact' element={<Contact/>}/>
-          <Route path='*' element={<NotFound/>}/>
-        </Fragment>
+        <Route index element={<Home/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route exact path='/register' element={<ProtectedRoute/>}>
+          <Route exact path='/register' element={<Register/>}/>
+        </Route>
+        <Route path='/email_confirm' element={<EmailConfirm/>}/>
+        <Route path='/map' element={<Map/>}/>
+        <Route path='/about_us' element={<AboutUs/>}/>
+        <Route path='/contact' element={<Contact/>}/>
+        <Route path='*' element={<NotFound/>}/>
       </Routes>
     </div>
   );
