@@ -37,6 +37,7 @@ export default {
     HEALTH_PLAN: 'health plan',
     BLOOD_DONATION: 'blood donation',
     CHANGE_PASSWORD: 'change password',
+    PASSWORDS_DONT_MATCH: "passwords don't match",
     DELETE_ACCOUNT: 'delete account',
     EXIT: 'exit',
     MENU: 'menu',

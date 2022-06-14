@@ -9,6 +9,8 @@ export default {
     NAME: 'nome',
     EMAIL: 'e-mail',
     PASSWORD: 'senha',
+    PASSWORDS_DONT_MATCH: 'senhas não conferem',
+    CONFIRM_PASSWORD: 'confirmar senha',
     REGISTER: 'cadastrar',
     ALREADY_HAVE_AN_ACCOUNT: 'ja possui uma conta?',
     WELCOME: 'bem vindo!',
