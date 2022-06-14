@@ -4,13 +4,16 @@ import t from '../../i18n/translate';
 import door from '../../assets/images/door.svg';
 import hamburger from '../../assets/images/hamburger.svg';
 import close from '../../assets/images/close.svg'
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import AuthService from "../../services/auth.service";
+import jwtDecode from "jwt-decode";
 
 function DrawerMenu(props) {
 
   const [highlightedPage, highlightPage] = useState(props.selectedPage ?? 'GENERAL');
 
   function logout() {
+    localStorage.clear();
     document.getElementById('logoutLink').click();
   }
 
@@ -25,49 +28,63 @@ function DrawerMenu(props) {
 
   return (
     <div className={styles['drawer']}>
-      <Link to="/" id='logoutLink' />
+      <Link to="/" id='logoutLink'/>
       <div className={styles['top-section']} onClick={closeDrawer}>
-        <img src={close} alt='Close' className={`${styles.icon} ${styles.clickable}`} />
+        <img src={close} alt='Close' className={`${styles.icon} ${styles.clickable}`}/>
       </div>
       <div className={styles['middle-section']}>
         <div
-          onClick={() => {selectProfilePage('GENERAL')}}
+          onClick={() => {
+            selectProfilePage('GENERAL')
+          }}
           className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "GENERAL" ? styles.selected : ''}`}
         >
           {t('GENERAL')}
         </div>
         <div
-          onClick={() => {selectProfilePage('PERSONAL_DATA')}}
+          onClick={() => {
+            selectProfilePage('PERSONAL_DATA')
+          }}
           className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "PERSONAL_DATA" ? styles.selected : ''}`}
         >
           {t('PERSONAL_DATA')}
         </div>
         <div
-          onClick={() => {selectProfilePage('TRUSTWORTHY_CONTACT')}}
+          onClick={() => {
+            selectProfilePage('TRUSTWORTHY_CONTACT')
+          }}
           className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "TRUSTWORTHY_CONTACT" ? styles.selected : ''}`}
         >
           {t('TRUSTWORTHY_CONTACT')}
         </div>
         <div
-          onClick={() => {selectProfilePage('HEALTH_PLAN')}}
+          onClick={() => {
+            selectProfilePage('HEALTH_PLAN')
+          }}
           className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "HEALTH_PLAN" ? styles.selected : ''}`}
         >
           {t('HEALTH_PLAN')}
         </div>
         <div
-          onClick={() => {selectProfilePage('BLOOD_DONATION')}}
+          onClick={() => {
+            selectProfilePage('BLOOD_DONATION')
+          }}
           className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "BLOOD_DONATION" ? styles.selected : ''}`}
         >
           {t('BLOOD_DONATION')}
         </div>
         <div
-          onClick={() => {selectProfilePage('CHANGE_PASSWORD')}}
+          onClick={() => {
+            selectProfilePage('CHANGE_PASSWORD')
+          }}
           className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "CHANGE_PASSWORD" ? styles.selected : ''}`}
         >
           {t('CHANGE_PASSWORD')}
         </div>
         <div
-          onClick={() => {selectProfilePage('DELETE_ACCOUNT')}}
+          onClick={() => {
+            selectProfilePage('DELETE_ACCOUNT')
+          }}
           className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "DELETE_ACCOUNT" ? styles.selected : ''}`}
         >
           {t('DELETE_ACCOUNT')}
@@ -75,7 +92,7 @@ function DrawerMenu(props) {
       </div>
       <div className={styles['bottom-section']}>
         <div onClick={logout} className={`${styles.clickable} ${styles.logout}`}>
-          <img src={door} alt="Door" className={`${styles.icon} ${styles.close}`} />
+          <img src={door} alt="Door" className={`${styles.icon} ${styles.close}`}/>
           <span>{t('EXIT')}</span>
         </div>
       </div>
@@ -107,8 +124,8 @@ export default function Drawer(props) {
   }
 
   if (drawerOpen) {
-    return <DrawerMenu setDrawerOpen={setDrawerOpen} selectProfilePage={selectProfilePage} selectedPage={selectedPage} />
+    return <DrawerMenu setDrawerOpen={setDrawerOpen} selectProfilePage={selectProfilePage} selectedPage={selectedPage}/>
   } else {
-    return <DrawerButton setDrawerOpen={setDrawerOpen} />
+    return <DrawerButton setDrawerOpen={setDrawerOpen}/>
   }
 }
