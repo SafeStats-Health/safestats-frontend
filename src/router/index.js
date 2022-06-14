@@ -1,5 +1,7 @@
 import React from 'react';
 import {Route, Routes} from 'react-router-dom';
+import {ProtectedRoute} from "./protected.route";
+
 import EmailConfirm from '../pages/email_confirm';
 import Home from '../pages/home';
 import Login from '../pages/login';
@@ -8,7 +10,8 @@ import NotFound from '../pages/not_found';
 import Register from '../pages/register';
 import AboutUs from '../pages/about_us';
 import Contact from '../pages/contact';
-import {ProtectedRoute} from "./protected.route";
+import ResetPassword from '../pages/reset_password';
+import UserProfile from '../pages/user_profile';
 
 const Router = () => {
   return (
@@ -20,9 +23,11 @@ const Router = () => {
           <Route exact path='/register' element={<Register/>}/>
         </Route>
         <Route path='/email_confirm' element={<EmailConfirm/>}/>
+        <Route path='/user_profile' element={<UserProfile/>}/>
         <Route path='/map' element={<Map/>}/>
         <Route path='/about_us' element={<AboutUs/>}/>
         <Route path='/contact' element={<Contact/>}/>
+        <Route path='/reset_password' element={<ResetPassword/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
     </div>
