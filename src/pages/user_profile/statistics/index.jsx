@@ -20,10 +20,10 @@ function Statistics() {
 
     useEffect(() => {
 
-      // get the values of the first element
+      // values of the first element
       const getFirstObjectValues = data.map(data => Object.values(data)[0]);
 
-      // get the values of the second element
+      // values of the second element
       const getSecondObjectValues = data.map(data => Object.values(data)[1]);
 
       // size of the container
@@ -31,7 +31,7 @@ function Statistics() {
       const chartWidth = 600;
       const chartHeight = 400 - margins.top - margins.bottom;
 
-      // sets the available ranges
+      // available ranges
       const xScale = d3.scaleBand().padding(0.1);
       // d3 max gets the highest value between objects
       const yScale = d3.scaleLinear().range([chartHeight, 0]);
@@ -47,12 +47,7 @@ function Statistics() {
 
       const chart = chartContainer.append('g')
 
-      chart
-        .append('g')
-        .call(d3.axisBottom(xScale).tickSizeOuter(0))
-        .attr('transform', `translate(0, ${chartHeight})`)
-        .attr('color', '#2B3F6C');
-
+      // bars
       chart
         .selectAll('.bar')
         .data(data)
@@ -64,6 +59,14 @@ function Statistics() {
         .attr('x', data => xScale(Object.values(data)[0]))
         .attr('y', data => yScale(Object.values(data)[1]));
 
+      // label bellow the bars
+      chart
+        .append('g')
+        .call(d3.axisBottom(xScale).tickSizeOuter(0))
+        .attr('transform', `translate(0, ${chartHeight})`)
+        .attr('color', '#2B3F6C');
+
+      // label above the bars
       chart
         .selectAll('.label')
         .data(data)
@@ -74,7 +77,6 @@ function Statistics() {
         .attr('y', data => yScale(Object.values(data)[1]) - 20)
         .attr('text-anchor', 'middle')
         .classed('label', true)
-
 
     }, [])
 
