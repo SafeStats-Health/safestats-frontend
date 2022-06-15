@@ -45,7 +45,7 @@ function Statistics() {
         .attr('width', chartWidth)
         .attr('height', chartHeight + margins.top + margins.bottom)
 
-      const chart = chartContainer.append('g')
+      const chart = chartContainer
 
       // bars
       chart
