@@ -11,6 +11,7 @@ function DrawerMenu(props) {
   const [highlightedPage, highlightPage] = useState(props.selectedPage ?? 'GENERAL');
 
   function logout() {
+    localStorage.clear();
     document.getElementById('logoutLink').click();
   }
 

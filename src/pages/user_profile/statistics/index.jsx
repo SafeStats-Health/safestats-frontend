@@ -4,117 +4,88 @@ import * as d3 from 'd3';
 
 function Statistics() {
 
-  const LineChart = () => {
+  const hospitalQueues = [
+    {name: 'A', queue: 11},
+    {name: 'B', queue: 23},
+    {name: 'C', queue: 16},
+    {name: 'D', queue: 23},
+    {name: 'E', queue: 22},
+    {name: 'F', queue: 30},
+    {name: 'G', queue: 2},
+    {name: 'H', queue: 9},
+  ]
+
+  const BarChart = ({data}) => {
     const d3Chart = useRef()
 
-    const parseDate = d3.timeParse('%Y-%m-%d')
-
     useEffect(() => {
-      fetch('https://data.cityofnewyork.us/resource/tg4x-b46p.json')
-        .then(response => response.json())
-        .then(data => {
 
-          // Transform data
-          const permits = data.filter(event => {
-            return event.eventtype === 'Shooting Permit'
-          })
+      // get the values of the first element
+      const getFirstObjectValues = data.map(data => Object.values(data)[0]);
 
-          // Get all the dates in an array
-          const dates = [...new Set(permits.map(each => each.enteredon.slice(0, 10)))]
+      // get the values of the second element
+      const getSecondObjectValues = data.map(data => Object.values(data)[1]);
 
-          let CountsByDate = []
+      // size of the container
+      const margins = {top: 20, bottom: 10};
+      const chartWidth = 600;
+      const chartHeight = 400 - margins.top - margins.bottom;
 
-          // Get counts(number of times a permit entered) on each date
-          dates.map(time => {
-            let date = time
-            let count = 0
+      // sets the available ranges
+      const xScale = d3.scaleBand().padding(0.1);
+      // d3 max gets the highest value between objects
+      const yScale = d3.scaleLinear().range([chartHeight, 0]);
 
-            permits.map(each => {
-              let timestamp = each.enteredon.slice(0, 10)
-              if (timestamp === date) {
-                count += 1
-              }
-            })
+      // allows which data should be scaled
+      xScale.domain(getFirstObjectValues).rangeRound([0, chartWidth])
+      yScale.domain([0, d3.max(getSecondObjectValues) + 3])
 
-            const counts = {date: parseDate(date), count: count}
+      const chartContainer = d3.select(d3Chart.current)
+        .classed('chartContainer', true)
+        .attr('width', chartWidth)
+        .attr('height', chartHeight + margins.top + margins.bottom)
 
-            CountsByDate.push(counts)
-          })
+      const chart = chartContainer.append('g')
 
-          console.log(CountsByDate)
+      chart
+        .append('g')
+        .call(d3.axisBottom(xScale).tickSizeOuter(0))
+        .attr('transform', `translate(0, ${chartHeight})`)
+        .attr('color', '#2B3F6C');
 
-          const margin = {top: 20, right: 30, bottom: 30, left: 30}
-          const width = parseInt(d3.select('#d3demo').style('width')) - margin.left - margin.right
-          const height = parseInt(d3.select('#d3demo').style('height')) - margin.top - margin.bottom
+      chart
+        .selectAll('.bar')
+        .data(data)
+        .enter()
+        .append('rect')
+        .classed('bar', true)
+        .attr('width', xScale.bandwidth())
+        .attr('height', data => chartHeight - yScale(Object.values(data)[1]))
+        .attr('x', data => xScale(Object.values(data)[0]))
+        .attr('y', data => yScale(Object.values(data)[1]));
 
-          // Set up chart
-          const svg = d3.select(d3Chart.current)
-            .attr('width', width + margin.left + margin.right)
-            .attr('height', height + margin.top + margin.bottom)
-            .append('g')
-            .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
-
-          // x axis scale
-          const x = d3.scaleTime()
-            .domain(d3.extent(CountsByDate, function (d) {
-              return d.date
-            }))
-            .range([0, width])
-
-          svg.append('g')
-            .attr('transform', 'translate(0,' + height + ')')
-            .call(d3.axisBottom(x))
-
-          // Get the max value of counts
-          const max = d3.max(CountsByDate, function (d) {
-            return d.count
-          })
-
-          // y axis scale
-          const y = d3.scaleLinear()
-            .domain([0, max])
-            .range([height, 0])
-
-          svg.append('g')
-            .call(d3.axisLeft(y))
+      chart
+        .selectAll('.label')
+        .data(data)
+        .enter()
+        .append('text')
+        .text(data => Object.values(data)[1])
+        .attr('x', data => xScale(Object.values(data)[0]) + xScale.bandwidth() / 2)
+        .attr('y', data => yScale(Object.values(data)[1]) - 20)
+        .attr('text-anchor', 'middle')
+        .classed('label', true)
 
 
-          // Draw line
-          svg.append('path')
-            .datum(CountsByDate)
-            .attr('fill', 'none')
-            .attr('stroke', 'black')
-            .attr('stroke-width', 3)
-            .attr('d', d3.line()
-              .x(function (d) {
-                return x(d.date)
-              })
-              .y(function (d) {
-                return y(d.count)
-              })
-            )
-
-          // Add title
-          svg.append('text')
-            .attr('x', (width / 2))
-            .attr('y', (margin.top / 5 - 10))
-            .attr('text-anchor', 'middle')
-            .attr('font-size', '16px')
-            .attr('fill', 'black')
-            .text('New York City Film Permits entered in 2020 - Shooting Permit')
-        })
     }, [])
 
     return (
-      <div id='d3demo'>
-        <svg ref={d3Chart}></svg>
-      </div>
+      <svg ref={d3Chart}></svg>
     )
   }
 
   return (
-    <div className={styles['statistics']}>
-      <LineChart></LineChart>
+    <div>
+      <BarChart data={hospitalQueues}></BarChart>
     </div>
   );
 }

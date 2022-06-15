@@ -1,36 +1,36 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import {useState} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 import pose5 from '../../assets/images/pose_5.png';
 import safeStats from '../../assets/images/safe_stats.svg';
 import CButton from '../../components/core/c_button';
 import CInput from '../../components/core/c_input';
 import t from '../../i18n/translate';
-import { LoginUser } from '../../utils/api-requester/modules/user';
 import styles from './styles.module.css';
+import AuthService from "../../services/auth.service";
+import jwtDecode from "jwt-decode";
 
 function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  async function loginUser() {
-    try {
-      const user = await new LoginUser().call({
-        body: {
-          email: email,
-          password: password,
-        },
-      });
-      console.log(user);
-    } catch (e) {
-      console.log(e);
-    }
+  let navigate = useNavigate()
+
+  function getUser() {
+    AuthService.loginUser(email, password).then(r => {
+      if (!r) {
+        return
+      }
+      const decoded = jwtDecode(r.data.token);
+      localStorage.setItem('login', JSON.stringify(decoded));
+      navigate('/user_profile');
+    });
   }
 
   return (
     <div className='Auth'>
       <div className='auth-container doctor-image--container'>
-        <img className='safe-stats-logo' src={safeStats} />
-        <img className='doctor-image' src={pose5} />
+        <img className='safe-stats-logo' src={safeStats} alt={'Logo'}/>
+        <img className='doctor-image' src={pose5} alt={'Doctor'}/>
       </div>
       <div className='auth-container'>
         <div className='auth-form-div'>
@@ -55,7 +55,7 @@ function Login() {
                 onInput={setPassword}
               />
             </div>
-            <CButton label={t('ENTER')} onClick={loginUser} type='button' />
+            <CButton label={t('ENTER')} onClick={getUser} type='button'/>
             <div className={styles.info}>
               <p className='account-text'>{t('FORGOT_YOUR_PASSWORD')}</p>
               <p className='account-text'>
