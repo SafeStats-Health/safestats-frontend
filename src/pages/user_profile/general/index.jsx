@@ -4,6 +4,17 @@ import dummyImg from '../../../assets/images/dummy_img.png';
 import {useEffect} from "react";
 
 function General() {
+  let user = '';
+
+  useEffect(() => {
+    return () => {
+      if (!user) {
+        return
+      }
+      user = JSON.parse(localStorage.getItem('session'));
+      let name = user.user.name
+    }
+  }, []);
 
   useEffect(() => {
     let user = JSON.parse(localStorage.getItem('login'));
