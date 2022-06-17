@@ -16,6 +16,14 @@ function General() {
     }
   }, []);
 
+  useEffect(() => {
+    let user = JSON.parse(localStorage.getItem('login'));
+    if (!user) {
+      return
+    }
+    name = user.user.name
+  }, [name]);
+
   return (
     <div className={styles.general}>
       <div className={styles['user-data']}>

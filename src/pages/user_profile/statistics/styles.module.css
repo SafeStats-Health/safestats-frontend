@@ -1,0 +1,43 @@
+/*.chartContainer {*/
+/*    border: 0.0625rem solid #2B3F6C;*/
+/*}*/
+.statisticsPos {
+margin: 2rem 0 0 0;
+}
+
+.bar {
+    fill: #2B3F6C;
+    font-size: 25rem;
+}
+
+.bar:hover {
+    cursor: pointer;
+    fill: #4f63a0;
+}
+
+.labelAbove {
+    fill: #2B3F6C;
+    font-size: .8rem;
+}
+
+.labelBelow {
+    color: #2B3F6C;
+    font-size: .8rem;
+}
+
+.cardPos {
+    width: 70vw;
+    margin-bottom: 1rem;
+}
+
+.cardSize {
+    width: 100%;
+    height: 95%;
+}
+
+.title {
+    font-size: 1rem;
+    color: #2B3F6C;
+    font-weight: 600;
+    text-align: center;
+}

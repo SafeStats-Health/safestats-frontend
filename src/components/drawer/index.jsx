@@ -1,12 +1,10 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import styles from './styles.module.css';
 import t from '../../i18n/translate';
 import door from '../../assets/images/door.svg';
 import hamburger from '../../assets/images/hamburger.svg';
 import close from '../../assets/images/close.svg'
 import {Link} from 'react-router-dom';
-import AuthService from "../../services/auth.service";
-import jwtDecode from "jwt-decode";
 
 function DrawerMenu(props) {
 
@@ -72,6 +70,14 @@ function DrawerMenu(props) {
           className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "BLOOD_DONATION" ? styles.selected : ''}`}
         >
           {t('BLOOD_DONATION')}
+        </div>
+        <div
+          onClick={() => {
+            selectProfilePage('STATISTICS')
+          }}
+          className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "STATISTICS" ? styles.selected : ''}`}
+        >
+          {t('STATISTICS')}
         </div>
         <div
           onClick={() => {
