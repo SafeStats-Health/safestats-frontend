@@ -1,8 +1,10 @@
-import styles from './styles.css';
+import styles from './styles.module.css';
 import React, {useEffect, useRef} from "react";
 import * as d3 from 'd3';
+import {Card, CardContent} from "@mui/material";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Statistics() {
+export default function Statistics() {
 
   const hospitalQueues = [
     {name: 'A', queue: 11},
@@ -15,21 +17,21 @@ function Statistics() {
     {name: 'H', queue: 9},
   ]
 
-  const BarChart = ({data}) => {
+  // size of the container
+  const margins = {top: 20, bottom: 10};
+  const chartWidth = 600;
+  const chartHeight = 350 - margins.top - margins.bottom;
+
+  const BarChart = ({data, labelNamesPos, labelNumbersPos}) => {
     const d3Chart = useRef()
 
     useEffect(() => {
 
       // values of the first element
-      const getFirstObjectValues = data.map(data => Object.values(data)[0]);
+      const getFirstObjectValues = data.map(data => Object.values(data)[labelNamesPos]);
 
       // values of the second element
-      const getSecondObjectValues = data.map(data => Object.values(data)[1]);
-
-      // size of the container
-      const margins = {top: 20, bottom: 10};
-      const chartWidth = 600;
-      const chartHeight = 400 - margins.top - margins.bottom;
+      const getSecondObjectValues = data.map(data => Object.values(data)[labelNumbersPos]);
 
       // available ranges
       const xScale = d3.scaleBand().padding(0.1);
@@ -41,9 +43,10 @@ function Statistics() {
       yScale.domain([0, d3.max(getSecondObjectValues) + 3])
 
       const chartContainer = d3.select(d3Chart.current)
-        .classed('chartContainer', true)
-        .attr('width', chartWidth)
-        .attr('height', chartHeight + margins.top + margins.bottom)
+        // .classed(styles['chartContainer'], true)
+        // .attr('width', chartWidth)
+        // .attr('height', chartHeight + margins.top + margins.bottom)
+        .attr("viewBox", `0 0 ${chartWidth} ${chartHeight + margins.top + margins.bottom}`)
 
       const chart = chartContainer
 
@@ -53,30 +56,30 @@ function Statistics() {
         .data(data)
         .enter()
         .append('rect')
-        .classed('bar', true)
+        .classed(styles['bar'], true)
         .attr('width', xScale.bandwidth())
-        .attr('height', data => chartHeight - yScale(Object.values(data)[1]))
-        .attr('x', data => xScale(Object.values(data)[0]))
-        .attr('y', data => yScale(Object.values(data)[1]));
+        .attr('height', data => chartHeight - yScale(Object.values(data)[labelNumbersPos]))
+        .attr('x', data => xScale(Object.values(data)[labelNamesPos]))
+        .attr('y', data => yScale(Object.values(data)[labelNumbersPos]));
 
       // label bellow the bars
       chart
         .append('g')
         .call(d3.axisBottom(xScale).tickSizeOuter(0))
         .attr('transform', `translate(0, ${chartHeight})`)
-        .attr('color', '#2B3F6C');
+        .classed(styles['labelBelow'], true);
 
       // label above the bars
       chart
-        .selectAll('.label')
+        .selectAll('.labelAbove')
         .data(data)
         .enter()
         .append('text')
-        .text(data => Object.values(data)[1])
-        .attr('x', data => xScale(Object.values(data)[0]) + xScale.bandwidth() / 2)
-        .attr('y', data => yScale(Object.values(data)[1]) - 20)
+        .text(data => Object.values(data)[labelNumbersPos])
+        .attr('x', data => xScale(Object.values(data)[labelNamesPos]) + xScale.bandwidth() / 2)
+        .attr('y', data => yScale(Object.values(data)[labelNumbersPos]) - 5)
         .attr('text-anchor', 'middle')
-        .classed('label', true)
+        .classed(styles['labelAbove'], true)
 
     }, [])
 
@@ -86,10 +89,64 @@ function Statistics() {
   }
 
   return (
-    <div>
-      <BarChart data={hospitalQueues}></BarChart>
+    <div className={styles['statisticsPos']}>
+      <div className={'container'}>
+
+        <div className={`${styles['cardPos']} row`}>
+          <div className={'col'}>
+            <Card className={styles['cardSize']}>
+              <CardContent>
+                <div className={'col'}>
+                  <h1 className={styles['title']}>TEST</h1>
+                </div>
+                <div className={'col'}>
+                  <BarChart data={hospitalQueues} labelNamesPos={0} labelNumbersPos={1}></BarChart>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          <div className={`col`}>
+            <Card className={styles['cardSize']}>
+              <CardContent>
+                <div className={'col'}>
+                  <h1 className={styles['title']}>TEST</h1>
+                </div>
+                <div className={'col'}>
+                  <BarChart data={hospitalQueues} labelNamesPos={0} labelNumbersPos={1}></BarChart>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        <div className={`${styles['cardPos']} row`}>
+          <div className={'col'}>
+            <Card className={styles['cardSize']}>
+              <CardContent>
+                <div className={'col'}>
+                  <h1 className={styles['title']}>TEST</h1>
+                </div>
+                <div className={'col'}>
+                  <BarChart data={hospitalQueues} labelNamesPos={0} labelNumbersPos={1}></BarChart>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          <div className={'col'}>
+            <Card className={styles['cardSize']}>
+              <CardContent>
+                <div className={'col'}>
+                  <h1 className={styles['title']}>TEST</h1>
+                </div>
+                <div className={'col'}>
+                  <BarChart data={hospitalQueues} labelNamesPos={0} labelNumbersPos={1}></BarChart>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }
-
-export default Statistics;
