@@ -22,6 +22,7 @@
   width: 45rem;
   text-align: center;
   color: #565555;
+  overflow: hidden;
 }
 
 .imgPosRow {
