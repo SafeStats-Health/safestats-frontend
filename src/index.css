@@ -22,3 +22,7 @@ code {
   font-family: 'Inter Black';
   src: url('./assets/fonts/Inter-Black.ttf');
 }
+
+#root {
+  white-space: pre-line;
+}

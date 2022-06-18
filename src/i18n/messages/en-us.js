@@ -14,6 +14,14 @@ export default {
     DISTRICT: 'district',
     GO: 'go!',
     ABOUT_US: 'about us',
+    ABOUT_US_TITLE: 'safe stats works to give you the best result!',
+    ABOUT_US_SUBTITLE: 'see below the mission, vision and values ​​of the most tech company in the health world',
+    ABOUT_US_MISSION_TITLE: 'mission',
+    ABOUT_US_MISSION: 'its mission is to add ethical and qualitative health services to the population of Curitiba. \n provides citizens with a good quality medical service, with personality and high technology. \n carries out its activities with state-of-the-art security.',
+    ABOUT_US_VISION_TITLE: 'vision',
+    ABOUT_US_VISION: 'achieve user satisfaction. \n contribute to quality of life through health promotion, prevention and assistance. \n implement and consolidate own services, with humanized and reference service. \n keep qualified employees and committed.',
+    ABOUT_US_VALUES_TITLE: 'values',
+    ABOUT_US_VALUES: 'strengthening of cooperative principles (ethics, democracy, equity, inter-cooperation, education, solidarity and social justice). \n satisfaction and well-being of cooperative members, collaborators, customers and community. \n excellence in service in all cooperative levels. \n sustainable management, maintaining ethics, integrity and valuing the human being.',
     CONTACT: 'contact',
     CONTACT_TITLE: 'you can get in touch with us!',
     CONTACT_SUBTITLE: 'If you have any questions, we will be at your disposal.',
@@ -33,6 +41,12 @@ export default {
     MORE_ATTENTION_TO_HEALTH: 'More Attention to Health',
     MATH_DESC:
       "Actions aimed at caring for health conditions at all stages of life. That's MATH: specific programs to promote the comfort, safety and well-being of SafeStats customers.",
+    TEXT_MICROSCOPE:
+      'exams, consultations and everything you need in one place! Create your account now! the best service. easy and fast!',
+    TEXT_CASE:
+      'medicine has never been so technological. the best doctors and best hospitals in the palm of your hand. Taking care of your health has never been so easy!',
+    TEXT_STETHOSCOPE:
+      'find the right hospital for you with just one click. you being treated by the best doctors in the region with extreme ease.',
     REGISTER_YOURSELF: 'register',
     X: 'X',
     PROFILE: 'profile',
