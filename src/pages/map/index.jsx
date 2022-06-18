@@ -8,6 +8,7 @@ import logo from '../../assets/images/safe_stats_alt.svg';
 import leaveIcon from '../../assets/icons/leave.svg';
 import userIcon from '../../assets/icons/user.svg';
 import mapIcon from '../../assets/icons/map.svg';
+import markerIcon from '../../assets/icons/marker.svg';
 class Map extends Component {
 
   render() {
@@ -15,6 +16,9 @@ class Map extends Component {
       <div className={styles['map-container']}>
         <CMap />
         <div className={styles['options-box']}>
+          <div className={`${styles['icon-container']} ${styles.clickable}`}>
+            <img className={styles['marker-icon']} src={markerIcon} />
+          </div>
           <div className={`${styles['icon-container']} ${styles.clickable}`}>
             <img className={styles['map-icon']} src={mapIcon} />
           </div>

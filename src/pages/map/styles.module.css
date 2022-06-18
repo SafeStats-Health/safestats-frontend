@@ -30,6 +30,11 @@
   align-items: center;
 }
 
+.marker-icon {
+  height: 90%;
+  filter: invert(90%)
+}
+
 .map-icon {
   height: 100%;
 }

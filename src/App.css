@@ -22,6 +22,10 @@
   background-color: #C4C4C42B;
 }
 
+/* .leaflet-popup {
+  display: none !important;
+} */
+
 @media only screen and (max-width: 1000px) {
   .doctor-image--container {
       display: none;
@@ -82,4 +86,26 @@
 .account-text a {
   font-weight: bold;
   cursor: pointer;
+}
+
+.leaflet-popup {
+  width: 0;
+}
+
+.leaflet-popup-content-wrapper {
+  padding: 0 !important;
+}
+
+.leaflet-popup-tip {
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.leaflet-popup-close-button {
+  width: 0;
+}
+
+.leaflet-popup-close-button > span{
+  display: none;
 }
