@@ -1,8 +1,14 @@
-.map-container {
-  position: relative;
+.map-page {
   width: 100vw;
   height: 100vh;
   position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.map-container {
+  width: 100%;
+  height: 100vh;
   background-color: tomato;
 }
 
@@ -12,7 +18,7 @@
   top: 0;
   right: 0;
   background-image: linear-gradient(#2b3f6c, #546e9a);
-  height: 50px;
+  height: 60px;
   min-width: 150px;
   border-radius: 5px 45px;
   display: flex;
@@ -22,8 +28,12 @@
   padding: 10px 20px;
 }
 
+.icon-container:not(:last-child) {
+  margin-right: 10px;
+}
+
 .icon-container {
-  height: 100%;
+  flex-grow: 1;
   position: relative;
   display: flex;
   justify-content: center;
@@ -32,7 +42,6 @@
 
 .marker-icon {
   height: 90%;
-  filter: invert(90%)
 }
 
 .map-icon {

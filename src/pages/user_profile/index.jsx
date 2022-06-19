@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import styles from './styles.module.css';
-import Drawer from '../../components/drawer'
+import Drawer from '../../components/drawer';
 import safeStats from '../../assets/images/safe_stats.svg';
 import {useMediaQuery} from 'react-responsive';
 import General from './general'
@@ -11,6 +11,7 @@ import BloodDonation from './blood_donation'
 import ChangePassword from './change_password'
 import DeleteAccount from './delete_account'
 import Statistics from "./statistics";
+import t from '../../i18n/translate';
 
 export default function UserProfile() {
 
@@ -24,33 +25,57 @@ export default function UserProfile() {
       selectProfilePage('GENERAL');
     }
   }, []);
+  
+  const profilePages = [
+    {
+      key: 'GENERAL',
+      label: t('GENERAL'),
+      component: <General />,
+    },
+    {
+      key: 'PERSONAL_DATA',
+      label: t('PERSONAL_DATA'),
+      component: <PersonalData />,
+    },
+    {
+      key: 'TRUSTWORTHY_CONTACT',
+      label: t('TRUSTWORTHY_CONTACT'),
+      component: <TrustworthyContract />,
+    },
+    {
+      key: 'HEALTH_PLAN',
+      label: t('HEALTH_PLAN'),
+      component: <HealthPlan />,
+    },
+    {
+      key: 'BLOOD_DONATION',
+      label: t('BLOOD_DONATION'),
+      component: <BloodDonation />,
+    },
+    {
+      key: 'CHANGE_PASSWORD',
+      label: t('CHANGE_PASSWORD'),
+      component: <ChangePassword />,
+    },
+    {
+      key: 'DELETE_ACCOUNT',
+      label: t('DELETE_ACCOUNT'),
+      component: <DeleteAccount />,
+    },
+  ];
 
   function selectedProfilePageComponent(param) {
-    switch (param) {
-      case 'GENERAL':
-        return <General/>;
-      case 'PERSONAL_DATA':
-        return <PersonalData/>;
-      case 'TRUSTWORTHY_CONTACT':
-        return <TrustworthyContract/>;
-      case 'HEALTH_PLAN':
-        return <HealthPlan/>;
-      case 'BLOOD_DONATION':
-        return <BloodDonation/>;
-      case 'STATISTICS':
-        return <Statistics/>;
-      case 'CHANGE_PASSWORD':
-        return <ChangePassword/>;
-      case 'DELETE_ACCOUNT':
-        return <DeleteAccount/>;
-      default:
-        return;
-    }
+    return profilePages.find(page => page.key === param).component;
   }
 
   return (
     <div className={styles['user-profile']}>
-      <Drawer defaultOpen={!isMobile} selectProfilePage={selectProfilePage}/>
+      <Drawer
+        defaultOpen={!isMobile}
+        selectOption={selectProfilePage}
+        options={profilePages}
+        defaultOption="GENERAL"
+      />
       <div className={`${styles['content']} ${isMobile ? styles['absolute-content'] : ''}`}>
         {selectedProfilePageComponent(selectedProfilePage)}
         <img src={safeStats} alt="Safe Stats" className={styles.logo}/>
