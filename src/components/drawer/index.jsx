@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 function DrawerMenu(props) {
 
-  const [highlightedPage, highlightPage] = useState(props.selectedPage ?? 'GENERAL');
+  const [highlightedOption, highlightOption] = useState(props.option ?? 'GENERAL');
 
   function logout() {
     document.getElementById('logoutLink').click();
@@ -18,9 +18,9 @@ function DrawerMenu(props) {
     props.setDrawerOpen(false);
   }
 
-  function selectProfilePage(pageName) {
-    highlightPage(pageName)
-    props.selectProfilePage(pageName)
+  function selectOption(pageName) {
+    highlightOption(pageName)
+    props.selectOption(pageName)
   }
 
   return (
@@ -30,48 +30,16 @@ function DrawerMenu(props) {
         <img src={close} alt='Close' className={`${styles.icon} ${styles.clickable}`} />
       </div>
       <div className={styles['middle-section']}>
-        <div
-          onClick={() => {selectProfilePage('GENERAL')}}
-          className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "GENERAL" ? styles.selected : ''}`}
-        >
-          {t('GENERAL')}
-        </div>
-        <div
-          onClick={() => {selectProfilePage('PERSONAL_DATA')}}
-          className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "PERSONAL_DATA" ? styles.selected : ''}`}
-        >
-          {t('PERSONAL_DATA')}
-        </div>
-        <div
-          onClick={() => {selectProfilePage('TRUSTWORTHY_CONTACT')}}
-          className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "TRUSTWORTHY_CONTACT" ? styles.selected : ''}`}
-        >
-          {t('TRUSTWORTHY_CONTACT')}
-        </div>
-        <div
-          onClick={() => {selectProfilePage('HEALTH_PLAN')}}
-          className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "HEALTH_PLAN" ? styles.selected : ''}`}
-        >
-          {t('HEALTH_PLAN')}
-        </div>
-        <div
-          onClick={() => {selectProfilePage('BLOOD_DONATION')}}
-          className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "BLOOD_DONATION" ? styles.selected : ''}`}
-        >
-          {t('BLOOD_DONATION')}
-        </div>
-        <div
-          onClick={() => {selectProfilePage('CHANGE_PASSWORD')}}
-          className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "CHANGE_PASSWORD" ? styles.selected : ''}`}
-        >
-          {t('CHANGE_PASSWORD')}
-        </div>
-        <div
-          onClick={() => {selectProfilePage('DELETE_ACCOUNT')}}
-          className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "DELETE_ACCOUNT" ? styles.selected : ''}`}
-        >
-          {t('DELETE_ACCOUNT')}
-        </div>
+        {
+          props.options.map(option => (
+            <div
+              onClick={() => {selectOption(option.key)}}
+              className={`${styles['option-link']} ${styles.clickable} ${highlightedOption === option.key ? styles.selected : ''}`}
+            >
+              {option.label}
+            </div>
+          ))
+        }
       </div>
       <div className={styles['bottom-section']}>
         <div onClick={logout} className={`${styles.clickable} ${styles.logout}`}>
@@ -99,15 +67,22 @@ function DrawerButton(props) {
 
 export default function Drawer(props) {
   const [drawerOpen, setDrawerOpen] = useState(props.defaultOpen);
-  const [selectedPage, selectPage] = useState('GENERAL');
+  const [option, setOption] = useState(props.defaultOption);
 
-  function selectProfilePage(pageName) {
-    selectPage(pageName)
-    props.selectProfilePage(pageName);
+  function selectOption(pageName) {
+    setOption(pageName)
+    props.selectOption(pageName);
   }
 
   if (drawerOpen) {
-    return <DrawerMenu setDrawerOpen={setDrawerOpen} selectProfilePage={selectProfilePage} selectedPage={selectedPage} />
+    return (
+      <DrawerMenu
+        setDrawerOpen={setDrawerOpen}
+        selectOption={selectOption}
+        option={option}
+        options={props.options}
+      />
+    );
   } else {
     return <DrawerButton setDrawerOpen={setDrawerOpen} />
   }

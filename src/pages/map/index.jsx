@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import styles from './styles.module.css';
 import t from '../../i18n/translate';
 import CMap from '../../components/core/c_map';
@@ -9,23 +9,53 @@ import leaveIcon from '../../assets/icons/leave.svg';
 import userIcon from '../../assets/icons/user.svg';
 import mapIcon from '../../assets/icons/map.svg';
 import markerIcon from '../../assets/icons/marker.svg';
-class Map extends Component {
+import { Link } from 'react-router-dom';
+import Drawer from '../../components/drawer'
+import hospitals from '../../pages/map/hospitals'
 
-  render() {
-    return (
-      <div className={styles['map-container']}>
-        <CMap />
+function goToProfile() {
+  document.getElementById('profileLink').click()
+}
+
+function goToLandingPage() {
+  document.getElementById('landingPageLink').click()
+}
+
+function Map(props) {
+
+  const [selectedHospital, selectHospital] = useState(null);
+
+  return (
+    <div className={styles['map-page']}>
+      <Link to="/user_profile" id="profileLink" />
+      <Link to="/" id="landingPageLink" />
+      <Drawer
+        options={hospitals}
+        selectOption={selectHospital}
+      />
+      <div  className={styles['map-container']} >
+        <CMap hospitals={hospitals} selectedHospital={selectedHospital}/>
         <div className={styles['options-box']}>
-          <div className={`${styles['icon-container']} ${styles.clickable}`}>
+          <div
+            className={`${styles['icon-container']} ${styles.clickable}`}
+          >
             <img className={styles['marker-icon']} src={markerIcon} />
           </div>
-          <div className={`${styles['icon-container']} ${styles.clickable}`}>
+          <div
+            className={`${styles['icon-container']} ${styles.clickable}`}
+          >
             <img className={styles['map-icon']} src={mapIcon} />
           </div>
-          <div className={`${styles['icon-container']} ${styles.clickable}`}>
+          <div
+            className={`${styles['icon-container']} ${styles.clickable}`}
+            onClick={goToProfile}
+          >
             <img className={styles['user-icon']} src={userIcon} />
           </div>
-          <div className={`${styles['icon-container']} ${styles.clickable}`}>
+          <div
+            className={`${styles['icon-container']} ${styles.clickable}`}
+            onClick={goToLandingPage}
+          >
             <img className={styles['leave-icon']} src={leaveIcon} />
           </div>
         </div>
@@ -52,8 +82,8 @@ class Map extends Component {
           </div>
         </div> */}
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default Map;
