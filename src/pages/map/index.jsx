@@ -81,28 +81,6 @@ function Map(props) {
             <img className={styles['leave-icon']} src={leaveIcon} />
           </div>
         </div>
-        {/* <div className={styles['search-box']}>
-          <div className={styles['logo-box']}>
-            <img className={styles.logo} src={logo} />
-          </div>
-          <div className={styles['search-box-form']}>
-            <CInput
-              inverse
-              id='hospital'
-              label={t('HOSPITAL')}
-              placeholder='ex.: hospital pequeno príncipe'
-            />
-            <CInput
-              inverse
-              id='district'
-              label={t('DISTRICT')}
-              placeholder='ex.: água verde'
-            />
-            <div className={styles['search-button']}>
-              <CButton inverse label={t('GO')} />
-            </div>
-          </div>
-        </div> */}
       </div>
     </div>
   );

@@ -69,6 +69,11 @@ const CMap = forwardRef((props, ref) => {
       <Marker
         position={position}
         icon={markerIcon} 
+        eventHandlers={{
+          click: () => {
+            setCenter(userPos)
+          },
+        }}
       />
     );
   }
