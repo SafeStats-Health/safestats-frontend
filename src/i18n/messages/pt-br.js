@@ -1,4 +1,4 @@
-import {LOCALES} from '../locales';
+import { LOCALES } from '../locales';
 
 export default {
   [LOCALES.PORTUGUESE]: {
@@ -21,9 +21,10 @@ export default {
     ENTER: 'entrar',
 
     ERROR: 'ERRO!',
-    ERROR_MESSAGE: 'ah, não! parece que o doutor não conseguiu resolver seu problema!',
+    ERROR_MESSAGE:
+      'ah, não! parece que o doutor não conseguiu resolver seu problema!',
     HELLO: 'olá! tudo bem?',
-    EMAIL_MESSAGE: 'enviamos um e-mail de confirmação para você!',
+    EMAIL_MESSAGE: 'enviamos um e-mail para você!',
     BACK_TO_LOGIN: 'voltar ao login',
     HOSPITAL: 'hospital',
     DISTRICT: 'bairro',
@@ -52,7 +53,8 @@ export default {
     
     REGISTRATION: 'cadastro',
     TECH_FOR_THE_HEALTH: 'a tecnologia em prol da sua saúde',
-    DO_YOU_WANT_SAFESTATS: 'quer ter acesso na melhor plataforma da área de saúde?',
+    DO_YOU_WANT_SAFESTATS:
+      'quer ter acesso na melhor plataforma da área de saúde?',
     REGISTER_ITS_FREE: 'cadastre-se, é gratuito!',
     SAFESTATS_CLUB: 'Clube SafeStats',
     ONLINE_DISCOUNTS: 'descontos online',
@@ -112,6 +114,17 @@ export default {
     TEXT_MICROSCOPE: 'exames, consultas e tudo que você precisa em um só lugar! faça seu cadastro agora mesmo! o melhor atendimento. fácil e rápido!',
     TEXT_CASE: 'a medicina nunca esteve tão tecnológica. os melhores médicos e melhores hospitais na palma da sua mão. cuidar da sua saúde nunca esteve tão fácil!',
     TEXT_STETHOSCOPE: 'encontre o hospital certo para você com apenas um clique. você sendo atendido pelos melhores médicos da região com extrema facilidade.',
+    IT_SEEMS_THAT_YOU_FORGOT_YOUR_PASSWORD:
+      'parece que você esqueceu a sua senha!',
+    NEW_PASSWORD: 'nova senha',
+    REPEAT_YOUR_PASSWORD: 'repita a sua senha',
+    CHANGE_PASSWORD: 'alterar senha',
+    TEXT_MICROSCOPE:
+      'exames, consultas e tudo que você precisa em um só lugar! faça seu cadastro agora mesmo! o melhor atendimento. fácil e rápido!',
+    TEXT_CASE:
+      'a medicina nunca esteve tão tecnológica. os melhores médicos e melhores hospitais na palma da sua mão. cuidar da sua saúde nunca esteve tão fácil!',
+    TEXT_STETHOSCOPE:
+      'encontre o hospital certo para você com apenas um clique. você sendo atendido pelos melhores médicos da região com extrema facilidade.',
     REGISTER_YOURSELF: 'cadastre-se',
 
     //tela confirmação de deletar conta

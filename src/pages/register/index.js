@@ -1,14 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import pose6 from '../../assets/images/pose_6.png';
 import safeStats from '../../assets/images/safe_stats.svg';
-import CButton from '../../components/core/c_button';
 import CInput from '../../components/core/c_input';
 import t from '../../i18n/translate';
-
-async function createUser() {
-  
-}
+import { CreateUser } from '../../utils/api-requester/modules/user';
 
 function auth() {
   const [name, setName] = useState();
@@ -35,7 +31,6 @@ function auth() {
     const fields = [name, email, password, confirmPassword];
     const allFieldsAreFilled = fields.every((field) => field && field !== '');
     const allFieldsAreValidF = validations.every((field) => !field);
-    console.log(validations);
     setAllFieldsAreValid(allFieldsAreFilled && allFieldsAreValidF);
   }
 
@@ -51,16 +46,31 @@ function auth() {
       setShouldShowPasswordsDontMatchWarning(false);
     }
   }
-
+  const navigate = useNavigate();
   async function createUser() {
-    await new CreateUser().call({
-      body: {
-        name,
-        email,
-        password,
-        confirmPassword,
-      },
-    });
+    if (allFieldsAreValid) {
+      new CreateUser()
+        .call({
+          body: {
+            name,
+            email,
+            password,
+            confirmPassword,
+          },
+        })
+        .then((res) => {
+          if (res.status === 201) {
+            navigate('/email_confirm');
+          }
+        })
+        .catch((res) => {
+          if (res.response.status !== 400) {
+            navigate('/error');
+          } else {
+            
+          }
+        });
+    }
   }
   return (
     <div className='Auth'>
@@ -102,6 +112,7 @@ function auth() {
                 type = "password"
                 shouldShowWarning={shouldShowPasswordsDontMatchWarning}
                 onInput={setPassword}
+                type='password'
               />
             </div>
             <div className='auth-input--div'>
@@ -113,6 +124,7 @@ function auth() {
                 shouldShowWarning={shouldShowPasswordsDontMatchWarning}
                 warningText={t('PASSWORDS_DONT_MATCH')}
                 onInput={setConfirmPassword}
+                type='password'
               />
             </div>
 

@@ -1,13 +1,11 @@
 import api from '../api';
 
 export class CreateUser {
-  method = 'post';
-  url = 'users/register';
   async call(request) {
     return (async () =>
       api({
         method: 'post',
-        url: this.url,
+        url: 'users/register',
         data: request.body,
         params: request.params,
       }))();
@@ -15,13 +13,11 @@ export class CreateUser {
 }
 
 export class LoginUser {
-  method = 'post';
-  url = 'users/login';
   async call(request) {
     return (async () =>
       api({
         method: 'post',
-        url: this.url,
+        url: 'users/login',
         data: request.body,
         params: request.params,
       }))();

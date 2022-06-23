@@ -1,4 +1,4 @@
-import {LOCALES} from '../locales';
+import { LOCALES } from '../locales';
 
 export default {
   [LOCALES.ENGLISH]: {
@@ -24,7 +24,7 @@ export default {
     ERROR_MESSAGE:
       "oh, no! it looks like the doctor couldn't handle the problem!",
     HELLO: 'hello! how are you?',
-    EMAIL_MESSAGE: 'we have sent a confirmation email to you!',
+    EMAIL_MESSAGE: 'we have sent a email to you!',
     BACK_TO_LOGIN: 'back to login',
     HOSPITAL: 'hospital',
     DISTRICT: 'district',
