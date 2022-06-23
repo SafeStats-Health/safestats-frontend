@@ -42,7 +42,7 @@ function Login() {
               <CInput
                 id='email'
                 label={t('EMAIL')}
-                placeholder='ex.: joão.silva@email.coim'
+                placeholder='ex.: joão.silva@email.com'
                 onInput={setEmail}
               />
             </div>
@@ -55,14 +55,21 @@ function Login() {
                 onInput={setPassword}
               />
             </div>
-            <CButton label={t('ENTER')} onClick={getUser} type='button'/>
+
             <div className={styles.info}>
-              <p className='account-text'>{t('FORGOT_YOUR_PASSWORD')}</p>
+              <p className='account-text'>
+                <Link className={styles.clickHere} to='/reset_password'>{t('FORGOT_YOUR_PASSWORD')}</Link>
+              </p>
               <p className='account-text'>
                 {t('DONT_HAVE_AN_ACCOUNT')}{' '}
-                <Link to='/register'>{t('CLICK_HERE')}</Link>
+                <Link className={styles.clickHere} to='/register'>{t('CLICK_HERE')}</Link>
               </p>
             </div>
+
+            <div className={styles.botaoEntrar}>
+              <CButton label={t('ENTER')} onClick={getUser} type='button'/>
+            </div>
+          
           </form>
         </div>
       </div>

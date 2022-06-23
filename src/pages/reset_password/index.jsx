@@ -24,7 +24,7 @@ function ResetPassword() {
           <form className={styles['form-content']}>
             <div className={styles['form-centralizer']}>
               <div className={styles["title-container"]}>
-                <span className={styles.title}>{ t('IT_SEEMS_THAT_YOU_FORGOT_YOUR_PASSWORD') }</span>
+                <span className={styles.title}>{t('IT_SEEMS_THAT_YOU_FORGOT_YOUR_PASSWORD')}</span>
               </div>
               <CInput
                 id='password'
@@ -38,7 +38,10 @@ function ResetPassword() {
                 placeholder='••••••••••••'
                 type='password'
               />
-              <CButton label={t('CHANGE_PASSWORD')} type='button' onClick={goToLogin} />
+              <div className={styles.botaoAlterarSenha}>
+                <CButton label={t('CHANGE_PASSWORD')} type='button' onClick={goToLogin} />
+              </div>
+
             </div>
           </form>
         </div>

@@ -1,4 +1,3 @@
-
 .title-container {
     margin-bottom: 50px;
 }
@@ -19,4 +18,8 @@
 
 .form-centralizer {
     max-width: 500px;
+}
+
+.botaoAlterarSenha {
+    margin-top: 70px;
 }
