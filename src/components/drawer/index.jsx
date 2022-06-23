@@ -3,12 +3,17 @@ import styles from './styles.module.css';
 import t from '../../i18n/translate';
 import door from '../../assets/images/door.svg';
 import hamburger from '../../assets/images/hamburger.svg';
+import whiteHamburger from '../../assets/images/white_hamburger.svg';
 import close from '../../assets/images/close.svg'
 import {Link} from 'react-router-dom';
+import CInput from '../core/c_input';
+
+
 
 function DrawerMenu(props) {
 
   const [highlightedOption, highlightOption] = useState(props.option ?? 'GENERAL');
+  const [filteredOptions, setFilteredOptions] = useState(props.options)
 
   function logout() {
     localStorage.clear();
@@ -23,17 +28,40 @@ function DrawerMenu(props) {
     highlightOption(pageName)
     props.selectOption(pageName)
   }
+  
+  function filterHospitals(text) {
+    const filter = text.toUpperCase()
+    const filteredOptions = []
+    props.options.forEach(option => {
+      if (option.label.toUpperCase().indexOf(filter) > -1) {
+        filteredOptions.push(option)
+      }
+    })
+    setFilteredOptions(filteredOptions)
+  }
 
   return (
-    <div className={styles['drawer']}>
-      <Link to="/" id='logoutLink'/>
-      <div className={styles['top-section']} onClick={closeDrawer}>
-        <img src={close} alt='Close' className={`${styles.icon} ${styles.clickable}`}/>
+    <div className={styles['drawer']} style={{width: props.width}}>
+      <Link to="/" id='logoutLink' />
+      <div className={styles['top-section']}>
+        <img src={close} alt='Close' className={`${styles.icon} ${styles.clickable}`} onClick={closeDrawer}/>
       </div>
+      {
+        props.searchBar &&  (
+          <CInput
+            inverse
+            id='district'
+            placeholder='ex.: hospital pequeno príncipe'
+            invertMargin
+            onInput={filterHospitals}
+          />
+        )
+      }
       <div className={styles['middle-section']}>
         {
-          props.options.map(option => (
+          filteredOptions.map(option => (
             <div
+              key={option.key}
               onClick={() => {selectOption(option.key)}}
               className={`${styles['option-link']} ${styles.clickable} ${highlightedOption === option.key ? styles.selected : ''}`}
             >
@@ -58,10 +86,35 @@ function DrawerButton(props) {
     props.setDrawerOpen(true);
   }
 
+  function DefaultButton() {
+    return (
+      <div onClick={openDrawer} className={`${styles['button']} ${styles['default-button']} ${styles.clickable}`}>
+        <img src={hamburger} alt="Hamburger" className={styles.hamburger}/>
+        <span className={styles.menu}>{t('MENU')}</span>
+      </div>
+    );
+  }
+
+  function AltButton() {
+    return (
+      <div className={`${styles['button']} ${styles['alt-button']}`}>
+        <div onClick={openDrawer} className={styles.clickable}>
+          <img src={whiteHamburger} alt="Hamburger" className={styles.hamburger}/>
+        </div>
+      </div>
+    );
+  }
+
+  function Button(props) {
+    if (props.altButton) {
+      return <AltButton />
+    }
+    return <DefaultButton />
+  }
+
   return (
-    <div onClick={openDrawer} className={`${styles['open-drawer-button']} ${styles.clickable}`}>
-      <img src={hamburger} alt="Hamburger" className={styles.hamburger}/>
-      <span className={styles.menu}>{t('MENU')}</span>
+    <div>
+      <Button altButton={props.altButton} />
     </div>
   );
 }
@@ -75,6 +128,12 @@ export default function Drawer(props) {
     props.selectOption(pageName);
   }
 
+  useEffect(() => {
+    if (props.setDrawerOpen) {
+      props.setDrawerOpen(drawerOpen)
+    }
+  }, [drawerOpen])
+
   if (drawerOpen) {
     return (
       <DrawerMenu
@@ -82,9 +141,16 @@ export default function Drawer(props) {
         selectOption={selectOption}
         option={option}
         options={props.options}
+        searchBar={props.searchBar}
+        width={props.width}
       />
     );
   } else {
-    return <DrawerButton setDrawerOpen={setDrawerOpen}/>
+    return (
+      <DrawerButton
+        setDrawerOpen={setDrawerOpen}
+        altButton={props.altButton}
+      />
+    );
   }
 }

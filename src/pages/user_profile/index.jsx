@@ -53,6 +53,11 @@ export default function UserProfile() {
       component: <BloodDonation />,
     },
     {
+      key: 'STATISTICS',
+      label: t('STATISTICS'),
+      component: <Statistics />,
+    },
+    {
       key: 'CHANGE_PASSWORD',
       label: t('CHANGE_PASSWORD'),
       component: <ChangePassword />,
