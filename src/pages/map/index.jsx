@@ -12,6 +12,7 @@ import markerIcon from '../../assets/icons/marker2.svg';
 import { Link } from 'react-router-dom';
 import Drawer from '../../components/drawer'
 import hospitals from '../../pages/map/hospitals'
+import { FetchNearbyHospitals } from '../../utils/api-requester/modules/nearby-hospitals';
 
 function goToProfile() {
   document.getElementById('profileLink').click()
@@ -33,6 +34,12 @@ function Map(props) {
       setCenter(selectHospital.position)
     }
   }, [selectHospital])
+
+  function fetchNearbyHospitals() {
+    new FetchNearbyHospitals({
+      
+    })
+  }
 
   return (
     <div className={styles['map-page']}>
