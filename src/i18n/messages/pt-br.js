@@ -34,7 +34,7 @@ export default {
     HOSPITAL: 'hospital',
     DISTRICT: 'bairro',
     GO: 'vamos!',
-    
+
     //tela sobre nós
     ABOUT_US: 'sobre nós',
     ABOUT_US_TITLE:
@@ -48,8 +48,13 @@ export default {
     ABOUT_US_VISION:
       'atingir a satisfação do usuário. \n contribuir com a qualidade de vida através da promoção, prevenção e assistência à saúde. \n implementar e consolidar serviços próprios, com atendimento humanizado e de referência. \n manter colaboradores qualificados e comprometidos.',
     ABOUT_US_VALUES_TITLE: 'valores',
-    ABOUT_US_VALUES: 'fortalecimento dos princípios cooperativistas (ética, democracia, equidade, inter-cooperação, educação, solidariedade e justiça social). \nsatisfação e o bem estar dos cooperados, colaboradores, clientes e comunidade. \n excelência no atendimento em todos os níveis da cooperativa. \n gestão sustentável, mantendo a ética, integridade e a valorização do ser humano.',
-    
+    ABOUT_US_VALUES:
+      'fortalecimento dos princípios cooperativistas (ética, democracia, equidade, inter-cooperação, educação, solidariedade e justiça social). \nsatisfação e o bem estar dos cooperados, colaboradores, clientes e comunidade. \n excelência no atendimento em todos os níveis da cooperativa. \n gestão sustentável, mantendo a ética, integridade e a valorização do ser humano.',
+    IS_BLOOD_DONATOR: 'é doador de sangue?',
+    TYPE_YOUR_CURRENT_PASSWORD: 'digite sua senha atual',
+    DELETE_ACCOUNT: 'deletar conta',
+    TYPE_YOUR_EMAIL: 'digite seu e-mail',
+    SEND_EMAIL: 'enviar e-mail',
     //tela contato
     ABOUT_US_VALUES:
       'fortalecimento dos princípios cooperativistas (ética, democracia, equidade, inter-cooperação, educação, solidariedade e justiça social). \nsatisfação e o bem estar dos cooperados, colaboradores, clientes e comunidade. \n excelência no atendimento em todos os níveis da cooperativa. \n gestão sustentável, mantendo a ética, integridade e a valorização do ser humano.',
@@ -62,7 +67,6 @@ export default {
       'pode entrar em contato com a gente pelas nossas redes sociais :)',
     CONTACT_SOCIALMEDIA_SUBTITLE: '@safestats',
 
-    
     REGISTRATION: 'cadastro',
     TECH_FOR_THE_HEALTH: 'a tecnologia em prol da sua saúde',
     DO_YOU_WANT_SAFESTATS:
@@ -87,7 +91,7 @@ export default {
     PROFILE: 'perfil',
     GENERAL: 'geral',
 
-    //tela dados pessoais  
+    //tela dados pessoais
     PERSONAL_DATA: 'dados pessoais',
     PHONE: 'telefone',
     ADRESS: 'endereço',
@@ -99,7 +103,8 @@ export default {
     BLOOD_TYPE: 'tipo sanguíneo',
     DONATION_LOCATION: 'local da doação',
     DELETE_ACCOUNT_TITLE: 'digite sua senha para deletar sua conta',
-    REPEAT_DELETE_ACCOUNT_TITLE: 'digite novamente sua senha para deletar sua conta',
+    REPEAT_DELETE_ACCOUNT_TITLE:
+      'digite novamente sua senha para deletar sua conta',
 
     TRUSTWORTHY_CONTACT: 'contato de confiança',
     HEALTH_PLAN: 'plano de saúde',
@@ -118,14 +123,18 @@ export default {
     TRUSTWORTHY_CONTACT_TITLE: 'contato de confiança',
 
     //tela esqueceu sua senha
-    IT_SEEMS_THAT_YOU_FORGOT_YOUR_PASSWORD: 'parece que você esqueceu a sua senha!',
+    IT_SEEMS_THAT_YOU_FORGOT_YOUR_PASSWORD:
+      'parece que você esqueceu a sua senha!',
     NEW_PASSWORD: 'nova senha',
     REPEAT_YOUR_PASSWORD: 'repita a sua senha',
     CHANGE_PASSWORD: 'alterar senha',
 
-    TEXT_MICROSCOPE: 'exames, consultas e tudo que você precisa em um só lugar! faça seu cadastro agora mesmo! o melhor atendimento. fácil e rápido!',
-    TEXT_CASE: 'a medicina nunca esteve tão tecnológica. os melhores médicos e melhores hospitais na palma da sua mão. cuidar da sua saúde nunca esteve tão fácil!',
-    TEXT_STETHOSCOPE: 'encontre o hospital certo para você com apenas um clique. você sendo atendido pelos melhores médicos da região com extrema facilidade.',
+    TEXT_MICROSCOPE:
+      'exames, consultas e tudo que você precisa em um só lugar! faça seu cadastro agora mesmo! o melhor atendimento. fácil e rápido!',
+    TEXT_CASE:
+      'a medicina nunca esteve tão tecnológica. os melhores médicos e melhores hospitais na palma da sua mão. cuidar da sua saúde nunca esteve tão fácil!',
+    TEXT_STETHOSCOPE:
+      'encontre o hospital certo para você com apenas um clique. você sendo atendido pelos melhores médicos da região com extrema facilidade.',
     IT_SEEMS_THAT_YOU_FORGOT_YOUR_PASSWORD:
       'parece que você esqueceu a sua senha!',
     NEW_PASSWORD: 'nova senha',

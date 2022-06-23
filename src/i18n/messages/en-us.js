@@ -42,8 +42,12 @@ export default {
     ABOUT_US_VISION:
       'achieve user satisfaction. \n contribute to quality of life through health promotion, prevention and assistance. \n implement and consolidate own services, with humanized and reference service. \n keep qualified employees and committed.',
     ABOUT_US_VALUES_TITLE: 'values',
-    ABOUT_US_VALUES: 'strengthening of cooperative principles (ethics, democracy, equity, inter-cooperation, education, solidarity and social justice). \n satisfaction and well-being of cooperative members, collaborators, customers and community. \n excellence in service in all cooperative levels. \n sustainable management, maintaining ethics, integrity and valuing the human being.',
-    
+    ABOUT_US_VALUES:
+      'strengthening of cooperative principles (ethics, democracy, equity, inter-cooperation, education, solidarity and social justice). \n satisfaction and well-being of cooperative members, collaborators, customers and community. \n excellence in service in all cooperative levels. \n sustainable management, maintaining ethics, integrity and valuing the human being.',
+    IS_BLOOD_DONATOR: 'is a blood donator?',
+    TYPE_YOUR_CURRENT_PASSWORD: 'digite sua senha atual',
+    DELETE_ACCOUNT: 'delete account',
+    TYPE_YOUR_EMAIL: 'type your email',
     //tela contato
     ABOUT_US_VALUES:
       'strengthening of cooperative principles (ethics, democracy, equity, inter-cooperation, education, solidarity and social justice). \n satisfaction and well-being of cooperative members, collaborators, customers and community. \n excellence in service in all cooperative levels. \n sustainable management, maintaining ethics, integrity and valuing the human being.',
@@ -55,8 +59,7 @@ export default {
     CONTACT_SOCIALMEDIA_TITLE:
       'you can contact us through our social networks :)',
     CONTACT_SOCIALMEDIA_SUBTITLE: '@safestats',
-    
-    
+    SEND_EMAIL: 'send e-mail',
     REGISTRATION: 'registration',
     TECH_FOR_THE_HEALTH: 'the tech for the health',
     DO_YOU_WANT_SAFESTATS: 'do you want access to the best health platform?',
@@ -85,7 +88,7 @@ export default {
     PROFILE: 'profile',
     GENERAL: 'general',
 
-    //tela dados pessoais  
+    //tela dados pessoais
     PERSONAL_DATA: 'personal data',
     PHONE: 'phone number',
     ADRESS: 'address',
@@ -97,8 +100,9 @@ export default {
     BLOOD_TYPE: 'blood type',
     DONATION_LOCATION: 'donation location',
     DELETE_ACCOUNT_TITLE: 'enter your password to delete your account',
-    REPEAT_DELETE_ACCOUNT_TITLE: 're-enter your password to delete your account',
-   
+    REPEAT_DELETE_ACCOUNT_TITLE:
+      're-enter your password to delete your account',
+
     PERSONAL_DATA: 'personal data',
     TRUSTWORTHY_CONTACT: 'trustworthy contact',
     HEALTH_PLAN: 'health plan',
@@ -116,7 +120,6 @@ export default {
     CHANGE_PASSWORD_TITLE: 'change password',
     BLOOD_DONATION_TITLE: 'blood donation',
     TRUSTWORTHY_CONTACT_TITLE: 'trustworthy contact',
-
 
     //tela esqueceu sua senha
     IT_SEEMS_THAT_YOU_FORGOT_YOUR_PASSWORD:

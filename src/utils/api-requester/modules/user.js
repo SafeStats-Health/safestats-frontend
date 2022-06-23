@@ -1,5 +1,29 @@
 import api from '../api';
 
+export class SendRecoverPasswordEmail {
+  async call(request) {
+    return (async () =>
+      api({
+        method: 'post',
+        url: 'users/request-password-recover',
+        data: request.body,
+        params: request.params,
+      }))();
+  }
+}
+
+export class RecoverPassword {
+  async call(request) {
+    return (async () =>
+      api({
+        method: 'post',
+        url: 'users/update-password-recover',
+        data: request.body,
+        params: request.params,
+      }))();
+  }
+}
+
 export class CreateUser {
   async call(request) {
     return (async () =>

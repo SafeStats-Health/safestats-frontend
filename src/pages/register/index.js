@@ -20,9 +20,11 @@ function auth() {
 
   const [passwordWarning, setPasswordWarning] = useState();
 
-  useEffect(checkIfAllFieldsAreValid, [name, email, password, confirmPassword]);
-  useEffect(checkIfPasswordsMatch, [password, confirmPassword]);
-  useEffect(checkIfEmailIsValid, [email]);
+  useEffect(() => {
+    checkIfPasswordsMatch();
+    checkIfEmailIsValid();
+    checkIfAllFieldsAreValid();
+  }, [name, email, password, confirmPassword]);
 
   function checkIfAllFieldsAreValid() {
     console.log(passwordIsValid, emailIsValid);
@@ -36,10 +38,10 @@ function auth() {
   function checkIfEmailIsValid() {
     const regex = /\S+@\S+\.\S+/;
     if (email && email !== '' && !regex.test(email)) {
-      setEmailIsValid(true);
+      setEmailIsValid(false);
       setEmailWarning(t('INVALID_EMAIL'));
     } else {
-      setEmailIsValid(false);
+      setEmailIsValid(true);
       setEmailWarning(null);
     }
   }

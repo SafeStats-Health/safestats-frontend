@@ -2,43 +2,66 @@ import styles from './styles.module.css';
 import CButton from '../../../components/core/c_button';
 import CInput from '../../../components/core/c_input';
 import t from '../../../i18n/translate';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 function DeleteAccount() {
 
-  const [deletarConta, setDeletarConta] = useState();
-  const [deletarContaNovamente, setDeletarContaNovamente] = useState();
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState();
+  const [passwordWarning, setPasswordWarning] = useState();
 
 function submit(){
 
 }
 
 
+useEffect(() => {
+  checkIfPasswordsMatch();
+}, [password, confirmPassword]);
+
+function checkIfPasswordsMatch() {
+  if (
+    password &&
+    password !== '' &&
+    confirmPassword &&
+    confirmPassword !== ''
+  ) {
+    if (password !== confirmPassword) {
+      setPasswordWarning(t('PASSWORDS_DONT_MATCH'));
+    } else {
+      setPasswordWarning(null);
+    }
+  } else {
+    setPasswordWarning(null);
+  }
+}
+
   return (
     <div className={styles['delete-account']}>
-     
 
      <h1 className={styles['delete-account-title']}>{t('DELETE_ACCOUNT_TITLE_PAGE')}</h1>
 
-
         <CInput
-          id='deletarConta'
+          id='password'
           label={t('DELETE_ACCOUNT_TITLE')}
-          onInput={setDeletarConta}
-          type='text'
+          onInput={setPassword}
+          type='password'
+          shouldShowWarning={passwordWarning}
         />
 
 
         <CInput
-          id='deletarContaNovamente'
+          id='confirm-password'
           label={t('REPEAT_DELETE_ACCOUNT_TITLE')}
-          onInput={setDeletarContaNovamente}
-          type='text'
+          onInput={setConfirmPassword}
+          type='password'
+          shouldShowWarning={passwordWarning}
+          warningText={passwordWarning}
         />
 
 
       <div className={styles.botaoChangePassword}>
-        <CButton label={t('SAVE')} onClick={submit} type='button'/>
+        <CButton disabled={!!passwordWarning || !password || !confirmPassword} backgroundColor='red' label={t('DELETE_ACCOUNT')} onClick={submit} type='button'/>
       </div>
     </div>
   );

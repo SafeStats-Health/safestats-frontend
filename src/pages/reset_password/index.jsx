@@ -8,8 +8,8 @@ import styles from './styles.module.css';
 
 function ResetPassword() {
 
-  function goToLogin() {
-    document.getElementById('login-link').click();
+  function resetPassword() {
+    
   }
 
   return (
@@ -39,7 +39,7 @@ function ResetPassword() {
                 type='password'
               />
               <div className={styles.botaoAlterarSenha}>
-                <CButton label={t('CHANGE_PASSWORD')} type='button' onClick={goToLogin} />
+                <CButton label={t('CHANGE_PASSWORD')} type='button' onClick={resetPassword} />
               </div>
 
             </div>

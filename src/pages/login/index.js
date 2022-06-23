@@ -83,17 +83,15 @@ function Login() {
               isLoading={isLoading}
             />
             <div className={styles.info} style={{ marginTop: '15px' }}>
-              <p className='account-text'>{t('FORGOT_YOUR_PASSWORD')}</p>
+              <Link className='account-text' to='/ask_email'>
+                {t('FORGOT_YOUR_PASSWORD')}
+              </Link>
               <p className='account-text'>
                 {t('DONT_HAVE_AN_ACCOUNT')}{' '}
                 <Link className={styles.clickHere} to='/register'>
                   {t('CLICK_HERE')}
                 </Link>
               </p>
-            </div>
-
-            <div className={styles.botaoEntrar}>
-              <CButton label={t('ENTER')} onClick={getUser} type='button' />
             </div>
           </form>
         </div>
