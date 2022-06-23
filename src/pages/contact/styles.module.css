@@ -7,3 +7,58 @@
   width: calc(100% - 20vw);
   margin: auto;
 }
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+@media only screen and (max-width: 500px) {
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+.tituloContato {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 40px;
+  color: #2B3F6C;
+  margin-top: 100px;
+}
+
+.fraseContato {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  color: #5EA4B9;
+  margin-top: 20px;
+}
+
+.mocaContato {
+  width: 100%;
+}
+
+.dadosContatoTitulo {
+  margin-top: 30px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 25px;
+  color: #2B3F6C;
+}
+
+.dadosContatoSubtitulo {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+  color: #5EA4B9;
+  margin-bottom: 30px;
+}
