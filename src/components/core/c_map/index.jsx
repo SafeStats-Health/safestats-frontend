@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useImperativeHandle } from 'react';
 import styles from './styles.module.css';
 import {
   MapContainer,
@@ -13,6 +13,7 @@ import HospitalModal from '../../hospital_modal';
 import HospitalIcon from '../../../assets/icons/hospital.svg'
 import MarkerIcon from '../../../assets/icons/marker.svg'
 import { useMediaQuery } from 'react-responsive';
+import { forwardRef } from 'react';
 
 const hospitalIcon = new Icon({
   iconUrl: HospitalIcon,
@@ -24,12 +25,12 @@ const markerIcon = new Icon({
   iconSize: [45, 45],
 })
 
-function CMap(props) {
-
+const CMap = forwardRef((props, ref) => {
+  
   const isMobile = useMediaQuery({ query: `(max-width: 768px)` });
   const [selectedHospital, selectHospital] = useState(null)
   const [center, setCenter] = useState({lat: -25.428360, lng: -49.273251})
-  const userPos = null;
+  let userPos = null;
 
   function handleHospitalClick(hospital) {
     selectHospital(hospital)
@@ -39,6 +40,14 @@ function CMap(props) {
   function closePopup() {
     document.getElementsByClassName('leaflet-popup-close-button')[0].click()
   }
+
+  useImperativeHandle(ref, () => ({
+    goToUserPos() {
+      if (userPos) {
+        setCenter(userPos)
+      }
+    }
+  }))
 
   function LocationMarker() {
     const [position, setPosition] = useState(null);
@@ -52,6 +61,10 @@ function CMap(props) {
       });
     }, [map]);
 
+    if (position) {
+      userPos = position
+    }
+
     return position === null ? null : (
       <Marker
         position={position}
@@ -59,6 +72,12 @@ function CMap(props) {
       />
     );
   }
+
+  useEffect(() => {
+    if (props.selectHospital) {
+      handleHospitalClick(props.selectHospital)
+    }
+  }, [props.selectHospital])
 
   return (
     <div className={`${styles.map} ${!props.isDrawerOpen ? 'control-zoom-margin-top' : ''}`}>
@@ -98,6 +117,6 @@ function CMap(props) {
       </MapContainer>
     </div>
   );
-}
+})
 
 export default CMap;
