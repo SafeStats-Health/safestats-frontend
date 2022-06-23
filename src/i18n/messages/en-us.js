@@ -113,5 +113,11 @@ export default {
     NEW_PASSWORD: 'new password',
     REPEAT_YOUR_PASSWORD: 'repeat your password',
     CHANGE_PASSWORD: 'change password',
+
+    //tela confirmação de deletar conta
+    CONFIRM_DELETE_ACCOUNT_MESSAGE: 'you are close to deleting your account.',
+    CONFIRM_DELETE_ACCOUNT_MESSAGE2: 'ARE YOU SURE ABOUT THAT?',
+    YES_DELETE_ACCOUNT: 'yes, i want to delete my account.',
+    NO_DELETE_ACCOUNT: 'no, I want to go back to the previous page.',
   },
 };

@@ -113,5 +113,11 @@ export default {
     TEXT_CASE: 'a medicina nunca esteve tão tecnológica. os melhores médicos e melhores hospitais na palma da sua mão. cuidar da sua saúde nunca esteve tão fácil!',
     TEXT_STETHOSCOPE: 'encontre o hospital certo para você com apenas um clique. você sendo atendido pelos melhores médicos da região com extrema facilidade.',
     REGISTER_YOURSELF: 'cadastre-se',
+
+    //tela confirmação de deletar conta
+    CONFIRM_DELETE_ACCOUNT_MESSAGE: 'você está prestes a deletar sua conta.',
+    CONFIRM_DELETE_ACCOUNT_MESSAGE2: 'VOCÊ TEM CERTEZA DISSO?',
+    YES_DELETE_ACCOUNT: 'sim, quero deletar minha conta.',
+    NO_DELETE_ACCOUNT: 'não, quero voltar a página anterior.',
   },
 };
