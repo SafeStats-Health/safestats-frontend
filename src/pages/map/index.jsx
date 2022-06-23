@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, {  useState, useEffect, useRef } from 'react';
 import styles from './styles.module.css';
 import t from '../../i18n/translate';
 import CMap from '../../components/core/c_map';
@@ -25,6 +25,14 @@ function Map(props) {
 
   const [selectedHospital, selectHospital] = useState(null);
   const [isDrawerOpen, setDrawerOpen] = useState(null);
+  const [center, setCenter] = useState(false);
+  const cMapRef = useRef();
+
+  useEffect(() => {
+    if (selectHospital) {
+      setCenter(selectHospital.position)
+    }
+  }, [selectHospital])
 
   return (
     <div className={styles['map-page']}>
@@ -41,12 +49,19 @@ function Map(props) {
         width={500}
       />
       <div className={styles['map-container']} >
-        <CMap hospitals={hospitals} selectedHospital={selectedHospital} isDrawerOpen={isDrawerOpen}/>
+        <CMap
+          ref={cMapRef}
+          hospitals={hospitals}
+          selectedHospital={selectedHospital}
+          selectHospital={selectedHospital}
+          selectCenter={center}
+          isDrawerOpen={isDrawerOpen}
+        />
         <div className={styles['options-box']}>
           <div
             className={`${styles['icon-container']} ${styles.clickable}`}
           >
-            <img className={styles['marker-icon']} src={markerIcon} />
+            <img className={styles['marker-icon']} src={markerIcon} onClick={() => {cMapRef.current.goToUserPos()}} />
           </div>
           <div
             className={`${styles['icon-container']} ${styles.clickable}`}

@@ -1,13 +1,30 @@
-.hospital-modal {
-  width: 200px;
-  height: 150px;
+.hospital-modal-container {
+  position: relative;
+  width: 300px;
+  height: 200px;
   position: absolute;
   bottom: 20px;
   left: 0;
   transform: translateX(-50%);
+  z-index: 500;
+}
+
+.ballon-tip {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  background-color: #546e9a;
+  z-index: -1;
+}
+
+.hospital-modal {  
+  width: 100%;
+  height: 180px;
   border-radius: 5px 20px;
   background-image: linear-gradient(#2b3f6c, #546e9a);
-  z-index: 500;
 }
 
 .hide {
@@ -27,7 +44,7 @@
   cursor: pointer;
 }
 
-.hospital-modal-header {
+.header {
   width: 100%;
   height: 50px;
   padding-left: 10px;
@@ -36,21 +53,31 @@
   justify-content: space-between;
   align-items: center;
   background-color: transparent;
-  font-size: 18;
+}
+
+.header-title {
+  flex-grow: 1;
+  font-size: 16px;
   font-weight: 500;
   color: #dddddd;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .close-icon-container {
   width: 30px;
   height: 30px;
   border-radius: 15px;
-  background-color: #f8f8f8;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .close-icon {
-  filter: invert(16%) sepia(30%) saturate(2482%) hue-rotate(197deg) brightness(99%) contrast(82%);
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(312deg) brightness(102%) contrast(102%);
+}
+
+.body {
+  color: #dddddd;
 }
