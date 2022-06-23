@@ -1,5 +1,23 @@
 import api from '../api';
 
+function getBearerHeader() {
+  const token = localStorage.getItem('token');
+  return { Authorization: `Bearer ${token}` };
+}
+
+export class DeleteUser {
+  async call(request) {
+    return (async () =>
+      api({
+        method: 'post',
+        url: 'users/delete-user',
+        data: request.body,
+        params: request.params,
+        headers: getBearerHeader(),
+      }))();
+  }
+}
+
 export class SendRecoverPasswordEmail {
   async call(request) {
     return (async () =>
@@ -8,6 +26,7 @@ export class SendRecoverPasswordEmail {
         url: 'users/request-password-recover',
         data: request.body,
         params: request.params,
+        headers: getBearerHeader(),
       }))();
   }
 }
@@ -20,6 +39,7 @@ export class RecoverPassword {
         url: 'users/update-password-recover',
         data: request.body,
         params: request.params,
+        headers: getBearerHeader(),
       }))();
   }
 }

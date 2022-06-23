@@ -60,6 +60,7 @@ export default {
       'you can contact us through our social networks :)',
     CONTACT_SOCIALMEDIA_SUBTITLE: '@safestats',
     SEND_EMAIL: 'send e-mail',
+    INVALID_CREDENTIALS: 'invalid credentials',
     REGISTRATION: 'registration',
     TECH_FOR_THE_HEALTH: 'the tech for the health',
     DO_YOU_WANT_SAFESTATS: 'do you want access to the best health platform?',

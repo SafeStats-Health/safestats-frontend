@@ -55,6 +55,7 @@ export default {
     DELETE_ACCOUNT: 'deletar conta',
     TYPE_YOUR_EMAIL: 'digite seu e-mail',
     SEND_EMAIL: 'enviar e-mail',
+    INVALID_CREDENTIALS: 'credenciais inválidas',
     //tela contato
     ABOUT_US_VALUES:
       'fortalecimento dos princípios cooperativistas (ética, democracia, equidade, inter-cooperação, educação, solidariedade e justiça social). \nsatisfação e o bem estar dos cooperados, colaboradores, clientes e comunidade. \n excelência no atendimento em todos os níveis da cooperativa. \n gestão sustentável, mantendo a ética, integridade e a valorização do ser humano.',

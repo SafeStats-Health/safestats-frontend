@@ -1,13 +1,46 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import doctor from '../../../assets/images/pose_9.svg';
 import safeStats from '../../../assets/images/safe_stats.svg';
 import CButton from '../../../components/core/c_button';
 import t from '../../../i18n/translate';
 import styles from './styles.module.css';
+import { useState } from 'react';
+import { DeleteUser } from '../../../utils/api-requester/modules/user';
 
 export default function ConfirmDeleteAccount() {
-  function goToLogin() {
-    document.getElementById('loginLink').click();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
+  function goBack() {
+    navigate('/user_profile')
+  }
+
+  function deleteAccount() {
+    const password = JSON.parse(sessionStorage.getItem('password'));
+    const passwordConfirmation = JSON.parse(sessionStorage.getItem('confirmPassword'));
+    setIsLoading(true);
+      new DeleteUser()
+        .call({
+          body: {
+            password,
+            passwordConfirmation,
+          },
+        })
+        .then((res) => {
+          if (res.status === 200) {
+            sessionStorage.clear();
+            navigate('/login');
+          }
+        })
+        .catch((res) => {
+          console.log('a', res)
+          if (res.response.status !== 400) {
+            navigate('/error');
+          } else {
+            navigate('/user_profile')
+          }
+        })
+        .finally(() => setIsLoading(false));
   }
 
   return (
@@ -26,7 +59,8 @@ export default function ConfirmDeleteAccount() {
               label={t('YES_DELETE_ACCOUNT')}
               backgroundColor='red'
               buttonContainer={styles['button-containerRed']}
-              onClick={goToLogin}
+              onClick={deleteAccount}
+              isLoading={isLoading}
             />
             </div>
 
@@ -34,7 +68,7 @@ export default function ConfirmDeleteAccount() {
               <CButton
                 label={t('NO_DELETE_ACCOUNT')}
                 buttonContainer={styles['button-container']}
-                onClick={goToLogin}
+                onClick={goBack}
               />
             </div>
           </div>

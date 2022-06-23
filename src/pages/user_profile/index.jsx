@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import styles from './styles.module.css';
 import Drawer from '../../components/drawer'
 import safeStats from '../../assets/images/safe_stats.svg';
@@ -12,10 +12,18 @@ import ChangePassword from './change_password'
 import DeleteAccount from './delete_account'
 import Statistics from "./statistics";
 
-export default function UserProfile(props) {
+export default function UserProfile() {
 
   const isMobile = useMediaQuery({query: `(max-width: 768px)`});
-  const [selectedProfilePage, selectProfilePage] = useState('GENERAL');
+  const [selectedProfilePage, selectProfilePage] = useState();
+
+  useEffect(() => {
+    if (JSON.parse(sessionStorage.getItem('password'))) {
+      selectProfilePage('DELETE_ACCOUNT');
+    } else {
+      selectProfilePage('GENERAL');
+    }
+  }, []);
 
   function selectedProfilePageComponent(param) {
     switch (param) {
@@ -35,6 +43,8 @@ export default function UserProfile(props) {
         return <ChangePassword/>;
       case 'DELETE_ACCOUNT':
         return <DeleteAccount/>;
+      default:
+        return;
     }
   }
 

@@ -13,6 +13,7 @@ import Contact from '../pages/contact';
 import AskEmail from '../pages/ask_email';
 import ResetPassword from '../pages/reset_password';
 import UserProfile from '../pages/user_profile';
+import ConfirmDeleteAccount from '../pages/user_profile/confirm_delete_account';
 
 const Router = () => {
   return (
@@ -24,6 +25,11 @@ const Router = () => {
         <Route exact path='/user_profile' element={<ProtectedRoute />}>
           <Route path='/user_profile' element={<UserProfile />} />
         </Route>
+        <Route
+          exact
+          path='/confirm_delete_account'
+          element={<ConfirmDeleteAccount />}
+        />
         <Route path='/email_confirm' element={<EmailConfirm />} />
         <Route path='/map' element={<Map />} />
         <Route path='/about_us' element={<AboutUs />} />
