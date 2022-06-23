@@ -1,13 +1,55 @@
 import api from '../api';
 
-export class CreateUser {
-  method = 'post';
-  url = 'users/register';
+function getBearerHeader() {
+  const token = localStorage.getItem('token');
+  return { Authorization: `Bearer ${token}` };
+}
+
+export class DeleteUser {
   async call(request) {
     return (async () =>
       api({
         method: 'post',
-        url: this.url,
+        url: 'users/delete-user',
+        data: request.body,
+        params: request.params,
+        headers: getBearerHeader(),
+      }))();
+  }
+}
+
+export class SendRecoverPasswordEmail {
+  async call(request) {
+    return (async () =>
+      api({
+        method: 'post',
+        url: 'users/request-password-recover',
+        data: request.body,
+        params: request.params,
+        headers: getBearerHeader(),
+      }))();
+  }
+}
+
+export class RecoverPassword {
+  async call(request) {
+    return (async () =>
+      api({
+        method: 'post',
+        url: 'users/update-password-recover',
+        data: request.body,
+        params: request.params,
+        headers: getBearerHeader(),
+      }))();
+  }
+}
+
+export class CreateUser {
+  async call(request) {
+    return (async () =>
+      api({
+        method: 'post',
+        url: 'users/register',
         data: request.body,
         params: request.params,
       }))();
@@ -15,13 +57,11 @@ export class CreateUser {
 }
 
 export class LoginUser {
-  method = 'post';
-  url = 'users/login';
   async call(request) {
     return (async () =>
       api({
         method: 'post',
-        url: this.url,
+        url: 'users/login',
         data: request.body,
         params: request.params,
       }))();

@@ -1,4 +1,4 @@
-import {LOCALES} from '../locales';
+import { LOCALES } from '../locales';
 
 export default {
   [LOCALES.ENGLISH]: {
@@ -24,7 +24,7 @@ export default {
     ERROR_MESSAGE:
       "oh, no! it looks like the doctor couldn't handle the problem!",
     HELLO: 'hello! how are you?',
-    EMAIL_MESSAGE: 'we have sent a confirmation email to you!',
+    EMAIL_MESSAGE: 'we have sent a email to you!',
     BACK_TO_LOGIN: 'back to login',
     HOSPITAL: 'hospital',
     DISTRICT: 'district',
@@ -33,29 +33,44 @@ export default {
     //tela sobre nós
     ABOUT_US: 'about us',
     ABOUT_US_TITLE: 'safe stats works to give you the best result!',
-    ABOUT_US_SUBTITLE: 'see below the mission, vision and values ​​of the most tech company in the health world',
+    ABOUT_US_SUBTITLE:
+      'see below the mission, vision and values ​​of the most tech company in the health world',
     ABOUT_US_MISSION_TITLE: 'mission',
-    ABOUT_US_MISSION: 'its mission is to add ethical and qualitative health services to the population of Curitiba. \n provides citizens with a good quality medical service, with personality and high technology. \n carries out its activities with state-of-the-art security.',
+    ABOUT_US_MISSION:
+      'its mission is to add ethical and qualitative health services to the population of Curitiba. \n provides citizens with a good quality medical service, with personality and high technology. \n carries out its activities with state-of-the-art security.',
     ABOUT_US_VISION_TITLE: 'vision',
-    ABOUT_US_VISION: 'achieve user satisfaction. \n contribute to quality of life through health promotion, prevention and assistance. \n implement and consolidate own services, with humanized and reference service. \n keep qualified employees and committed.',
+    ABOUT_US_VISION:
+      'achieve user satisfaction. \n contribute to quality of life through health promotion, prevention and assistance. \n implement and consolidate own services, with humanized and reference service. \n keep qualified employees and committed.',
     ABOUT_US_VALUES_TITLE: 'values',
-    ABOUT_US_VALUES: 'strengthening of cooperative principles (ethics, democracy, equity, inter-cooperation, education, solidarity and social justice). \n satisfaction and well-being of cooperative members, collaborators, customers and community. \n excellence in service in all cooperative levels. \n sustainable management, maintaining ethics, integrity and valuing the human being.',
-    
+    ABOUT_US_VALUES:
+      'strengthening of cooperative principles (ethics, democracy, equity, inter-cooperation, education, solidarity and social justice). \n satisfaction and well-being of cooperative members, collaborators, customers and community. \n excellence in service in all cooperative levels. \n sustainable management, maintaining ethics, integrity and valuing the human being.',
+    IS_BLOOD_DONATOR: 'is a blood donator?',
+    TYPE_YOUR_CURRENT_PASSWORD: 'digite sua senha atual',
+    DELETE_ACCOUNT: 'delete account',
+    TYPE_YOUR_EMAIL: 'type your email',
     //tela contato
+    ABOUT_US_VALUES:
+      'strengthening of cooperative principles (ethics, democracy, equity, inter-cooperation, education, solidarity and social justice). \n satisfaction and well-being of cooperative members, collaborators, customers and community. \n excellence in service in all cooperative levels. \n sustainable management, maintaining ethics, integrity and valuing the human being.',
     CONTACT: 'contact',
     CONTACT_TITLE: 'you can get in touch with us!',
     CONTACT_SUBTITLE: 'If you have any questions, we will be at your disposal.',
     CONTACT_PHONE_TITLE: 'our phone and whatsapp',
     CONTACT_PHONE_NUMBER: '(41) 3271-1555',
-    CONTACT_SOCIALMEDIA_TITLE: 'you can contact us through our social networks :)',
+    CONTACT_SOCIALMEDIA_TITLE:
+      'you can contact us through our social networks :)',
     CONTACT_SOCIALMEDIA_SUBTITLE: '@safestats',
-    
-    
+    SEND_EMAIL: 'send e-mail',
+    INVALID_CREDENTIALS: 'invalid credentials',
     REGISTRATION: 'registration',
     TECH_FOR_THE_HEALTH: 'the tech for the health',
     DO_YOU_WANT_SAFESTATS: 'do you want access to the best health platform?',
     REGISTER_ITS_FREE: "register now, it's free!",
     SAFESTATS_CLUB: 'SafeStats Club',
+    INVALID_EMAIL: 'invalid e-mail',
+    EMAIL_OR_PASSWORD_IS_INVALID: 'e-mail or password is invalid',
+    PASSWORD_MUST_CONTAIN_AT_LEAST_8:
+      'password must contain at least 8 characters',
+    EMAIL_ALREADY_IN_USE: 'this e-mail is already in use',
     ONLINE_DISCOUNTS: 'discounts online',
     SAFESTATS_CLUB_DESC:
       'Clients of SafeStats in Paraná have exclusive discounts on the purchase of drugs marked in the Nissei and Droga Raia pharmacies, just present your card at the time of purchase.',
@@ -74,7 +89,7 @@ export default {
     PROFILE: 'profile',
     GENERAL: 'general',
 
-    //tela dados pessoais  
+    //tela dados pessoais
     PERSONAL_DATA: 'personal data',
     PHONE: 'phone number',
     ADRESS: 'address',
@@ -86,8 +101,9 @@ export default {
     BLOOD_TYPE: 'blood type',
     DONATION_LOCATION: 'donation location',
     DELETE_ACCOUNT_TITLE: 'enter your password to delete your account',
-    REPEAT_DELETE_ACCOUNT_TITLE: 're-enter your password to delete your account',
-   
+    REPEAT_DELETE_ACCOUNT_TITLE:
+      're-enter your password to delete your account',
+
     PERSONAL_DATA: 'personal data',
     TRUSTWORTHY_CONTACT: 'trustworthy contact',
     HEALTH_PLAN: 'health plan',
@@ -105,7 +121,6 @@ export default {
     CHANGE_PASSWORD_TITLE: 'change password',
     BLOOD_DONATION_TITLE: 'blood donation',
     TRUSTWORTHY_CONTACT_TITLE: 'trustworthy contact',
-
 
     //tela esqueceu sua senha
     IT_SEEMS_THAT_YOU_FORGOT_YOUR_PASSWORD:

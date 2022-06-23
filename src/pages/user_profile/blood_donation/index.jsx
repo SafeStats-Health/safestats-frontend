@@ -1,55 +1,44 @@
 import styles from './styles.module.css';
 import CButton from '../../../components/core/c_button';
 import CInput from '../../../components/core/c_input';
+import CSelect from '../../../components/core/c_select';
 import t from '../../../i18n/translate';
 import {useState} from 'react';
 
 function BloodDonation() {
 
-  const [jaDoouSangue, setDoacaoDeSangue] = useState();
-    const [tipoSanguineo, setTipoDeSangue] = useState();
-    const [localDaDoacao, setLocalDaDoacao] = useState();
-  
-  function submit(){
-  
-  }
-
   return (
     <div className={styles['blood-donation']}>
      
-
      <h1 className={styles['blood-donation-title']}>{t('BLOOD_DONATION_TITLE')}</h1>
 
+     <CSelect
+        id='blood_donator'
+        items={[{text: 'sim', value: 1}, 
+        {text: 'nao', value: 2}, 
+        ]}
+        label={t('IS_BLOOD_DONATOR')}
+      />
 
-<CInput
-          id='jaDoouSangue'
-          label={t('BLOOD_DONATION')}
-          onInput={setDoacaoDeSangue}
-          type='text'
-        />
+      <CSelect
+        id='blood-type'
+        items={[{text: 'A', value: 1}, 
+        {text: 'B', value: 2}, 
+        {text: 'AB', value: 3}, 
+        {text: 'O', value: 4}, 
+        ]}
+        label={t('BLOOD_TYPE')}
+      />
 
+      <CInput
+        id='localDaDoacao'
+        label={t('DONATION_LOCATION')}
+        type='text'
+      />
 
-<CInput
-          id='tipoSanguineo'
-          label={t('BLOOD_TYPE')}
-          onInput={setTipoDeSangue}
-          type='text'
-        />
-
-
-<CInput
-          id='localDaDoacao'
-          label={t('DONATION_LOCATION')}
-          onInput={setLocalDaDoacao}
-          type='text'
-        />
-
-
-<div className={styles.botaoDoacaoDeSangue}>
-        <CButton label={t('SAVE')} onClick={submit} type='button'/>
+      <div className={styles.botaoDoacaoDeSangue}>
+        <CButton label={t('SAVE')} type='button'/>
       </div>
-
-
     </div>
   );
 }
