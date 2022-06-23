@@ -1,3 +1,7 @@
-.delete-account {
+.delete-account-title {
   text-align: center;
+  color: #2B3F6C;
+  font-weight: 800;
+  margin-bottom: 40px;
 }
+

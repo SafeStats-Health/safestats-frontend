@@ -1,3 +1,10 @@
-.blood-donation {
+.blood-donation-title {
   text-align: center;
+  color: #2B3F6C;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.botaoDoacaoDeSangue{
+  margin-top: 40px;
 }

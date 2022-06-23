@@ -99,6 +99,7 @@ function auth() {
                 id='password'
                 label={t('PASSWORD')}
                 placeholder='••••••••••••'
+                type = "password"
                 shouldShowWarning={shouldShowPasswordsDontMatchWarning}
                 onInput={setPassword}
               />
@@ -108,11 +109,14 @@ function auth() {
                 id='confirm-password'
                 label={t('CONFIRM_PASSWORD')}
                 placeholder='••••••••••••'
+                type = "password"
                 shouldShowWarning={shouldShowPasswordsDontMatchWarning}
                 warningText={t('PASSWORDS_DONT_MATCH')}
                 onInput={setConfirmPassword}
               />
             </div>
+
+            <div className='account-button'>
             <button
               className={`
               auth-button
@@ -123,6 +127,8 @@ function auth() {
             >
               {t('REGISTER')}
             </button>
+              </div>
+
             <p className='account-text'>
               {t('ALREADY_HAVE_AN_ACCOUNT')}{' '}
               <Link to='/login'>{t('CLICK_HERE')}</Link>

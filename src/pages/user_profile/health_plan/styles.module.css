@@ -1,3 +1,10 @@
-.health-plan {
+.health-plan-title {
   text-align: center;
+  color: #2B3F6C;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.botaoPlanoDeSaude {
+  margin-top: 40px;
 }

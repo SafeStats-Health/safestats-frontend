@@ -1,3 +1,10 @@
-.personal-data {
+.personal-data-title{
   text-align: center;
+  color: #2B3F6C;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.botaoDadosPessoaisSalvar{
+  margin-top: 40px;
 }
