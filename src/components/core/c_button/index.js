@@ -1,17 +1,24 @@
 import styles from './styles.module.css';
+import CircularProgress from '@mui/material/CircularProgress';
 
 function CButton(props) {
   return (
     <div className={styles.div}>
       <button
-        className={
+        className={`${
           props.inverse ? styles['black-button'] : styles['white-button']
-        }
+        } 
+           ${props.disabled ? 'disabled-button' : 'auth-button'}
+          `}
         onClick={props.onClick}
         type={props.type}
-        style={{backgroundColor: props.backgroundColor, color: props.color}}
+        style={{ backgroundColor: props.backgroundColor, color: props.color }}
       >
-        {props.label}
+        {props.isLoading ? (
+          <CircularProgress style={{ color: 'white' }} />
+        ) : (
+          props.label
+        )}
       </button>
     </div>
   );
