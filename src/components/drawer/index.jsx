@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import styles from './styles.module.css';
 import t from '../../i18n/translate';
 import door from '../../assets/images/door.svg';

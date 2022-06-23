@@ -8,12 +8,12 @@ import {
   useMap,
 } from 'react-leaflet';
 import { Icon } from 'leaflet';
-import 'leaflet/dist/leaflet.css';
 import HospitalModal from '../../hospital_modal';
 import HospitalIcon from '../../../assets/icons/hospital.svg'
 import MarkerIcon from '../../../assets/icons/marker.svg'
 import { useMediaQuery } from 'react-responsive';
 import { forwardRef } from 'react';
+import 'leaflet/dist/leaflet.css';
 
 const hospitalIcon = new Icon({
   iconUrl: HospitalIcon,
