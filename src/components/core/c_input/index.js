@@ -7,7 +7,7 @@ function CInput(props) {
   }
 
   return (
-    <div className={styles.div}>
+    <div className={!props.invertMargin ? styles['margin-bottom'] : styles['margin-top']}>
       <label
         className={
           props.inverse ? styles['white-label'] : styles['black-label']

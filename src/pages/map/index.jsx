@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import styles from './styles.module.css';
 import t from '../../i18n/translate';
 import CMap from '../../components/core/c_map';
@@ -8,7 +8,7 @@ import logo from '../../assets/images/safe_stats_alt.svg';
 import leaveIcon from '../../assets/icons/leave.svg';
 import userIcon from '../../assets/icons/user.svg';
 import mapIcon from '../../assets/icons/map.svg';
-import markerIcon from '../../assets/icons/marker.svg';
+import markerIcon from '../../assets/icons/marker2.svg';
 import { Link } from 'react-router-dom';
 import Drawer from '../../components/drawer'
 import hospitals from '../../pages/map/hospitals'
@@ -24,6 +24,7 @@ function goToLandingPage() {
 function Map(props) {
 
   const [selectedHospital, selectHospital] = useState(null);
+  const [isDrawerOpen, setDrawerOpen] = useState(null);
 
   return (
     <div className={styles['map-page']}>
@@ -31,10 +32,16 @@ function Map(props) {
       <Link to="/" id="landingPageLink" />
       <Drawer
         options={hospitals}
-        selectOption={selectHospital}
+        selectOption={hospitalId => {
+          selectHospital(hospitals.find(hospital => hospital.key === hospitalId))
+        }}
+        altButton
+        searchBar
+        setDrawerOpen={setDrawerOpen}
+        width={500}
       />
-      <div  className={styles['map-container']} >
-        <CMap hospitals={hospitals} selectedHospital={selectedHospital}/>
+      <div className={styles['map-container']} >
+        <CMap hospitals={hospitals} selectedHospital={selectedHospital} isDrawerOpen={isDrawerOpen}/>
         <div className={styles['options-box']}>
           <div
             className={`${styles['icon-container']} ${styles.clickable}`}

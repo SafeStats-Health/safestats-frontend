@@ -21,7 +21,7 @@ const hospitalIcon = new Icon({
 
 const markerIcon = new Icon({
   iconUrl: MarkerIcon,
-  iconSize: [50, 50],
+  iconSize: [45, 45],
 })
 
 function CMap(props) {
@@ -30,7 +30,6 @@ function CMap(props) {
   const [selectedHospital, selectHospital] = useState(null)
   const [center, setCenter] = useState({lat: -25.428360, lng: -49.273251})
   const userPos = null;
-  // useEffect(console.log(props.selectedHospital), props.selectedHospital)
 
   function handleHospitalClick(hospital) {
     selectHospital(hospital)
@@ -62,11 +61,11 @@ function CMap(props) {
   }
 
   return (
-    <div className={styles.map}>
+    <div className={`${styles.map} ${!props.isDrawerOpen ? 'control-zoom-margin-top' : ''}`}>
       <MapContainer
         center={center}
         zoom={12}
-        scrollWheelZoom={false}
+        scrollWheelZoom={true}
       >
         <TileLayer
           url='http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}'
@@ -90,8 +89,7 @@ function CMap(props) {
               <HospitalModal
                 show={!!selectedHospital}
                 close={closePopup}
-                title={selectedHospital?.key}
-                fullscreen={true}
+                hospital={selectedHospital}
               />
             </Popup>
           </Marker>

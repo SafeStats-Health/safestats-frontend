@@ -46,7 +46,7 @@
   flex-direction: column;
   justify-content: flex-start;
   text-align: left;
-  margin: 50px 0 50px;
+  margin: 80px 0 80px;
   overflow-y: auto;
 }
 
@@ -64,19 +64,34 @@
   align-items: center;
 }
 
-.hamburger {
-  margin-right: 10px;
-}
-
-.open-drawer-button {
+.button {
   font-weight: 300;
   font-size: 25px;
   line-height: 30px;
-  color: #2B3F6C;
-  margin: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   z-index: 1001;
+}
+
+.hamburger {
+  height: 80%;
+}
+
+.menu {
+  margin-left: 10px;
+}
+
+.default-button {
+  color: #2B3F6C;
+  margin: 20px;
+}
+
+.alt-button {
+  color: white;
+  background-image: linear-gradient(#2b3f6c, #546e9a);
+  border-radius: 25px 2px;
+  padding: 15px;
+  margin: 10px;
 }
