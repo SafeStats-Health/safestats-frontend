@@ -18,7 +18,7 @@ export default function UserProfile() {
   const [selectedProfilePage, selectProfilePage] = useState();
 
   useEffect(() => {
-    if (JSON.parse(sessionStorage.getItem('password'))) {
+    if (sessionStorage.getItem('password')) {
       selectProfilePage('DELETE_ACCOUNT');
     } else {
       selectProfilePage('GENERAL');

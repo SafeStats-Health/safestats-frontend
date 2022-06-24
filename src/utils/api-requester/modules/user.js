@@ -36,10 +36,10 @@ export class RecoverPassword {
     return (async () =>
       api({
         method: 'post',
-        url: 'users/update-password-recover',
+        url: 'users/update-password-token',
         data: request.body,
         params: request.params,
-        headers: getBearerHeader(),
+        headers: request.headers,
       }))();
   }
 }

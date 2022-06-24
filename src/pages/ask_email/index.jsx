@@ -27,12 +27,10 @@ function AskEmail() {
       }
     })
     .catch((res) => {
-      if (res.response.status !== 400) {
+      if (res.response.status !== 404) {
         navigate('/error');
       } else {
-        if (res.response.data.code === 'ERR_INVALID_EMAIL') {
-          setEmailWarning(t('INVALID_EMAIL'));
-        }
+        setEmailWarning(t('EMAIL_NOT_FOUND'));
       }
     })
     .finally(() => setIsLoading(false));
