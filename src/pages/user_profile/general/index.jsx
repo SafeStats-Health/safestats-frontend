@@ -20,8 +20,20 @@ export default function General() {
         <img src={dummyImg} alt="Dummy Img" className={styles['user-data-pic']}/>
         <span className={styles['user-data-name']}>{usedData.user.name}</span>
         <span className={styles['user-data-title']}>{t('SUMMARY_TITLE')}</span>
-        <span
-          className={styles['user-data-info']}>{`${userPlan+userBirthdate+userPhone+userDonatedBlood+userBloodType+userLegalRepresentative}`}</span>
+        <ul className={styles['user-data-info']}> 
+          {
+            user.healthPlanInstitution && <li><li>{t('HEALTH_PLAN')} {user.healthPlanInstitution} {user.healthPlanType} {user.healthPlanAccomodation}</li></li>
+          }
+          {
+            user.age && <li>{user.age} {t('YEARS')}</li>
+          }
+          {
+            user.didDonateBlood && <li>{t('DONATES_BLOOD')} {t('TYPE')} {user.bloodType}</li>
+          }
+          {
+            user.legalRepresentative && <li>{t('LEGAL_REPRESENTATIVE')}: {user.legalRepresentative}</li>
+          }
+        </ul>
       </div>
     </div>
   );

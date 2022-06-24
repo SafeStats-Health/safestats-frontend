@@ -4,54 +4,95 @@ import CInput from '../../../components/core/c_input';
 import CSelect from '../../../components/core/c_select';
 import t from '../../../i18n/translate';
 import {useState} from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import { UpdateHealthPlan } from '../../../utils/api-requester/modules/user'
+import { useNavigate } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
 
 function HealthPlan() {
 
-    const [planoDeSaude, setPlano] = useState();
-    const [tipo, setTipoDePlano] = useState();
-    const [hospegem, setHospedagem] = useState();
-  
+  const [institution, setInstitution] = useState();
+  const [type, setType] = useState();
+  const [accomodation, setAccomodation] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
+
   function submit(){
-  
+    setIsLoading(true)
+    new UpdateHealthPlan()
+    .call({
+      body: {
+        institution,
+        type,
+        accomodation,
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        const notify = () => toast.success(t('DATA_UPDATED_SUCCESSFUL'), {
+          position: "bottom-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+        notify()
+      }
+    }).catch(() => {
+      navigate('/error');
+    }).finally(() => { setIsLoading(false) });
   }
 
   return (
     <div className={styles['health-plan']}>
-    
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        />
       <h1 className={styles['health-plan-title']}>{t('HEALTH_PLAN_TITLE')}</h1>
 
       <CSelect
         id='health-plan'
-        items={[{text: 'unimed', value: 1}, 
-        {text: 'clinipam', value: 2}, 
-        {text: 'nossa saúde', value: 3}, 
-        {text: 'sul américa', value: 4}, 
-        {text: 'bradesco', value: 5},
-        {text: 'paraná clínicas', value: 6},
+        items={['unimed', 
+          'clinipam', 
+          'nossa saúde', 
+          'sul américa', 
+          'bradesco',
+          'paraná clínicas',
         ]}
         label={t('HEALTH_PLAN')}
+        onInput={setInstitution}
       />
 
       <CSelect
         id='health-plan--type'
-        items={[{text: 'básico', value: 1}, 
-        {text: 'flex', value: 2}, 
-        {text: 'master', value: 3},
+        items={['básico', 
+        'flex', 
+        'master',
         ]}
         label={t('HEALTH_PLAN_TYPE')}
         style={{marginBottom: '10px'}}
+        onInput={setType}
       />
 
       <CSelect
         id='room'
-        items={[{text: 'enfermaria', value: 1}, 
-        {text: 'apartamento', value: 2}, 
-        ]}
+        items={['enfermaria', 'apartamento']}
         label={t('ROOM')}
+        onInput={setAccomodation}
       />
 
       <div className={styles.botaoPlanoDeSaude}>
-        <CButton label={t('SAVE')} onClick={submit} type='button'/>
+        <CButton label={t('SAVE')} onClick={submit} type='button' isLoading={isLoading}/>
       </div>
     </div>
   );

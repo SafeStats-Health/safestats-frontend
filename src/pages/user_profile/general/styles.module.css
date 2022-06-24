@@ -14,19 +14,30 @@
 }
 
 .user-data-pic {
-  width: 400px;
+  width: 200px;
 }
 
 .user-data-name {
   font-size: 40px;
   font-weight: 600;
   color: #2B3F6C;
+  margin-bottom: 35px;
 }
 
 .user-data-title {
   font-size: 26px;
   font-weight: 500;
   color: #565555;
+  margin-bottom: 20px;
+}
+
+.user-data-info {
+  padding: 0;
+}
+
+.user-data-info > li {
+  text-decoration: none;
+  list-style-type: none;
 }
 
 @media only screen and (max-width: 768px) {
@@ -42,7 +53,7 @@
     font-size: 22px;
   }
   
-  .user-data-info {
+  .user-data-info > li {
     font-size: 18px;
   }
 }
@@ -64,7 +75,7 @@
     font-size: 18px;
   }
   
-  .user-data-info {
+  .user-data-info > li {
     font-size: 16px;
   }
 
