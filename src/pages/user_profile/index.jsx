@@ -76,6 +76,9 @@ export default function UserProfile() {
   ];
 
   function selectedProfilePageComponent(param) {
+    if (!param) {
+      return profilePages[0].component;
+    }
     return profilePages.find((page, index) => index === param).component;
   }
 
