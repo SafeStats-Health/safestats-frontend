@@ -95,7 +95,7 @@ function TrustworthyContract() {
         id='dataDeNascimento'
         label={t('BDAY')}
         onInput={setBirthdate}
-
+        type='date'
       />
 
       <div className={styles.botaoContatoDeConfianca}>

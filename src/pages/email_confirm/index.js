@@ -22,6 +22,7 @@ export default function EmailConfirm() {
             label={t('BACK_TO_LOGIN')}
             buttonContainer={styles['button-container']}
             onClick={goToLogin}
+            padding='15px'
           />
         </div>
       </div>

@@ -12,7 +12,13 @@ function CButton(props) {
           `}
         onClick={!props.disabled ? props.onClick : null}
         type={props.type}
-        style={{ backgroundColor: props.backgroundColor, color: props.color }}
+        style={{
+          backgroundColor: props.backgroundColor,
+          color: props.color,
+          padding: props.padding,
+          width: props.width,
+          margin: props.margin,
+        }}
       >
         {props.isLoading ? (
           <CircularProgress style={{ color: 'white' }} />

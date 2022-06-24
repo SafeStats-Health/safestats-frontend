@@ -61,5 +61,8 @@
   font-size: 15px;
   line-height: 24px;
   color: #5EA4B9;
-  margin-bottom: 30px;
+}
+
+body {
+  padding-bottom: 20px
 }

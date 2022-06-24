@@ -119,3 +119,31 @@ export class UpdatePasswordAuthenticated {
       }))();
   }
 }
+
+
+export class GetUserPersonalData {
+  async call(request) {
+    return (async () =>
+      api({
+        method: 'get',
+        url: 'users/user-personal-data',
+        data: request.body,
+        params: request.params,
+        headers: getBearerHeader(),
+      }))();
+  }
+}
+
+
+export class UpdateUserPersonalData {
+  async call(request) {
+    return (async () =>
+      api({
+        method: 'post',
+        url: 'users/update-personal-data',
+        data: request.body,
+        params: request.params,
+        headers: getBearerHeader(),
+      }))();
+  }
+}
