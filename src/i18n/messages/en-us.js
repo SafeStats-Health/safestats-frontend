@@ -27,8 +27,15 @@ export default {
     EMAIL_MESSAGE: 'we have sent a email to you!',
     BACK_TO_LOGIN: 'back to login',
     HOSPITAL: 'hospital',
+    LEGAL_REPRESENTATIVE: 'legal representative',
     DISTRICT: 'district',
     GO: 'go!',
+    YEARS: 'years',
+    DONATES_BLOOD: 'donates blood',
+    DOESNT_DONATE_BLOOD: "doesn't donate blood",
+    TYPE: 'type',
+    INVALID_PASSWORD: 'invalid password',
+    DATA_UPDATED_SUCCESSFUL: 'data updated successful',
 
     //tela sobre nós
     ABOUT_US: 'about us',

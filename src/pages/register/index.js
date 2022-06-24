@@ -14,20 +14,17 @@ function auth() {
   const [confirmPassword, setConfirmPassword] = useState();
   const [allFieldsAreValid, setAllFieldsAreValid] = useState(false);
   const [emailWarning, setEmailWarning] = useState();
-  const [passwordIsValid, setPasswordIsValid] = useState();
-  const [emailIsValid, setEmailIsValid] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   const [passwordWarning, setPasswordWarning] = useState();
 
   useEffect(() => {
-    checkIfPasswordsMatch();
-    checkIfEmailIsValid();
-    checkIfAllFieldsAreValid();
+    const passwordIsValid = checkIfPasswordsMatch();
+    const emailIsValid = checkIfEmailIsValid();
+    checkIfAllFieldsAreValid(passwordIsValid, emailIsValid);
   }, [name, email, password, confirmPassword]);
 
-  function checkIfAllFieldsAreValid() {
-    console.log(passwordIsValid, emailIsValid);
+  function checkIfAllFieldsAreValid(passwordIsValid, emailIsValid) {
     const validations = [passwordIsValid, emailIsValid];
     const fields = [name, email, password, confirmPassword];
     const allFieldsAreFilled = fields.every((field) => field && field !== '');
@@ -38,11 +35,11 @@ function auth() {
   function checkIfEmailIsValid() {
     const regex = /\S+@\S+\.\S+/;
     if (email && email !== '' && !regex.test(email)) {
-      setEmailIsValid(false);
       setEmailWarning(t('INVALID_EMAIL'));
+      return false;
     } else {
-      setEmailIsValid(true);
       setEmailWarning(null);
+      return true;
     }
   }
 
@@ -54,22 +51,24 @@ function auth() {
       confirmPassword !== ''
     ) {
       if (password !== confirmPassword) {
-        setPasswordIsValid(false);
         setPasswordWarning(t('PASSWORDS_DONT_MATCH'));
+        return false;
       } else {
-        setPasswordIsValid(true);
-        setPasswordWarning(null);
         const minCaracters = 8;
         if (
           password.length < minCaracters ||
           confirmPassword.length < minCaracters
         ) {
-          setPasswordIsValid(false);
           setPasswordWarning(t('PASSWORD_MUST_CONTAIN_AT_LEAST_8'));
+          return false;
+        } else {
+          setPasswordWarning(null);
+          return true;
         }
       }
     } else {
       setPasswordWarning(null);
+      return true;
     }
   }
   const navigate = useNavigate();

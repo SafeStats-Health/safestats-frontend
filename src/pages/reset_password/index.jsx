@@ -6,15 +6,18 @@ import CInput from '../../components/core/c_input';
 import t from '../../i18n/translate';
 import styles from './styles.module.css';
 import {RecoverPassword} from '../../utils/api-requester/modules/user'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function ResetPassword() {
 
   const [newPassword, setNewPassword] = useState('');
   const [newPasswordConfirmation, setNewPasswordConfirmation] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+  const [passwordWarning, setPasswordWarning] = useState();
 
   const navigate = useNavigate();
   function resetPassword() {
+    setIsLoading(true)
     const params = (new URL(document.location)).searchParams;
     const token = params.get("token");
     new RecoverPassword()
@@ -29,7 +32,37 @@ function ResetPassword() {
           if (res.status === 200) {
             navigate('/login');
           }
-        });
+        }).catch(() => {
+          navigate('/error');
+        }).finally(() => { setIsLoading(false) });
+  }
+
+  useEffect(() => {
+    checkIfPasswordsMatch();
+  }, [newPassword, newPasswordConfirmation]);
+
+  function checkIfPasswordsMatch() {
+    if (
+      newPassword &&
+      newPassword !== '' &&
+      newPasswordConfirmation &&
+      newPasswordConfirmation !== ''
+    ) {
+      if (newPassword !== newPasswordConfirmation) {
+        setPasswordWarning(t('PASSWORDS_DONT_MATCH'));
+      } else {
+        setPasswordWarning(null);
+        const minCaracters = 8;
+        if (
+          newPassword.length < minCaracters ||
+          newPasswordConfirmation.length < minCaracters
+        ) {
+          setPasswordWarning(t('PASSWORD_MUST_CONTAIN_AT_LEAST_8'));
+        }
+      }
+    } else {
+      setPasswordWarning(null);
+    }
   }
 
   return (
@@ -51,6 +84,7 @@ function ResetPassword() {
                 label={t('NEW_PASSWORD')}
                 placeholder='••••••••••••'
                 onInput={setNewPasswordConfirmation}
+                shouldShowWarning={passwordWarning}
                 type='password'
               />
               <CInput
@@ -58,10 +92,13 @@ function ResetPassword() {
                 label={t('REPEAT_YOUR_PASSWORD')}
                 placeholder='••••••••••••'
                 type='password'
+                shouldShowWarning={passwordWarning}
+                warningText={passwordWarning}
                 onInput={setNewPassword}
               />
               <div className={styles.botaoAlterarSenha}>
-                <CButton label={t('CHANGE_PASSWORD')} type='button' onClick={resetPassword} />
+                <CButton disabled={!!passwordWarning || !newPassword || !newPasswordConfirmation} label={t('CHANGE_PASSWORD')} type='button' onClick={resetPassword}
+                isLoading={isLoading} />
               </div>
 
             </div>

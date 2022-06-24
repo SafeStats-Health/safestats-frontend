@@ -28,10 +28,16 @@ export default {
     INVALID_EMAIL: 'e-mail inválido',
     EMAIL_ALREADY_IN_USE: 'este e-mail já está em uso',
     EMAIL_OR_PASSWORD_IS_INVALID: 'e-mail ou senha inválidos',
+    INVALID_PASSWORD: 'senha inválida',
+    DONATES_BLOOD: 'doa sangue',
+    DOESNT_DONATE_BLOOD: 'não doa sangue',
+    LEGAL_REPRESENTATIVE: 'representante legal',
+    YEARS: 'anos',
     PASSWORD_MUST_CONTAIN_AT_LEAST_8:
       'a senha deve conter no mínimo 8 caracteres',
     BACK_TO_LOGIN: 'voltar ao login',
     HOSPITAL: 'hospital',
+    TYPE: 'tipo',
     DISTRICT: 'bairro',
     GO: 'vamos!',
 
@@ -49,6 +55,7 @@ export default {
       'atingir a satisfação do usuário. \n contribuir com a qualidade de vida através da promoção, prevenção e assistência à saúde. \n implementar e consolidar serviços próprios, com atendimento humanizado e de referência. \n manter colaboradores qualificados e comprometidos.',
     ABOUT_US_VALUES_TITLE: 'valores',
     EMAIL_NOT_FOUND: 'e-mail não encontrado',
+    DATA_UPDATED_SUCCESSFUL: 'dados atualizados com sucesso',
     ABOUT_US_VALUES:
       'fortalecimento dos princípios cooperativistas (ética, democracia, equidade, inter-cooperação, educação, solidariedade e justiça social). \nsatisfação e o bem estar dos cooperados, colaboradores, clientes e comunidade. \n excelência no atendimento em todos os níveis da cooperativa. \n gestão sustentável, mantendo a ética, integridade e a valorização do ser humano.',
     IS_BLOOD_DONATOR: 'é doador de sangue?',

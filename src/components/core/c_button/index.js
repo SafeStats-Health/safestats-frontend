@@ -5,13 +5,20 @@ function CButton(props) {
   return (
     <div className={styles.div}>
       <button
-        className={
-          `${props.inverse ? styles['black-button'] : styles['white-button']} 
+        className={`${
+          props.inverse ? styles['black-button'] : styles['white-button']
+        } 
            ${props.disabled ? 'disabled-button' : 'auth-button'} 
            ${props.dense ? styles.dense : ''}`}
         onClick={props.onClick}
         type={props.type}
-        style={{ backgroundColor: props.backgroundColor, color: props.color }}
+        style={{
+          backgroundColor: props.backgroundColor,
+          color: props.color,
+          padding: props.padding,
+          width: props.width,
+          margin: props.margin,
+        }}
       >
         {props.isLoading ? (
           <CircularProgress style={{ color: 'white' }} />

@@ -3,64 +3,116 @@ import CButton from '../../../components/core/c_button';
 import CInput from '../../../components/core/c_input';
 import t from '../../../i18n/translate';
 import {useState, useEffect} from 'react';
+import { UpdatePasswordAuthenticated } from '../../../utils/api-requester/modules/user'
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ChangePassword() {
 
-  const [currentPassword, setCurrentPassword] = useState();
+  const [oldPassword, setOldPassword] = useState();
   const [newPassword, setNewPassword] = useState();
-  const [newPasswordConfirm, setnewPasswordConfirm] = useState();
+  const [newPasswordConfirmation, setNewPasswordConfirmation] = useState();
+  const [oldPasswordWarning, setOldPasswordWarning] = useState();
   const [passwordWarning, setPasswordWarning] = useState();
   const [allFieldsAreValid, setAllFieldsAreValid] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    checkIfPasswordsMatch();
-    checkIfAllFieldAreValid();
-  }, [currentPassword, newPassword, newPasswordConfirm]);
+  const navigate = useNavigate();
+  function submit(){
+    setIsLoading(true)
+    new UpdatePasswordAuthenticated()
+    .call({
+      body: {
+        oldPassword,
+        newPassword,
+        newPasswordConfirmation,
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        const notify = () => toast.success(t('DATA_UPDATED_SUCCESSFUL'), {
+          position: "bottom-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+        notify()
+        setOldPasswordWarning(null)
+      }
+    }).catch((res) => {
+      if (res.response.status !== 400) {
+        navigate('/error');
+      } else {
+        setOldPasswordWarning(t('INVALID_PASSWORD'))
+      }
 
-  function checkIfAllFieldAreValid() {
-    const validations = [!!passwordWarning];
-    const fields = [currentPassword, newPassword, newPasswordConfirm];
-    const allFieldsAreFilled = fields.every((field) => field && field !== '');
-    const someFieldIsInvalid = validations.some((field) => field === false);
-    setAllFieldsAreValid(allFieldsAreFilled && !someFieldIsInvalid);
+    }).finally(() => { setIsLoading(false) });
   }
+  useEffect(() => {
+    const passwordIsValid = checkIfPasswordsMatch();
+    checkIfAllFieldsAreValid(passwordIsValid);
+  }, [oldPassword, newPassword, newPasswordConfirmation]);
 
+  function checkIfAllFieldsAreValid(passwordIsValid) {
+    const validations = [passwordIsValid];
+    const fields = [oldPassword, newPassword, newPasswordConfirmation];
+    const allFieldsAreFilled = fields.every((field) => field && field !== '');
+    const allFieldsAreValidF = validations.every((field) => field);
+    setAllFieldsAreValid(allFieldsAreFilled && allFieldsAreValidF);
+  }
+  
   function checkIfPasswordsMatch() {
     if (
       newPassword &&
       newPassword !== '' &&
-      newPasswordConfirm &&
-      newPasswordConfirm !== ''
+      newPasswordConfirmation &&
+      newPasswordConfirmation !== ''
     ) {
-      if (newPassword !== newPasswordConfirm) {
+      if (newPassword !== newPasswordConfirmation) {
         setPasswordWarning(t('PASSWORDS_DONT_MATCH'));
+        return false;
       } else {
-        setPasswordWarning(null);
         const minCaracters = 8;
         if (
           newPassword.length < minCaracters ||
-          newPasswordConfirm.length < minCaracters
+          newPasswordConfirmation.length < minCaracters
         ) {
           setPasswordWarning(t('PASSWORD_MUST_CONTAIN_AT_LEAST_8'));
+          return false;
+        } else {
+          setPasswordWarning(null);
+          return true;
         }
       }
     } else {
       setPasswordWarning(null);
+      return true;
     }
   }
 
-function submit(){
-
-}
-
   return (
     <div className={styles['change-password']}>
-
+        <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <h1 className={styles['change-password-title']}>{t('CHANGE_PASSWORD_TITLE')}</h1>
       <CInput
           id='current-password'
           label={t('TYPE_YOUR_CURRENT_PASSWORD')}
-          onInput={setCurrentPassword}
+          onInput={setOldPassword}
+          shouldShowWarning={oldPasswordWarning}
+          warningText={oldPasswordWarning}
           type='password'
         />
 
@@ -76,18 +128,13 @@ function submit(){
 <CInput
           id='novaSenha'
           label={t('CONFIRM_PASSWORD')}
-          onInput={setnewPasswordConfirm}
+          onInput={setNewPasswordConfirmation}
           type='password'
           shouldShowWarning={passwordWarning}
           warningText={passwordWarning}
         />
 
-
-
-
-<div className={styles.botaoChangePassword}>
-              <CButton disabled={!allFieldsAreValid} label={t('SAVE')} onClick={submit} type='button'/>
-            </div>
+        <CButton disabled={!allFieldsAreValid} label={t('SAVE')} isLoading={isLoading} onClick={submit} type='button'/>
     </div>
     
   );
