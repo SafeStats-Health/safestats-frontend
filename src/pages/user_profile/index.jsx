@@ -21,10 +21,10 @@ export default function UserProfile() {
 
   useEffect(() => {
     if (sessionStorage.getItem('password')) {
-      selectProfilePage(7);
+      selectProfilePage(6);
     } else if (sessionStorage.getItem('statistics') === 'true') {
       console.log('statistic')
-      selectProfilePage(5);
+      selectProfilePage(4);
     } else {
       console.log('not statistic')
       selectProfilePage(0);
@@ -32,11 +32,11 @@ export default function UserProfile() {
   }, []);
   
   const profilePages = [
-    {
-      key: 'GENERAL',
-      name: t('GENERAL'),
-      component: <General />,
-    },
+    // {
+    //   key: 'GENERAL',
+    //   name: t('GENERAL'),
+    //   component: <General />,
+    // },
     {
       key: 'PERSONAL_DATA',
       name: t('PERSONAL_DATA'),

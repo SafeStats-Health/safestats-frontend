@@ -115,7 +115,7 @@ export default function Statistics() {
             <Card className={styles['cardSize']}>
               <CardContent>
                 <div className={'col'}>
-                  <h1 className={styles['title']}>{`${charts?.results[0].name} - Doenças`}</h1>
+                  <h1 className={styles['title']}>{`${charts?.results[0].name ?? ''} - Doenças`}</h1>
                 </div>
                 <div className={'col'}>
                   <BarChart data={charts?.results[0].diseases.length > 6 ?
@@ -131,7 +131,7 @@ export default function Statistics() {
             <Card className={styles['cardSize']}>
               <CardContent>
                 <div className={'col'}>
-                  <h1 className={styles['title']}>{`${charts?.results[0].name} - Specialties`}</h1>
+                  <h1 className={styles['title']}>{`${charts?.results[0].name ?? ''} - Specialties`}</h1>
                 </div>
                 <div className={'col'}>
                   <BarChart data={charts?.results[0].specialties.length > 6 ?
