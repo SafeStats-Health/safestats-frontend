@@ -1,18 +1,15 @@
 import styles from './styles.module.css';
 import t from '../../../i18n/translate';
 import dummyImg from '../../../assets/images/dummy_img.png';
+import {useEffect, useState} from "react";
 
-export default function General() {
-
-  const usedData = JSON.parse(localStorage.getItem('login'));
-  let userPlan, userBirthdate, userPhone, userDonatedBlood, userBloodType, userLegalRepresentative;
-
-  usedData.user.healthPlan ? userPlan = usedData.user.healthPlan + ' - ' : userPlan = ''
-  usedData.user.birthdate ? userBirthdate = usedData.user.birthdate + ' anos - ' : userBirthdate = ' '
-  usedData.user.phone ? userPhone = usedData.user.phone + ' - ' : userPhone = ' '
-  usedData.user.didDonateBlood ? userDonatedBlood = usedData.user.didDonateBlood + ', ' : userDonatedBlood = ' '
-  usedData.user.bloodType ? userBloodType = usedData.user.bloodType + ' - ' : userBloodType = ' '
-  usedData.user.legalRepresentative ? userLegalRepresentative = usedData.user.legalRepresentative : userLegalRepresentative = ''
+function General() {
+  const [user, setUser] = useState({});
+  useEffect(() => {
+    return () => {
+      setUser(JSON.parse(localStorage.getItem('login')).user);
+    }
+  }, []);
 
   return (
     <div className={styles.general}>
@@ -45,3 +42,5 @@ export default function General() {
     </div>
   );
 }
+
+export default General;
