@@ -1,0 +1,15 @@
+
+.configurations-container {
+  min-width: 400px;
+}
+
+.configurations{
+  text-align: center;
+  color: #2B3F6C;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.save{
+  margin-top: 40px;;
+}

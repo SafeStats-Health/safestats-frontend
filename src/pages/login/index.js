@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import pose5 from '../../assets/images/pose_5.png';
 import safeStats from '../../assets/images/safe_stats.svg';
@@ -7,8 +7,10 @@ import CInput from '../../components/core/c_input';
 import t from '../../i18n/translate';
 import styles from './styles.module.css';
 import AuthService from '../../services/auth.service';
+import {Context} from '../../components/wrapper'
 import jwtDecode from 'jwt-decode';
 import { LoginUser } from '../../utils/api-requester/modules/user';
+import { LOCALES } from '../../i18n'
 
 function Login() {
   const [email, setEmail] = useState();
@@ -16,6 +18,7 @@ function Login() {
   const [loginWarning, setLoginWarning] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
+  const context = useContext(Context)
   let navigate = useNavigate();
 
   function getUser() {
@@ -32,6 +35,7 @@ function Login() {
           const decoded = jwtDecode(res.data.token);
           localStorage.setItem('token', res.data.token);
           localStorage.setItem('login', JSON.stringify(decoded));
+          context.setLocale(getContextLanguage(decoded))
           navigate('/user_profile');
         }
       })
@@ -43,6 +47,17 @@ function Login() {
         }
       })
       .finally(() => setIsLoading(false));
+  }
+
+  function getContextLanguage(decoded) {
+    switch (decoded.user.preferredLanguage) {
+      case 'PT-BR':
+        return LOCALES.PORTUGUESE
+      case 'EN-US':
+        return LOCALES.ENGLISH
+      default:
+        return LOCALES.PORTUGUESE
+    }
   }
 
   return (

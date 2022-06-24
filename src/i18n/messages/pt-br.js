@@ -102,6 +102,7 @@ export default {
     HEALTH_PLAN_TYPE: 'tipo',
     ROOM: 'hospedagem',
     BLOOD_DONATION: 'já doou sangue?',
+    STATISTICS: 'estatísticas',
     BLOOD_TYPE: 'tipo sanguíneo',
     DONATION_LOCATION: 'local da doação',
     DELETE_ACCOUNT_TITLE: 'digite sua senha para deletar sua conta',
@@ -111,7 +112,7 @@ export default {
     TRUSTWORTHY_CONTACT: 'contato de confiança',
     HEALTH_PLAN: 'plano de saúde',
     BLOOD_DONATION: 'doação de sangue',
-    STATISTICS: 'estatísticas',
+ 
     DELETE_ACCOUNT: 'deletar conta',
     EXIT: 'sair',
     MENU: 'menu',
@@ -155,5 +156,8 @@ export default {
     CONFIRM_DELETE_ACCOUNT_MESSAGE2: 'VOCÊ TEM CERTEZA DISSO?',
     YES_DELETE_ACCOUNT: 'sim, quero deletar minha conta.',
     NO_DELETE_ACCOUNT: 'não, quero voltar a página anterior.',
+
+    CONFIGURATIONS: 'configurações',
+    LANGUAGE: 'idioma',
   },
 };

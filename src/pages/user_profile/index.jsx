@@ -11,6 +11,7 @@ import BloodDonation from './blood_donation'
 import ChangePassword from './change_password'
 import DeleteAccount from './delete_account'
 import Statistics from "./statistics";
+import Configurations from './configurations'
 import t from '../../i18n/translate';
 
 export default function UserProfile() {
@@ -66,6 +67,11 @@ export default function UserProfile() {
       key: 'DELETE_ACCOUNT',
       label: t('DELETE_ACCOUNT'),
       component: <DeleteAccount />,
+    },
+    {
+      key: 'CONFIGURATIONS',
+      label: t('CONFIGURATIONS'),
+      component: <Configurations />,
     },
   ];
 

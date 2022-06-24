@@ -109,6 +109,7 @@ export default {
     TRUSTWORTHY_CONTACT: 'trustworthy contact',
     HEALTH_PLAN: 'health plan',
     BLOOD_DONATION: 'blood donation',
+    STATISTICS: 'estatísticas',
     CHANGE_PASSWORD: 'change password',
     PASSWORDS_DONT_MATCH: "passwords don't match",
     DELETE_ACCOUNT: 'delete account',
@@ -135,5 +136,8 @@ export default {
     CONFIRM_DELETE_ACCOUNT_MESSAGE2: 'ARE YOU SURE ABOUT THAT?',
     YES_DELETE_ACCOUNT: 'yes, i want to delete my account.',
     NO_DELETE_ACCOUNT: 'no, I want to go back to the previous page.',
+
+    CONFIGURATIONS: 'configurations',
+    LANGUAGE: 'language',
   },
 };
