@@ -3,7 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 import { ProtectedRoute } from './protected.route';
 
 import EmailConfirm from '../pages/email_confirm';
-import Home from '../pages/home';
+import LandingPage from '../pages/landing_page';
+// import Home from '../pages/home';
 import Login from '../pages/login';
 import Map from '../pages/map';
 import NotFound from '../pages/not_found';
@@ -19,9 +20,10 @@ const Router = () => {
   return (
     <div>
       <Routes>
-        <Route index element={<Home />} />
+        <Route index element={<LandingPage />} />
         <Route path='/login' element={<Login />} />
         <Route exact path='/register' element={<Register />} />
+        {/* <Route path='/home' element={<Home />} /> */}
         <Route exact path='/user_profile' element={<ProtectedRoute />}>
           <Route path='/user_profile' element={<UserProfile />} />
         </Route>

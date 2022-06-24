@@ -7,7 +7,7 @@ import CButton from '../../components/core/c_button';
 import logo from '../../assets/images/safe_stats_alt.svg';
 import leaveIcon from '../../assets/icons/leave.svg';
 import userIcon from '../../assets/icons/user.svg';
-import mapIcon from '../../assets/icons/map.svg';
+import graphIcon from '../../assets/icons/graph.svg';
 import markerIcon from '../../assets/icons/marker2.svg';
 import { Link } from 'react-router-dom';
 import Drawer from '../../components/drawer'
@@ -15,11 +15,17 @@ import Drawer from '../../components/drawer'
 import { FetchNearbyHospitals } from '../../utils/api-requester/modules/nearby-hospitals';
 
 function goToProfile() {
+  sessionStorage.setItem('statistics', false)
   document.getElementById('profileLink').click()
 }
 
 function goToLandingPage() {
   document.getElementById('landingPageLink').click()
+}
+
+function goToStatistics() {
+  sessionStorage.setItem('statistics', true)
+  document.getElementById('profileLink').click()
 }
 
 function Map(props) {
@@ -32,7 +38,6 @@ function Map(props) {
 
   useEffect(() => {
     if (selectedHospital) {
-      console.log(selectHospital)
       setCenter(selectedHospital.location)
     }
   }, [selectedHospital])
@@ -47,8 +52,6 @@ function Map(props) {
           }
         })
         setNearbyHospitals(hospitals.data.results)
-        console.log(lat, lng)
-        console.log('nearbyHospitals', hospitals.data.results)
       } catch (e) {
         console.log(e)
       }
@@ -78,17 +81,20 @@ function Map(props) {
           selectCenter={center}
           isDrawerOpen={isDrawerOpen}
           userPos={fetchNearbyHospitals}
+          currentCenter={(a) => {}}
         />
         <div className={styles['options-box']}>
           <div
             className={`${styles['icon-container']} ${styles.clickable}`}
+            onClick={() => {cMapRef.current.goToUserPos()}} 
           >
-            <img className={styles['marker-icon']} src={markerIcon} onClick={() => {cMapRef.current.goToUserPos()}} />
+            <img className={styles['marker-icon']} src={markerIcon} />
           </div>
           <div
             className={`${styles['icon-container']} ${styles.clickable}`}
+            onClick={goToStatistics}
           >
-            <img className={styles['map-icon']} src={mapIcon} />
+            <img className={styles['map-icon']} src={graphIcon} />
           </div>
           <div
             className={`${styles['icon-container']} ${styles.clickable}`}

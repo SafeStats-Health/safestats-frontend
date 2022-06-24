@@ -1,85 +1,146 @@
-import { Link } from 'react-router-dom';
-import Case from '../../assets/images/home/case.png';
-import DoctorStethoscope from '../../assets/images/home/doctor_stethoscope.png';
-import Hologram from '../../assets/images/home/hologram.png';
-import Microscope from '../../assets/images/home/microscope.png';
-import MicroscopeCloseup from '../../assets/images/home/microscope_closeup.png';
-import Ome from '../../assets/images/home/ome.png';
-import Stethoscope from '../../assets/images/home/stethoscope.png';
-import CButton from '../../components/core/c_button';
-import Header from '../../components/header';
-import t from '../../i18n/translate';
+import React, {  useState, useEffect, useRef } from 'react';
 import styles from './styles.module.css';
+import t from '../../i18n/translate';
+import CMap from '../../components/core/c_map';
+import CInput from '../../components/core/c_input';
+import CButton from '../../components/core/c_button';
+import logo from '../../assets/images/safe_stats_alt.svg';
+import leaveIcon from '../../assets/icons/leave.svg';
+import userIcon from '../../assets/icons/user.svg';
+import mapIcon from '../../assets/icons/map.svg';
+import graphIcon from '../../assets/icons/graph.svg';
+import markerIcon from '../../assets/icons/marker2.svg';
+import { Link } from 'react-router-dom';
+import Drawer from '../../components/drawer'
+import Statistics from '../../components/statistics'
+// import hospitals from '../../pages/map/hospitals'
+import { FetchNearbyHospitals } from '../../utils/api-requester/modules/nearby-hospitals';
 
-function Home() {
+function goToProfile() {
+  document.getElementById('profileLink').click()
+}
 
-  function goToRegister() {
-    document.getElementById('registerLink').click();
+function goToLandingPage() {
+  document.getElementById('landingPageLink').click()
+}
+
+function Home(props) {
+
+  const [selectedHospital, selectHospital] = useState(null);
+  const [isDrawerOpen, setDrawerOpen] = useState(null);
+  const [center, setCenter] = useState(false);
+  const cMapRef = useRef();
+  const [nearbyHospitals, setNearbyHospitals] = useState([]);
+  const [isMap, setIsMap] = useState(true)
+  const [startingPoint, setStartingPoint] = useState(null)
+
+
+  async function fetchNearbyHospitals(lat, lng) {
+    if (!nearbyHospitals.length) {
+      try {
+        const hospitals = await new FetchNearbyHospitals().call({
+          body: {
+            lat: lat.toString(),
+            lng: lng.toString()
+          }
+        })
+        console.log(hospitals.data.results)
+        setNearbyHospitals(hospitals.data.results)
+      } catch (e) {
+        console.log(e)
+      }
+    }
   }
 
-  return (
-    <div className={styles.home}>
-      <Link to='/register' id='registerLink' />
-      <div className={styles['top-section']} >
-        <div className={styles.ellipse} />
-        <div className={styles['home-container']}>
-          <Header alt />
-          <div className={styles['main-info']}>
-            <div className={styles['main-text']}>
-              <span className={styles['main-title']}>{t('TECH_FOR_THE_HEALTH')}</span>
-              <div>
-                <span className={styles['main-paragraph']}>{t('DO_YOU_WANT_SAFESTATS')}</span> <br/>
-                <span className={styles['main-paragraph']}>{t('REGISTER_ITS_FREE')}</span>
-              </div>
-              <div className={styles['button']} style={{minWidth: '50%'}}>
-                <CButton label={t('REGISTER_YOURSELF')} backgroundColor="#003A95" onClick={goToRegister} />
-              </div>
-            </div>
-            <div className={styles['main-image']}>
-              <img className={styles['img-ome']} src={Ome} />
-              <img className={styles['img-hologram']} src={Hologram} />
-            </div>
-          </div>
+  useEffect(() => {
+    if (selectedHospital) {
+      console.log('isMap', isMap);
+      if (isMap) {
+        setCenter(selectedHospital.location)
+      } else {
+        console.log('aaaaaaaaaaaaaa');
+      }
+    }
+  }, [selectedHospital])
+
+  function HomeContent(props) {
+
+    if (props.isMap) {
+      return (
+        <div className={styles['home-container']} >
+          <CMap
+            ref={cMapRef}
+            hospitals={nearbyHospitals}
+            selectedHospital={selectedHospital}
+            selectHospital={selectedHospital}
+            selectCenter={props.center}
+            isDrawerOpen={isDrawerOpen}
+            userPos={fetchNearbyHospitals}
+            startingPoint={startingPoint}
+            currentCenter={(coord) => {console.log('coords new', coord)}}
+          />
         </div>
-      </div>
-      <div className={styles['bottom-section']} >
-        <div className={styles['home-container']}>
-          <div className={styles.section}>
-            <img
-              className={styles['section-image']}
-              src={MicroscopeCloseup}
-            />
-            <div className={styles['section-text']}>
-              <span className={styles['section-title']}>{t('SAFESTATS_CLUB')} • {t('ONLINE_DISCOUNTS')}</span>
-              <span className={styles['section-paragraph']}>{t('SAFESTATS_CLUB_DESC')}</span>
-            </div>
-          </div>
-          <div className={styles.section}>
-            <div className={styles['section-text']}>
-              <span className={styles['section-title']}>{t('MATH')} • {t('MORE_ATTENTION_TO_HEALTH')}</span>
-              <span className={styles['section-paragraph']}>{t('MATH_DESC')}</span>
-            </div>
-            <img
-              className={styles['section-image']}
-              src={DoctorStethoscope}
-            />
-          </div>
-          <div className={styles['button']}><CButton label={t('REGISTER_YOURSELF')} backgroundColor="#003A95" onClick={goToRegister} /></div>
-          <div className={styles['card-group']}>
-            <div className={`${styles['card']} ${styles['card-blue']}`}>
-              <img className={styles['card-image']} src={Microscope} />
-              <span className={styles['card-text']}>{t('TEXT_MICROSCOPE')}</span>
-            </div>
-            <div className={`${styles['card']} ${styles['card-white']}`}>
-              <img className={styles['card-image']} src={Case} />
-              <span className={styles['card-text']}>{t('TEXT_CASE')}</span>
-            </div>
-            <div className={`${styles['card']} ${styles['card-blue']}`}>
-              <img className={styles['card-image']} src={Stethoscope} />
-              <span className={styles['card-text']}>{t('TEXT_STETHOSCOPE')}</span>
-            </div>
-          </div>
-          <div className={styles['button']}><CButton label={t('REGISTER_YOURSELF')} backgroundColor="#003A95" onClick={goToRegister} /></div>
+      )
+    } else {
+      return (
+        <div>
+          <Statistics nearbyHospitals={props.nearbyHospitals} />
+        </div>
+      )
+    }
+  }
+  
+  function switchIsMap() {
+    console.log('oi2')
+    setIsMap(!isMap)
+    console.log(isMap)
+  }
+
+
+  return (
+    <div className={styles['home-page']}>
+      <Link to="/user_profile" id="profileLink" />
+      <Link to="/" id="landingPageLink" />
+      <Drawer
+        options={nearbyHospitals}
+        selectOption={hospitalId => {
+          selectHospital(nearbyHospitals.find((hospital, index) => index === hospitalId))
+        }}
+        altButton
+        searchBar
+        setDrawerOpen={setDrawerOpen}
+        width={500}
+      />
+      <HomeContent
+        isMap={isMap}
+        nearbyHospitals={nearbyHospitals}
+        setRenderMap={setIsMap}
+        setCenter={center}
+      />
+      <div className={styles['options-box']}>
+        <div
+          className={`${styles['icon-container']} ${styles.clickable}`}
+          onClick={() => {cMapRef.current.goToUserPos()}}
+        >
+          <img className={styles['marker-icon']} src={markerIcon} />
+        </div>
+        <div
+          className={`${styles['icon-container']} ${styles.clickable}`}
+          onClick={() => {switchIsMap()}}
+        >
+          <img className={isMap ? styles['graph-icon'] : styles['map-icon']} src={isMap ? graphIcon : mapIcon} />
+        </div>
+        <div
+          className={`${styles['icon-container']} ${styles.clickable}`}
+          onClick={goToProfile}
+        >
+          <img className={styles['user-icon']} src={userIcon} />
+        </div>
+        <div
+          className={`${styles['icon-container']} ${styles.clickable}`}
+          onClick={goToLandingPage}
+        >
+          <img className={styles['leave-icon']} src={leaveIcon} />
         </div>
       </div>
     </div>

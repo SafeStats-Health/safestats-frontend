@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import t from '../../i18n/translate';
 import styles from './styles.module.css';
-import SafeStats from '../../assets/images/home/safe_stats.png';
-import SafeStatsAlt from '../../assets/images/home/safe_stats_alt.png';
-import User from '../../assets/images/home/user.png';
-import UserAlt from '../../assets/images/home/user_alt.png';
+import SafeStats from '../../assets/images/landing_page/safe_stats.png';
+import SafeStatsAlt from '../../assets/images/landing_page/safe_stats_alt.png';
+import User from '../../assets/images/landing_page/user.png';
+import UserAlt from '../../assets/images/landing_page/user_alt.png';
 
 export default function Header(props) {
 
