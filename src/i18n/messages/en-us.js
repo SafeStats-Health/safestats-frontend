@@ -57,8 +57,6 @@ export default {
     DELETE_ACCOUNT: 'delete account',
     TYPE_YOUR_EMAIL: 'type your email',
     //tela contato
-    ABOUT_US_VALUES:
-      'strengthening of cooperative principles (ethics, democracy, equity, inter-cooperation, education, solidarity and social justice). \n satisfaction and well-being of cooperative members, collaborators, customers and community. \n excellence in service in all cooperative levels. \n sustainable management, maintaining ethics, integrity and valuing the human being.',
     CONTACT: 'contact',
     CONTACT_TITLE: 'you can get in touch with us!',
     CONTACT_SUBTITLE: 'If you have any questions, we will be at your disposal.',
@@ -111,8 +109,6 @@ export default {
     DELETE_ACCOUNT_TITLE: 'enter your password to delete your account',
     REPEAT_DELETE_ACCOUNT_TITLE:
       're-enter your password to delete your account',
-
-    PERSONAL_DATA: 'personal data',
     TRUSTWORTHY_CONTACT: 'trustworthy contact',
     HEALTH_PLAN: 'health plan',
     BLOOD_DONATION: 'blood donation',

@@ -6,7 +6,6 @@ import CButton from '../../components/core/c_button';
 import CInput from '../../components/core/c_input';
 import t from '../../i18n/translate';
 import styles from './styles.module.css';
-import AuthService from '../../services/auth.service';
 import {Context} from '../../components/wrapper'
 import jwtDecode from 'jwt-decode';
 import { LoginUser } from '../../utils/api-requester/modules/user';

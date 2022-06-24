@@ -1,10 +1,22 @@
 import styles from './styles.module.css';
-import React, {useEffect, useRef} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import * as d3 from 'd3';
 import {Card, CardContent} from "@mui/material";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ChartService from '../../../services/chart.service';
 
 export default function Statistics() {
+
+  const [charts, setCharts] = useState();
+
+  useEffect(() => {
+    if (!charts)
+    ChartService.chart('40.7128', '-74.0060').then(r => {
+      setCharts(r.data)
+      console.log(r.data);
+    })
+  }, []);
+
 
   const hospitalQueues = [
     {name: 'A', queue: 11},
@@ -26,7 +38,6 @@ export default function Statistics() {
     const d3Chart = useRef()
 
     useEffect(() => {
-
       // values of the first element
       const getFirstObjectValues = data.map(data => Object.values(data)[labelNamesPos]);
 
@@ -91,16 +102,15 @@ export default function Statistics() {
   return (
     <div className={styles['statisticsPos']}>
       <div className={'container'}>
-
         <div className={`${styles['cardPos']} row`}>
           <div className={'col'}>
             <Card className={styles['cardSize']}>
               <CardContent>
                 <div className={'col'}>
-                  <h1 className={styles['title']}>TEST</h1>
+                  <h1 className={styles['title']}>{`${charts?.results[0].name} - Doenças`}</h1>
                 </div>
                 <div className={'col'}>
-                  <BarChart data={hospitalQueues} labelNamesPos={0} labelNumbersPos={1}></BarChart>
+                  <BarChart data={charts?.results[0].diseases} labelNamesPos={0} labelNumbersPos={1}></BarChart>
                 </div>
               </CardContent>
             </Card>
@@ -109,10 +119,10 @@ export default function Statistics() {
             <Card className={styles['cardSize']}>
               <CardContent>
                 <div className={'col'}>
-                  <h1 className={styles['title']}>TEST</h1>
+                  <h1 className={styles['title']}>{`${charts?.results[0].name} - Doenças`}</h1>
                 </div>
                 <div className={'col'}>
-                  <BarChart data={hospitalQueues} labelNamesPos={0} labelNumbersPos={1}></BarChart>
+                  <BarChart data={charts?.results[0].specialties} labelNamesPos={0} labelNumbersPos={1}></BarChart>
                 </div>
               </CardContent>
             </Card>
