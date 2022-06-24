@@ -48,7 +48,7 @@ function checkIfPasswordsMatch() {
       setPasswordWarning(null);
     }
   } else {
-    if (invalidCredentials) {
+    if (!invalidCredentials) {
       setPasswordWarning(null);
     }
   }
