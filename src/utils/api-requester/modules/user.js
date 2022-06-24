@@ -67,3 +67,55 @@ export class LoginUser {
       }))();
   }
 }
+
+export class UpdateHealthPlan {
+  async call(request) {
+    return (async () =>
+      api({
+        method: 'post',
+        url: 'users/update-health-plan',
+        data: request.body,
+        params: request.params,
+        headers: getBearerHeader(),
+      }))();
+  }
+}
+
+export class UpdateBloodDonation {
+  async call(request) {
+    return (async () =>
+      api({
+        method: 'post',
+        url: 'users/update-blood-donation',
+        data: request.body,
+        params: request.params,
+        headers: getBearerHeader(),
+      }))();
+  }
+}
+
+export class UpdateTrustedContact {
+  async call(request) {
+    return (async () =>
+      api({
+        method: 'post',
+        url: 'users/update-trusted-contact',
+        data: request.body,
+        params: request.params,
+        headers: getBearerHeader(),
+      }))();
+  }
+}
+
+export class UpdatePasswordAuthenticated {
+  async call(request) {
+    return (async () =>
+      api({
+        method: 'post',
+        url: 'users/update-password-authenticated',
+        data: request.body,
+        params: request.params,
+        headers: getBearerHeader(),
+      }))();
+  }
+}
