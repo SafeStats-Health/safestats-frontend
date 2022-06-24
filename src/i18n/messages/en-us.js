@@ -32,6 +32,7 @@ export default {
 
     //tela sobre nós
     ABOUT_US: 'about us',
+    EMAIL_NOT_FOUND: 'e-mail não encontrado',
     ABOUT_US_TITLE: 'safe stats works to give you the best result!',
     ABOUT_US_SUBTITLE:
       'see below the mission, vision and values ​​of the most tech company in the health world',

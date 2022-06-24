@@ -48,6 +48,7 @@ export default {
     ABOUT_US_VISION:
       'atingir a satisfação do usuário. \n contribuir com a qualidade de vida através da promoção, prevenção e assistência à saúde. \n implementar e consolidar serviços próprios, com atendimento humanizado e de referência. \n manter colaboradores qualificados e comprometidos.',
     ABOUT_US_VALUES_TITLE: 'valores',
+    EMAIL_NOT_FOUND: 'e-mail não encontrado',
     ABOUT_US_VALUES:
       'fortalecimento dos princípios cooperativistas (ética, democracia, equidade, inter-cooperação, educação, solidariedade e justiça social). \nsatisfação e o bem estar dos cooperados, colaboradores, clientes e comunidade. \n excelência no atendimento em todos os níveis da cooperativa. \n gestão sustentável, mantendo a ética, integridade e a valorização do ser humano.',
     IS_BLOOD_DONATOR: 'é doador de sangue?',
