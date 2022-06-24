@@ -142,5 +142,7 @@ export default {
 
     CONFIGURATIONS: 'configurations',
     LANGUAGE: 'language',
+    HOSPITAL_QUEUES: 'Hospital Queues',
+    HOSPITAL_BEDS: 'Hospital Beds',
   },
 };
