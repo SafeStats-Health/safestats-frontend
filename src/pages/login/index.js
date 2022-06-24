@@ -36,7 +36,7 @@ function Login() {
           localStorage.setItem('token', res.data.token);
           localStorage.setItem('login', JSON.stringify(decoded));
           context.setLocale(getContextLanguage(decoded))
-          navigate('/user_profile');
+          navigate('/map');
         }
       })
       .catch((res) => {

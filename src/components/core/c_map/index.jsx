@@ -29,9 +29,13 @@ const CMap = forwardRef((props, ref) => {
   
   const isMobile = useMediaQuery({ query: `(max-width: 768px)` });
   const [selectedHospital, selectHospital] = useState(null)
-  const [center, setCenter] = useState({lat: -25.428360, lng: -49.273251})
+  const [center, setCenter] = useState(props.startingPoint ?? {lat: -25.428360, lng: -49.273251})
   let foundUserLocation = false;
   let userPos = null;
+
+  useEffect(() => {
+    props.currentCenter(center)
+  }, [center])
 
   function handleHospitalClick(hospital) {
     selectHospital(hospital)

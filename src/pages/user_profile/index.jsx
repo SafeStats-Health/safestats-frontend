@@ -22,7 +22,11 @@ export default function UserProfile() {
   useEffect(() => {
     if (sessionStorage.getItem('password')) {
       selectProfilePage(7);
+    } else if (sessionStorage.getItem('statistics') === 'true') {
+      console.log('statistic')
+      selectProfilePage(5);
     } else {
+      console.log('not statistic')
       selectProfilePage(0);
     }
   }, []);
@@ -89,6 +93,7 @@ export default function UserProfile() {
         selectOption={selectProfilePage}
         options={profilePages}
         defaultOption="GENERAL"
+        isBackButton
       />
       <div className={`${styles['content']} ${isMobile ? styles['absolute-content'] : ''}`}>
         {selectedProfilePageComponent(selectedProfilePage)}

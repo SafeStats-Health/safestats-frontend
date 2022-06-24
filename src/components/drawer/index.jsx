@@ -5,6 +5,7 @@ import door from '../../assets/images/door.svg';
 import hamburger from '../../assets/images/hamburger.svg';
 import whiteHamburger from '../../assets/images/white_hamburger.svg';
 import close from '../../assets/images/close.svg'
+import backIcon from '../../assets/icons/back.svg'
 import {Link} from 'react-router-dom';
 import CInput from '../core/c_input';
 
@@ -14,6 +15,10 @@ function DrawerMenu(props) {
 
   const [highlightedOption, highlightOption] = useState(props.option ?? 'GENERAL');
   const [filteredOptions, setFilteredOptions] = useState(props.options)
+
+  function goBack() {
+    document.getElementById('mapLink').click();
+  }
 
   function logout() {
     localStorage.clear();
@@ -43,7 +48,15 @@ function DrawerMenu(props) {
   return (
     <div className={styles['drawer']} style={{width: props.width}}>
       <Link to="/" id='logoutLink' />
+      <Link to="/map" id="mapLink" />
       <div className={styles['top-section']}>
+        <div>
+          {
+            props.isBackButton && (
+              <img src={backIcon} alt='Back' className={`${styles.icon} ${styles.clickable}`} onClick={goBack}/>    
+            )
+          }
+        </div>
         <img src={close} alt='Close' className={`${styles.icon} ${styles.clickable}`} onClick={closeDrawer}/>
       </div>
       {
@@ -139,6 +152,7 @@ export default function Drawer(props) {
       <DrawerMenu
         setDrawerOpen={setDrawerOpen}
         selectOption={selectOption}
+        isBackButton={props.isBackButton}
         option={option}
         options={props.options}
         searchBar={props.searchBar}
