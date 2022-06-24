@@ -22,6 +22,7 @@ function Login() {
       }
       const decoded = jwtDecode(r.data.token);
       localStorage.setItem('login', JSON.stringify(decoded));
+      localStorage.setItem('token', r.data.token);
       navigate('/user_profile');
     });
   }
