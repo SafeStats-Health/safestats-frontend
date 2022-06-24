@@ -1,0 +1,25 @@
+.title-container {
+    margin-bottom: 50px;
+}
+
+.title {
+    font-weight: 400;
+    font-size: min(2.2rem, 6vw);
+    line-height: 44px;
+    text-align: left;
+    color: #565555;
+}
+
+.form-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form-centralizer {
+    max-width: 500px;
+}
+
+.botaoAlterarSenha {
+    margin-top: 70px;
+}

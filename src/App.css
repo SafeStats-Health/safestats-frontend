@@ -56,7 +56,7 @@
   font-size: min(2.2rem, 6vw);
   line-height: 44px;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .auth-form {
@@ -70,7 +70,7 @@
 .auth-button {
   width: 100%;
   height: 55px;
-  background-color: #546e9a;
+  background-color: #546E9A;
   border: none;
   border-radius: 20px;
   color: white;
@@ -81,11 +81,16 @@
   line-height: 24px;
   color: #fbfbfb;
   cursor: pointer;
+  margin-bottom: 15px;
 }
 
 .disabled-button {
-  background-color: #565555;
-  cursor: default;
+  background-color: #565555 !important;
+  cursor: default !important;
+}
+
+.disabled-button, .auth-button { 
+  margin: 10px 0 15px 0;
 }
 
 .account-text {
@@ -96,9 +101,20 @@
   font-size: 12px;
   line-height: 15px;
   margin-left: 10px;
+  margin-top: 20px;
 }
 
 .account-text a {
-  font-weight: bold;
-  cursor: pointer;
+  text-decoration: none;
+  color: #565555;
+  font-weight: 600;
+
+}
+
+.account-text a:hover{
+  color: #565555;
+}
+
+.account-button {
+  margin-top: 60px;
 }

@@ -1,3 +1,10 @@
-.trustworthy-contract {
-  text-align: center;
+
+.trustworthy-contract{
+  color: #2B3F6C;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.botaoContatoDeConfianca{
+  margin-top: 40px;
 }

@@ -2,3 +2,13 @@
   display: flex;
   justify-content: space-between;
 }
+
+.botaoEntrar {
+  margin-top: 45px;
+}
+
+.clickHere {
+  text-decoration: none;
+  color: #565555;
+  font-weight: 600;
+}
