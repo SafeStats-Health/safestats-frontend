@@ -17,6 +17,7 @@ function CInput(props) {
         {props.label}
       </label>
       <input
+        value={props.value}
         className={`${
           props.inverse ? styles['white-input'] : styles['black-input']
         }

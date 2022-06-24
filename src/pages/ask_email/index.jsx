@@ -59,7 +59,7 @@ function AskEmail() {
                 warningText={emailWarning}
               />
               <div className={styles.botaoAlterarSenha}>
-                <CButton label={t('SEND_EMAIL')} type='button' onClick={sendEmail} isLoading={isLoading} />
+                <CButton disabled={!email || email === ''}label={t('SEND_EMAIL')} type='button' onClick={sendEmail} isLoading={isLoading} />
               </div>
 
             </div>
