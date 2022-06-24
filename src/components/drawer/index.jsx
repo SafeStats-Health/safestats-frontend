@@ -33,7 +33,7 @@ function DrawerMenu(props) {
     const filter = text.toUpperCase()
     const filteredOptions = []
     props.options.forEach(option => {
-      if (option.label.toUpperCase().indexOf(filter) > -1) {
+      if (option.name.toUpperCase().indexOf(filter) > -1) {
         filteredOptions.push(option)
       }
     })
@@ -59,13 +59,13 @@ function DrawerMenu(props) {
       }
       <div className={styles['middle-section']}>
         {
-          filteredOptions.map(option => (
+          filteredOptions.map((option, index) => (
             <div
-              key={option.key}
-              onClick={() => {selectOption(option.key)}}
-              className={`${styles['option-link']} ${styles.clickable} ${highlightedOption === option.key ? styles.selected : ''}`}
+              key={index}
+              onClick={() => {selectOption(index)}}
+              className={`${styles['option-link']} ${styles.clickable} ${highlightedOption === index ? styles.selected : ''}`}
             >
-              {option.label}
+              {option.name}
             </div>
           ))
         }

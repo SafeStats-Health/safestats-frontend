@@ -1,5 +1,10 @@
 import api from '../api';
 
+function getBearerHeader() {
+  const token = localStorage.getItem('token');
+  return { Authorization: `Bearer ${token}` };
+}
+
 export class FetchNearbyHospitals {
   method = 'post';
   url = '/maps/nearby-hospitals';
@@ -7,9 +12,9 @@ export class FetchNearbyHospitals {
     return (async () =>
       api({
         method: 'post',
-        url: this.url,
+        url: 'maps/nearby-hospitals',
         data: request.body,
-        params: request.params,
+        headers: getBearerHeader(),
       }))();
   }
 }

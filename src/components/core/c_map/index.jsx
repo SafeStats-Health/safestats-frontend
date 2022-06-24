@@ -30,11 +30,12 @@ const CMap = forwardRef((props, ref) => {
   const isMobile = useMediaQuery({ query: `(max-width: 768px)` });
   const [selectedHospital, selectHospital] = useState(null)
   const [center, setCenter] = useState({lat: -25.428360, lng: -49.273251})
+  let foundUserLocation = false;
   let userPos = null;
 
   function handleHospitalClick(hospital) {
     selectHospital(hospital)
-    setCenter(hospital.position)
+    setCenter(hospital.location)
   }
 
   function closePopup() {
@@ -56,6 +57,10 @@ const CMap = forwardRef((props, ref) => {
 
     useEffect(() => {
       map.locate().on("locationfound", function (e) {
+        if (!foundUserLocation) {
+          props.userPos(e.latlng.lat, e.latlng.lng)
+          foundUserLocation = true
+        }
         setPosition(e.latlng);
         map.flyTo(center, map.getZoom());
       });
@@ -98,10 +103,10 @@ const CMap = forwardRef((props, ref) => {
           // attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           // url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
         />
-        {props.hospitals.map(hospital => (
+        {props.hospitals.map((hospital, i) => (
           <Marker
-            key={hospital.key}
-            position={hospital.position}
+            key={i}
+            position={hospital.location}
             icon={hospitalIcon}
             eventHandlers={{
               click: () => {

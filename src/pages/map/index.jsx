@@ -11,7 +11,7 @@ import mapIcon from '../../assets/icons/map.svg';
 import markerIcon from '../../assets/icons/marker2.svg';
 import { Link } from 'react-router-dom';
 import Drawer from '../../components/drawer'
-import hospitals from '../../pages/map/hospitals'
+// import hospitals from '../../pages/map/hospitals'
 import { FetchNearbyHospitals } from '../../utils/api-requester/modules/nearby-hospitals';
 
 function goToProfile() {
@@ -28,17 +28,31 @@ function Map(props) {
   const [isDrawerOpen, setDrawerOpen] = useState(null);
   const [center, setCenter] = useState(false);
   const cMapRef = useRef();
+  const [nearbyHospitals, setNearbyHospitals] = useState([]);
 
   useEffect(() => {
-    if (selectHospital) {
-      setCenter(selectHospital.position)
+    if (selectedHospital) {
+      console.log(selectHospital)
+      setCenter(selectedHospital.location)
     }
-  }, [selectHospital])
+  }, [selectedHospital])
 
-  function fetchNearbyHospitals() {
-    new FetchNearbyHospitals({
-      
-    })
+  async function fetchNearbyHospitals(lat, lng) {
+    if (!nearbyHospitals.length) {
+      try {
+        const hospitals = await new FetchNearbyHospitals().call({
+          body: {
+            lat: lat.toString(),
+            lng: lng.toString()
+          }
+        })
+        setNearbyHospitals(hospitals.data.results)
+        console.log(lat, lng)
+        console.log('nearbyHospitals', hospitals.data.results)
+      } catch (e) {
+        console.log(e)
+      }
+    }
   }
 
   return (
@@ -46,9 +60,9 @@ function Map(props) {
       <Link to="/user_profile" id="profileLink" />
       <Link to="/" id="landingPageLink" />
       <Drawer
-        options={hospitals}
+        options={nearbyHospitals}
         selectOption={hospitalId => {
-          selectHospital(hospitals.find(hospital => hospital.key === hospitalId))
+          selectHospital(nearbyHospitals.find((hospital, index) => index === hospitalId))
         }}
         altButton
         searchBar
@@ -58,11 +72,12 @@ function Map(props) {
       <div className={styles['map-container']} >
         <CMap
           ref={cMapRef}
-          hospitals={hospitals}
+          hospitals={nearbyHospitals}
           selectedHospital={selectedHospital}
           selectHospital={selectedHospital}
           selectCenter={center}
           isDrawerOpen={isDrawerOpen}
+          userPos={fetchNearbyHospitals}
         />
         <div className={styles['options-box']}>
           <div

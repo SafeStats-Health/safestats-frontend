@@ -17,7 +17,7 @@ function CSelect(props) {
         onInput={handleOnInput}
       >
         {props.items.map((item) => {
-          return <option defaultValue={props.selected === item.key} key={item.key} value={item.key}>{item.label}</option>;
+          return <option selected={props.selected === item.key} key={item.key} value={item.key}>{item.label}</option>;
         })}
       </select>
     </div>
