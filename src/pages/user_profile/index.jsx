@@ -21,62 +21,62 @@ export default function UserProfile() {
 
   useEffect(() => {
     if (sessionStorage.getItem('password')) {
-      selectProfilePage('DELETE_ACCOUNT');
+      selectProfilePage(7);
     } else {
-      selectProfilePage('GENERAL');
+      selectProfilePage(0);
     }
   }, []);
   
   const profilePages = [
     {
       key: 'GENERAL',
-      label: t('GENERAL'),
+      name: t('GENERAL'),
       component: <General />,
     },
     {
       key: 'PERSONAL_DATA',
-      label: t('PERSONAL_DATA'),
+      name: t('PERSONAL_DATA'),
       component: <PersonalData />,
     },
     {
       key: 'TRUSTWORTHY_CONTACT',
-      label: t('TRUSTWORTHY_CONTACT'),
+      name: t('TRUSTWORTHY_CONTACT'),
       component: <TrustworthyContract />,
     },
     {
       key: 'HEALTH_PLAN',
-      label: t('HEALTH_PLAN'),
+      name: t('HEALTH_PLAN'),
       component: <HealthPlan />,
     },
     {
       key: 'BLOOD_DONATION',
-      label: t('BLOOD_DONATION'),
+      name: t('BLOOD_DONATION'),
       component: <BloodDonation />,
     },
     {
       key: 'STATISTICS',
-      label: t('STATISTICS'),
+      name: t('STATISTICS'),
       component: <Statistics />,
     },
     {
       key: 'CHANGE_PASSWORD',
-      label: t('CHANGE_PASSWORD'),
+      name: t('CHANGE_PASSWORD'),
       component: <ChangePassword />,
     },
     {
       key: 'DELETE_ACCOUNT',
-      label: t('DELETE_ACCOUNT'),
+      name: t('DELETE_ACCOUNT'),
       component: <DeleteAccount />,
     },
     {
       key: 'CONFIGURATIONS',
-      label: t('CONFIGURATIONS'),
+      name: t('CONFIGURATIONS'),
       component: <Configurations />,
     },
   ];
 
   function selectedProfilePageComponent(param) {
-    return profilePages.find(page => page.key === param).component;
+    return profilePages.find((page, index) => index === param).component;
   }
 
   return (
