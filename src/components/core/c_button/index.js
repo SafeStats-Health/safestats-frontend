@@ -8,9 +8,9 @@ function CButton(props) {
         className={`${
           props.inverse ? styles['black-button'] : styles['white-button']
         } 
-           ${props.disabled ? 'disabled-button' : 'auth-button'}
-          `}
-        onClick={!props.disabled ? props.onClick : null}
+           ${props.disabled ? 'disabled-button' : 'auth-button'} 
+           ${props.dense ? styles.dense : ''}`}
+        onClick={props.onClick}
         type={props.type}
         style={{
           backgroundColor: props.backgroundColor,

@@ -1,20 +1,10 @@
 import styles from './styles.module.css';
-import { useEffect } from 'react';
 
 function CSelect(props) {
   function handleOnInput(event) {
-    if (props.onInput) {
-      if (event) {
-        const temp = event.target.value;
-        props.onInput(temp);
-      } else {
-        const temp = document.getElementById(props.id).value;
-        props.onInput(temp);
-      }
-    }
+    const temp = event.target.value;
+    props.onInput(temp);
   }
-
-  useEffect(handleOnInput, []);
 
   return (
     <div className={styles.div}>
@@ -26,10 +16,14 @@ function CSelect(props) {
         className={styles['black-input']}
         onInput={handleOnInput}
       >
-        {props.items.map((item, i) => {
+        {props.items.map((item) => {
           return (
-            <option value={item} key={i}>
-              {item}
+            <option
+              selected={props.selected === item.key}
+              key={item.key}
+              value={item.key}
+            >
+              {item.label}
             </option>
           );
         })}

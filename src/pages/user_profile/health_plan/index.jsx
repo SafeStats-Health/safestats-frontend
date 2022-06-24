@@ -62,12 +62,12 @@ function HealthPlan() {
 
       <CSelect
         id='health-plan'
-        items={['unimed', 
-          'clinipam', 
-          'nossa saúde', 
-          'sul américa', 
-          'bradesco',
-          'paraná clínicas',
+        items={[{label: 'unimed', key: 'unimed'},
+        {label: 'clinipam', key: 'clinipam'},
+        {label: 'nossa saúde', key: 'nossa saúde'},
+        {label: 'sul américa', key: 'sul américa'},
+        {label: 'bradesco', key: 'bradesco'},
+        {label: 'paraná clínicas', key: 'paraná clínicas'},
         ]}
         label={t('HEALTH_PLAN')}
         onInput={setInstitution}
@@ -75,9 +75,10 @@ function HealthPlan() {
 
       <CSelect
         id='health-plan--type'
-        items={['básico', 
-        'flex', 
-        'master',
+        items={[
+          {label: 'básico', key: 'básico'},
+          {label: 'flex ', key: 'flex'},
+          {label: 'master ', key: 'master '}, 
         ]}
         label={t('HEALTH_PLAN_TYPE')}
         style={{marginBottom: '10px'}}
@@ -86,7 +87,9 @@ function HealthPlan() {
 
       <CSelect
         id='room'
-        items={['enfermaria', 'apartamento']}
+        items={[
+          {label: 'enfermaria ', key: 'enfermaria '},
+          {label: 'apartamento ', key: 'apartamento '}]}
         label={t('ROOM')}
         onInput={setAccomodation}
       />

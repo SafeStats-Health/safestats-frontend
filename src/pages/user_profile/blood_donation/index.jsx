@@ -62,14 +62,17 @@ function BloodDonation() {
 
      <CSelect
         id='blood_donator'
-        items={['sim', 'nao']}
+        items={[{label: 'sim', key: 'sim'}, {label: 'nao', key: 'nao'}]}
         label={t('IS_BLOOD_DONATOR')}
         onInput={setDidDonate}
       />
 
       <CSelect
         id='blood-type'
-        items={['A', 'B', 'AB', 'O']}
+        items={[{label: 'A', key: 'A'},
+        {label: 'B', key: 'B'},
+        {label: 'AB', key: 'AB'},
+        {label: 'O', key: 'O'}]}
         label={t('BLOOD_TYPE')}
         onInput={setBloodType}
       />
