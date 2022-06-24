@@ -1,14 +1,19 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import styles from './styles.module.css';
 import t from '../../i18n/translate';
 import door from '../../assets/images/door.svg';
 import hamburger from '../../assets/images/hamburger.svg';
+import whiteHamburger from '../../assets/images/white_hamburger.svg';
 import close from '../../assets/images/close.svg'
 import {Link} from 'react-router-dom';
+import CInput from '../core/c_input';
+
+
 
 function DrawerMenu(props) {
 
-  const [highlightedPage, highlightPage] = useState(props.selectedPage ?? 'GENERAL');
+  const [highlightedOption, highlightOption] = useState(props.option ?? 'GENERAL');
+  const [filteredOptions, setFilteredOptions] = useState(props.options)
 
   function logout() {
     localStorage.clear();
@@ -19,82 +24,51 @@ function DrawerMenu(props) {
     props.setDrawerOpen(false);
   }
 
-  function selectProfilePage(pageName) {
-    highlightPage(pageName)
-    props.selectProfilePage(pageName)
+  function selectOption(pageName) {
+    highlightOption(pageName)
+    props.selectOption(pageName)
+  }
+  
+  function filterHospitals(text) {
+    const filter = text.toUpperCase()
+    const filteredOptions = []
+    props.options.forEach(option => {
+      if (option.name.toUpperCase().indexOf(filter) > -1) {
+        filteredOptions.push(option)
+      }
+    })
+    setFilteredOptions(filteredOptions)
   }
 
   return (
-    <div className={styles['drawer']}>
-      <Link to="/" id='logoutLink'/>
-      <div className={styles['top-section']} onClick={closeDrawer}>
-        <img src={close} alt='Close' className={`${styles.icon} ${styles.clickable}`}/>
+    <div className={styles['drawer']} style={{width: props.width}}>
+      <Link to="/" id='logoutLink' />
+      <div className={styles['top-section']}>
+        <img src={close} alt='Close' className={`${styles.icon} ${styles.clickable}`} onClick={closeDrawer}/>
       </div>
+      {
+        props.searchBar &&  (
+          <CInput
+            inverse
+            id='district'
+            placeholder='ex.: hospital pequeno príncipe'
+            invertMargin
+            onInput={filterHospitals}
+          />
+        )
+      }
       <div className={styles['middle-section']}>
-        <div
-          onClick={() => {
-            selectProfilePage('GENERAL')
-          }}
-          className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "GENERAL" ? styles.selected : ''}`}
-        >
-          {t('GENERAL')}
-        </div>
-        <div
-          onClick={() => {
-            selectProfilePage('PERSONAL_DATA')
-          }}
-          className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "PERSONAL_DATA" ? styles.selected : ''}`}
-        >
-          {t('PERSONAL_DATA')}
-        </div>
-        <div
-          onClick={() => {
-            selectProfilePage('TRUSTWORTHY_CONTACT')
-          }}
-          className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "TRUSTWORTHY_CONTACT" ? styles.selected : ''}`}
-        >
-          {t('TRUSTWORTHY_CONTACT')}
-        </div>
-        <div
-          onClick={() => {
-            selectProfilePage('HEALTH_PLAN')
-          }}
-          className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "HEALTH_PLAN" ? styles.selected : ''}`}
-        >
-          {t('HEALTH_PLAN')}
-        </div>
-        <div
-          onClick={() => {
-            selectProfilePage('BLOOD_DONATION')
-          }}
-          className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "BLOOD_DONATION" ? styles.selected : ''}`}
-        >
-          {t('BLOOD_DONATION')}
-        </div>
-        <div
-          onClick={() => {
-            selectProfilePage('STATISTICS')
-          }}
-          className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "STATISTICS" ? styles.selected : ''}`}
-        >
-          {t('STATISTICS')}
-        </div>
-        <div
-          onClick={() => {
-            selectProfilePage('CHANGE_PASSWORD')
-          }}
-          className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "CHANGE_PASSWORD" ? styles.selected : ''}`}
-        >
-          {t('CHANGE_PASSWORD')}
-        </div>
-        <div
-          onClick={() => {
-            selectProfilePage('DELETE_ACCOUNT')
-          }}
-          className={`${styles['profile-page-link']} ${styles.clickable} ${highlightedPage === "DELETE_ACCOUNT" ? styles.selected : ''}`}
-        >
-          {t('DELETE_ACCOUNT')}
-        </div>
+        {
+          filteredOptions.map((option, index) => (
+            <div
+              key={index}
+              onClick={() => {selectOption(index)}}
+              className={`${styles['option-link']} ${styles.clickable} ${highlightedOption === index ? styles.selected : ''}`}
+            >
+              {option.name}
+            </div>
+          ))
+        }
       </div>
       <div className={styles['bottom-section']}>
         <div onClick={logout} className={`${styles.clickable} ${styles.logout}`}>
@@ -112,26 +86,71 @@ function DrawerButton(props) {
     props.setDrawerOpen(true);
   }
 
+  function DefaultButton() {
+    return (
+      <div onClick={openDrawer} className={`${styles['button']} ${styles['default-button']} ${styles.clickable}`}>
+        <img src={hamburger} alt="Hamburger" className={styles.hamburger}/>
+        <span className={styles.menu}>{t('MENU')}</span>
+      </div>
+    );
+  }
+
+  function AltButton() {
+    return (
+      <div className={`${styles['button']} ${styles['alt-button']}`}>
+        <div onClick={openDrawer} className={styles.clickable}>
+          <img src={whiteHamburger} alt="Hamburger" className={styles.hamburger}/>
+        </div>
+      </div>
+    );
+  }
+
+  function Button(props) {
+    if (props.altButton) {
+      return <AltButton />
+    }
+    return <DefaultButton />
+  }
+
   return (
-    <div onClick={openDrawer} className={`${styles['open-drawer-button']} ${styles.clickable}`}>
-      <img src={hamburger} alt="Hamburger" className={styles.hamburger}/>
-      <span className={styles.menu}>{t('MENU')}</span>
+    <div>
+      <Button altButton={props.altButton} />
     </div>
   );
 }
 
 export default function Drawer(props) {
   const [drawerOpen, setDrawerOpen] = useState(props.defaultOpen);
-  const [selectedPage, selectPage] = useState('GENERAL');
+  const [option, setOption] = useState(props.defaultOption);
 
-  function selectProfilePage(pageName) {
-    selectPage(pageName)
-    props.selectProfilePage(pageName);
+  function selectOption(pageName) {
+    setOption(pageName)
+    props.selectOption(pageName);
   }
 
+  useEffect(() => {
+    if (props.setDrawerOpen) {
+      props.setDrawerOpen(drawerOpen)
+    }
+  }, [drawerOpen])
+
   if (drawerOpen) {
-    return <DrawerMenu setDrawerOpen={setDrawerOpen} selectProfilePage={selectProfilePage} selectedPage={selectedPage}/>
+    return (
+      <DrawerMenu
+        setDrawerOpen={setDrawerOpen}
+        selectOption={selectOption}
+        option={option}
+        options={props.options}
+        searchBar={props.searchBar}
+        width={props.width}
+      />
+    );
   } else {
-    return <DrawerButton setDrawerOpen={setDrawerOpen}/>
+    return (
+      <DrawerButton
+        setDrawerOpen={setDrawerOpen}
+        altButton={props.altButton}
+      />
+    );
   }
 }

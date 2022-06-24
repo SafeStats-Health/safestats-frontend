@@ -1,0 +1,51 @@
+.hospital-modal {
+  width: 200px;
+  height: 150px;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  transform: translateX(-50%);
+  background-color: tomato;
+  z-index: 500;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.clickable {
+  opacity: 0.8;
+}
+
+.clickable:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.hospital-modal-header {
+  width: 100%;
+  height: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: aqua;
+}
+
+.close-icon-container {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: blueviolet;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-icon {
+  filter: invert(100%);
+}

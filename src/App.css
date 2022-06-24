@@ -1,8 +1,8 @@
 * {
   box-sizing: border-box;
   font-family: Inter !important;
-  overflow-x: hidden;
 }
+
 .Auth {
   display: flex;
   flex-direction: row;
@@ -22,6 +22,10 @@
 .doctor-image--container {
   background-color: #c4c4c42b;
 }
+
+/* .leaflet-popup {
+  display: none !important;
+} */
 
 @media only screen and (max-width: 1000px) {
   .doctor-image--container {
@@ -117,4 +121,30 @@
 
 .account-button {
   margin-top: 60px;
+}
+
+.leaflet-popup {
+  width: 0;
+}
+
+.leaflet-popup-content-wrapper {
+  padding: 0 !important;
+}
+
+.leaflet-popup-tip {
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.leaflet-popup-close-button {
+  width: 0;
+}
+
+.leaflet-popup-close-button > span{
+  display: none;
+}
+
+.control-zoom-margin-top .leaflet-control-zoom {
+  margin-top: 80px !important;
 }
