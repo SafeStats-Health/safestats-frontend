@@ -51,20 +51,19 @@ function ChangePassword() {
 
     }).finally(() => { setIsLoading(false) });
   }
-
   useEffect(() => {
-    checkIfPasswordsMatch();
-    checkIfAllFieldAreValid();
+    const passwordIsValid = checkIfPasswordsMatch();
+    checkIfAllFieldsAreValid(passwordIsValid);
   }, [oldPassword, newPassword, newPasswordConfirmation]);
 
-  function checkIfAllFieldAreValid() {
-    const validations = [!!passwordWarning];
+  function checkIfAllFieldsAreValid(passwordIsValid) {
+    const validations = [passwordIsValid];
     const fields = [oldPassword, newPassword, newPasswordConfirmation];
     const allFieldsAreFilled = fields.every((field) => field && field !== '');
-    const someFieldIsInvalid = validations.some((field) => field === false);
-    setAllFieldsAreValid(allFieldsAreFilled && !someFieldIsInvalid);
+    const allFieldsAreValidF = validations.every((field) => field);
+    setAllFieldsAreValid(allFieldsAreFilled && allFieldsAreValidF);
   }
-
+  
   function checkIfPasswordsMatch() {
     if (
       newPassword &&
@@ -74,18 +73,23 @@ function ChangePassword() {
     ) {
       if (newPassword !== newPasswordConfirmation) {
         setPasswordWarning(t('PASSWORDS_DONT_MATCH'));
+        return false;
       } else {
-        setPasswordWarning(null);
         const minCaracters = 8;
         if (
           newPassword.length < minCaracters ||
           newPasswordConfirmation.length < minCaracters
         ) {
           setPasswordWarning(t('PASSWORD_MUST_CONTAIN_AT_LEAST_8'));
+          return false;
+        } else {
+          setPasswordWarning(null);
+          return true;
         }
       }
     } else {
       setPasswordWarning(null);
+      return true;
     }
   }
 

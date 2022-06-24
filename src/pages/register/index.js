@@ -25,14 +25,11 @@ function auth() {
   }, [name, email, password, confirmPassword]);
 
   function checkIfAllFieldsAreValid(passwordIsValid, emailIsValid) {
-    setTimeout(() => {
-      console.log(passwordIsValid, emailIsValid);
-      const validations = [passwordIsValid, emailIsValid];
-      const fields = [name, email, password, confirmPassword];
-      const allFieldsAreFilled = fields.every((field) => field && field !== '');
-      const allFieldsAreValidF = validations.every((field) => field);
-      setAllFieldsAreValid(allFieldsAreFilled && allFieldsAreValidF);
-    }, 400);
+    const validations = [passwordIsValid, emailIsValid];
+    const fields = [name, email, password, confirmPassword];
+    const allFieldsAreFilled = fields.every((field) => field && field !== '');
+    const allFieldsAreValidF = validations.every((field) => field);
+    setAllFieldsAreValid(allFieldsAreFilled && allFieldsAreValidF);
   }
 
   function checkIfEmailIsValid() {
@@ -71,7 +68,7 @@ function auth() {
       }
     } else {
       setPasswordWarning(null);
-      return true.valueOf;
+      return true;
     }
   }
   const navigate = useNavigate();
